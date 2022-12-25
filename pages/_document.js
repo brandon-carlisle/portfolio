@@ -11,8 +11,3 @@ export default function Document() {
     </Html>
   );
 }
-
-// bg-gradient-to-r from-gray-700 via-gray-900 to-black
-
-// bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-slate-900 via-slate-800 to-black
-// bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-slate-900 via-slate-800 to-black
