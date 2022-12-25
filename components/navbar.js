@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 function Navbar({}) {
   return (
-    <nav className="mx-auto flex max-w-screen-md items-center justify-between border-b border-blue-400/50 p-1 text-lg">
+    <nav className="mx-auto flex max-w-screen-md items-center justify-between pt-2 text-lg">
       <div>
         <Link href="/">Brandon Carlisle</Link>
       </div>
