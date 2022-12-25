@@ -9,9 +9,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <h1 className="text-3xl">This is the main tag!</h1>
-      </div>
+      <div></div>
     </>
   );
 }
