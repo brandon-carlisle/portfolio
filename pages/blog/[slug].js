@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { fetchPostData, transformPostData } from '../../lib/helpers';
 import { PortableText } from '@portabletext/react';
+import Image from 'next/image';
 
 function BlogPost({ post }) {
   return (
@@ -12,6 +13,7 @@ function BlogPost({ post }) {
       </Head>
 
       <section className="mx-auto">
+        <Image src={post.coverImageURL} alt="" />
         <div className="mb-8">
           <h1>{post.title}</h1>
           <p className="mt-2 text-base">
