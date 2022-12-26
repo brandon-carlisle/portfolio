@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Contact from '../components/contact';
 
 function Home() {
   return (
@@ -11,8 +12,8 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section>
-        <h1 className="font-semi-bold mb-10 text-6xl leading-tight">
+      <section className="mb-16 border-b-2 border-blue-800/30 pb-16">
+        <h1 className="mb-10 text-center sm:text-left">
           A front end web developer interested in modern tools, and making cool
           stuff on the web.
         </h1>
@@ -21,7 +22,7 @@ function Home() {
           <span>👋</span>
           <p className="text-2xl font-light text-blue-100">
             Hey there I&apos;m Brandon, a front end web developer based in
-            England. I love working with the latest tools of the web.
+            England. I love working with JavaScript, React and TailwindCSS.
           </p>
         </div>
 
@@ -31,6 +32,10 @@ function Home() {
             <Link href="/profile">Read more about me &rarr;</Link>
           </p>
         </div>
+      </section>
+
+      <section>
+        <Contact />
       </section>
     </>
   );
