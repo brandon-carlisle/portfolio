@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { fetchPostData, transformPostData } from '../../lib/helpers';
 import { PortableText } from '@portabletext/react';
+import { portableTextComponents } from '../../components/portableTextComponents';
 
 function BlogPost({ post }) {
   return (
@@ -12,9 +12,12 @@ function BlogPost({ post }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section>
+      <section className="">
         <h1 className="mb-8">{post.title}</h1>
-        <PortableText value={post.content} />
+        <PortableText
+          value={post.content}
+          components={portableTextComponents}
+        />
       </section>
     </>
   );
