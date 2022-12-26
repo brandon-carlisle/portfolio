@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { sanityClient, urlForImage } from '../lib/sanity';
+import { fetchPostData, transformPostData } from '../lib/helpers';
 
 function Blog({ post }) {
-  const { title, image } = post;
-  console.log(image);
+  // const { title, image } = post;
+  // console.log(image);
 
   return (
     <>
@@ -19,10 +19,7 @@ function Blog({ post }) {
         <h1>Blog Section</h1>
       </section>
 
-      <section>
-        <h2>{title}</h2>
-        <Image src={image} alt={title} width={750} height={1125} />
-      </section>
+      <section></section>
     </>
   );
 }
@@ -30,15 +27,10 @@ function Blog({ post }) {
 export default Blog;
 
 export async function getStaticProps() {
-  const posts = await sanityClient.fetch(`*[_type == "post"]`);
-  const post = {
-    title: posts[0].title,
-    image: urlForImage(posts[0].coverImage),
-  };
+  const data = await fetchPostData('*[_type == "post"]');
+  const post = transformPostData(data);
 
   return {
-    props: {
-      post,
-    },
+    props: {},
   };
 }
