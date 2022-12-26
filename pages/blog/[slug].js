@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { fetchPostData, transformPostData } from '../../lib/helpers';
 import { PortableText } from '@portabletext/react';
-import { portableTextComponents } from '../../components/portableTextComponents';
 
 function BlogPost({ post }) {
   return (
@@ -12,12 +11,18 @@ function BlogPost({ post }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="">
-        <h1 className="mb-8">{post.title}</h1>
-        <PortableText
-          value={post.content}
-          components={portableTextComponents}
-        />
+      <section className="mx-auto">
+        <div className="mb-8">
+          <h1>{post.title}</h1>
+          <p className="mt-2 text-base">
+            By {post.author.name} on
+            <date> {post.date}</date>
+          </p>
+        </div>
+
+        <div className="portable">
+          <PortableText value={post.content} />
+        </div>
       </section>
     </>
   );
