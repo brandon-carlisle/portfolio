@@ -58,4 +58,8 @@
   .portable a {
     @apply underline underline-offset-2 hover:text-blue-600;
   }
+
+  .portable code {
+    @apply overflow-x-scroll;
+  }
 }

@@ -7,19 +7,29 @@ function BlogPost({ post }) {
   return (
     <>
       <Head>
-        <title>Brandon Carlisle | Blog</title>
+        <title>{post.title} | Brandon Carlisle | Blog</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <section className="mx-auto">
-        <Image src={post.coverImageURL} alt="" />
         <div className="mb-8">
           <h1>{post.title}</h1>
           <p className="mt-2 text-base">
             By {post.author.name} on
             <date> {post.date}</date>
           </p>
+
+          <div className="relative mt-8 h-96 w-full">
+            <Image
+              src={post.coverImageURL}
+              alt={`Cover image for ${post.title}`}
+              fill
+              className="rounded-md object-cover"
+              priority
+              sizes="768px"
+            />
+          </div>
         </div>
 
         <div className="portable">
@@ -48,7 +58,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { post },
-    revalidate: 60,
+    revalidate: 120,
   };
 }
 
