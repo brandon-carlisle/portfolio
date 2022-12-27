@@ -15,9 +15,13 @@
     @apply text-4xl sm:text-5xl md:text-6xl;
   }
 
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+
   h2,
   h3 {
-    @apply text-2xl sm:text-3xl md:text-4xl;
+    @apply text-xl sm:text-xl md:text-2xl;
   }
 
   p {
@@ -31,27 +35,27 @@
     @apply rounded-md bg-slate-900/50 p-8;
   }
 
-  .portable h1,
-  h2,
-  h3,
-  h4,
-  h5 {
+  .portable > h1,
+  .portable > h2,
+  .portable > h3,
+  .portable > h4,
+  .portable > h5 {
     @apply mb-5;
   }
 
-  .portable p {
+  .portable > p {
     @apply mb-5 leading-normal;
   }
 
-  .portable ul {
+  .portable > ul {
     @apply flex list-disc flex-col gap-2 pl-8;
   }
 
-  .portable ol {
+  .portable > ol {
     @apply flex list-decimal flex-col gap-2 pl-8;
   }
 
-  .portable li {
+  .portable > li {
     @apply text-lg leading-10 sm:text-xl;
   }
 
@@ -59,7 +63,7 @@
     @apply underline underline-offset-2 hover:text-blue-600;
   }
 
-  .portable code {
+  .portable > code {
     @apply overflow-x-scroll;
   }
 }

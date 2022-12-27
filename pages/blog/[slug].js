@@ -3,7 +3,7 @@ import { fetchPostData, transformPostData } from '../../lib/helpers';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 
-function BlogPost({ post, blurDataURL }) {
+function BlogPost({ post }) {
   return (
     <>
       <Head>
@@ -16,20 +16,23 @@ function BlogPost({ post, blurDataURL }) {
         <div className="mb-8">
           <h1>{post.title}</h1>
           <p className="mt-2 text-base">
-            By {post.author.name} on
-            <date> {post.date}</date>
+            By {post.author.name} on {post.date}
           </p>
 
-          <div className="relative mt-8 h-96 w-full">
-            <Image
-              src={post.coverImageURL}
-              alt={`Cover image for ${post.title}`}
-              fill
-              className="rounded-md object-cover"
-              priority
-              sizes="768px"
-            />
-          </div>
+          {post.coverImageURL ? (
+            <div className="relative mt-8 h-96 w-full">
+              <Image
+                src={post.coverImageURL}
+                alt={`Cover image for ${post.title}`}
+                fill
+                className="rounded-md object-cover"
+                priority
+                sizes="768px"
+              />
+            </div>
+          ) : (
+            ''
+          )}
         </div>
 
         <div className="portable">
@@ -44,27 +47,27 @@ export default BlogPost;
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const res = await fetchPostData(
+  const query = await fetchPostData(
     `*[_type == "post" && slug.current == "${slug}"]`
   );
 
-  if (res.length === 0) {
+  if (query.length === 0) {
     return {
       notFound: true,
     };
   }
 
-  const post = await transformPostData(res[0]);
+  const post = await transformPostData(query[0]);
 
   return {
-    props: { post, blurDataURL: base64 },
+    props: { post },
     revalidate: 120,
   };
 }
 
 export async function getStaticPaths() {
-  const res = await fetchPostData('*[_type == "post"] {slug{current}}');
-  const paths = res.map((slug) => {
+  const query = await fetchPostData('*[_type == "post"] {slug{current}}');
+  const paths = query.map((slug) => {
     return { params: { slug: slug.slug.current } };
   });
 

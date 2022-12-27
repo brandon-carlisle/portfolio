@@ -1,6 +1,8 @@
 import Head from 'next/head';
+import Link from 'next/link';
+import { fetchPostData, transformPostCovers } from '../../lib/helpers';
 
-function Blog() {
+function Blog({ posts }) {
   return (
     <>
       <Head>
@@ -10,10 +12,33 @@ function Blog() {
       </Head>
 
       <section className="mb-8">
-        <h1>Blog Section</h1>
+        <h1 className="mb-8">Blog</h1>
+
+        <div className="flex flex-col gap-5">
+          {posts.map((post) => (
+            <div key={post.slug}>
+              <Link href={`/blog/${post.slug}`}>
+                <h3>{post.title}</h3>
+                <p className="text-base">{post.date}</p>
+              </Link>
+            </div>
+          ))}
+        </div>
       </section>
     </>
   );
 }
 
 export default Blog;
+
+export async function getServerSideProps() {
+  const query = await fetchPostData(
+    '*[_type == "post"] | order(date desc) {title, slug, date}[0...10]'
+  );
+
+  const posts = await transformPostCovers(query);
+
+  return {
+    props: { posts },
+  };
+}
