@@ -3,11 +3,11 @@ import { fetchPostData, transformPostData } from '../../lib/helpers';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 
-function BlogPost({ post }) {
+function BlogPost({ post, blurDataURL }) {
   return (
     <>
       <Head>
-        <title>{post.title} | Brandon Carlisle | Blog</title>
+        <title>{post.title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -57,7 +57,7 @@ export async function getStaticProps({ params }) {
   const post = await transformPostData(res[0]);
 
   return {
-    props: { post },
+    props: { post, blurDataURL: base64 },
     revalidate: 120,
   };
 }
