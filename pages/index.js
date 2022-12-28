@@ -21,7 +21,7 @@ function Home() {
         <div className="my-8 flex flex-col gap-4">
           <div className="flex gap-1 text-2xl">
             <span>👋</span>
-            <p className="font-light text-blue-100">
+            <p>
               Hey there I&apos;m Brandon, a front end web developer based in
               England. I love working with JavaScript, React and TailwindCSS.
             </p>
@@ -29,7 +29,7 @@ function Home() {
 
           <div className="flex gap-1 text-2xl">
             <span>🤝</span>
-            <p className="font-light text-blue-100 underline">
+            <p className="underline">
               <Link href="/profile">Read more about me &rarr;</Link>
             </p>
           </div>

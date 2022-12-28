@@ -25,7 +25,7 @@
   }
 
   p {
-    @apply text-lg leading-10 sm:text-xl;
+    @apply text-lg font-light leading-10 text-blue-100 sm:text-xl;
   }
 }
 
