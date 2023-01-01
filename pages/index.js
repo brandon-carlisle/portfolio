@@ -29,9 +29,7 @@ function Home() {
 
           <div className="flex gap-1 text-2xl">
             <span>🤝</span>
-            <p className="underline">
-              <Link href="/profile">Read more about me &rarr;</Link>
-            </p>
+            <Link href="/profile">Read more about me &rarr;</Link>
           </div>
         </div>
       </section>

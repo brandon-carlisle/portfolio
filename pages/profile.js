@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 
 function Profile() {
   return (
@@ -12,7 +11,36 @@ function Profile() {
       </Head>
 
       <section>
-        <h1>Profile Section</h1>
+        <h1 className="mb-8">Profile</h1>
+
+        <p>
+          I&apos;m Brandon, a frontend web developer interested in making cool
+          and interesting web apps using modern technologies. I am based in
+          York, England, currently self teaching myself web development (using
+          good ol YouTube and docs).
+        </p>
+
+        <div>
+          <p>Here are some technologies I like to use currently:</p>
+
+          <ul>
+            <li>
+              <a href="https://javascript.info/">JavaScript (duh)</a>
+            </li>
+            <li>
+              <a href="https://reactjs.org/">React</a>
+            </li>
+            <li>
+              <a href="https://tailwindcss.com/">TailwindCSS</a>
+            </li>
+            <li>
+              <a href="https://www.figma.com/">Figma</a>
+            </li>
+            <li>
+              <a href="https://firebase.google.com/">Firebase</a>
+            </li>
+          </ul>
+        </div>
       </section>
     </>
   );

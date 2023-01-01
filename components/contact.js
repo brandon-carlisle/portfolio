@@ -3,21 +3,13 @@ function Contact({}) {
     <div className="flex flex-col gap-2">
       <h2 className="mb-2">Feel free to reach out to me</h2>
       <div className="flex gap-1">
-        <p className="underline">
-          <a href="mailto:brandoncarlisledev@gmail.com">Email</a>
-        </p>
+        <a href="mailto:brandoncarlisledev@gmail.com">Email</a>
       </div>
 
       <div className="flex gap-1">
-        <p className="underline">
-          <a
-            href="https://github.com/beanziii"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-        </p>
+        <a href="https://github.com/beanziii" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
       </div>
     </div>
   );

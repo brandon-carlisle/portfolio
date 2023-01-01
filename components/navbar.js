@@ -4,18 +4,26 @@ function Navbar({}) {
   return (
     <nav className="mx-auto flex max-w-screen-md items-center justify-between pt-2 text-lg">
       <div>
-        <Link href="/">Brandon Carlisle</Link>
+        <Link href="/" className="no-underline">
+          Brandon Carlisle
+        </Link>
       </div>
 
       <ul className="flex gap-3">
         <li>
-          <Link href="/profile">Profile</Link>
+          <Link href="/profile" className="no-underline">
+            Profile
+          </Link>
         </li>
         <li>
-          <Link href="/work">Work</Link>
+          <Link href="/work" className="no-underline">
+            Work
+          </Link>
         </li>
         <li>
-          <Link href="/blog">Blog</Link>
+          <Link href="/blog" className="no-underline">
+            Blog
+          </Link>
         </li>
       </ul>
     </nav>
