@@ -29,7 +29,7 @@
   }
 
   a {
-    @apply text-lg  font-light leading-10 text-blue-100 underline underline-offset-4 sm:text-xl;
+    @apply text-lg font-semibold leading-10 text-blue-100 hover:underline sm:text-xl;
   }
 }
 
