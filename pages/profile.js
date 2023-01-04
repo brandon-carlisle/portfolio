@@ -1,7 +1,46 @@
 import Head from 'next/head';
 import Contact from '../components/contact';
+import TechCard from '../components/tech-card';
 
 function Profile() {
+  const cardOneLinks = [
+    {
+      title: 'JavaScript',
+      href: 'https://javascript.info/',
+    },
+    {
+      title: 'React',
+      href: 'https://reactjs.org/',
+    },
+    {
+      title: 'Tailwind',
+      href: 'https://tailwindcss.com/',
+    },
+    {
+      title: 'Figma',
+      href: 'https://www.figma.com/',
+    },
+    {
+      title: 'NextJS',
+      href: 'https://nextjs.org/',
+    },
+  ];
+
+  const cardTwoLinks = [
+    {
+      title: 'Supabase',
+      href: 'https://supabase.com/',
+    },
+    {
+      title: 'Firebase',
+      href: 'https://firebase.google.com/',
+    },
+    {
+      title: 'Framer Motion',
+      href: 'https://www.framer.com/motion/',
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -23,46 +62,11 @@ function Profile() {
           </p>
         </div>
 
-        <div className="mb-8 rounded-md bg-slate-900/50 p-8">
-          <p className="mb-4">Tech I use currently:</p>
-
-          <ul className="flex flex-col gap-2">
-            <li>
-              <a href="https://javascript.info/">JavaScript (duh)</a>
-            </li>
-            <li>
-              <a href="https://reactjs.org/">React</a>
-            </li>
-            <li>
-              <a href="https://tailwindcss.com/">TailwindCSS</a>
-            </li>
-            <li>
-              <a href="https://www.figma.com/">Figma</a>
-            </li>
-            <li>
-              <a href="https://firebase.google.com/">Firebase</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="mb-8 rounded-md bg-slate-900/50 p-8">
-          <p className="mb-4">Tech I want to learn / am currently learing:</p>
-
-          <ul className="flex flex-col gap-2">
-            <li>
-              <a href="https://supabase.com/">Supabase</a>
-            </li>
-            <li>
-              <a href="https://en.wikipedia.org/wiki/SQL">SQL</a>
-            </li>
-            <li>
-              <a href="https://www.framer.com/motion/">Framer Motion</a>
-            </li>
-            <li>
-              <p>And in general more fullstack tech..</p>
-            </li>
-          </ul>
-        </div>
+        <TechCard title="Tech I use currently:" links={cardOneLinks} />
+        <TechCard
+          title="Tech I want to learn / am currently learing:"
+          links={cardTwoLinks}
+        />
       </section>
 
       <section>
