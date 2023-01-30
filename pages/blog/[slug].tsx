@@ -1,9 +1,21 @@
 import Head from 'next/head';
 import { fetchPostData, transformPostData } from '../../lib/helpers';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 
-function BlogPost({ post }) {
+interface BlogsPostProps {
+  post: {
+    slug: string;
+    title: string;
+    coverImageURL?: string;
+    author: { name: string; url: string };
+    content: any; // this needs to be fixed
+    date: string;
+  };
+}
+
+function BlogPost({ post }: BlogsPostProps) {
   return (
     <>
       <Head>
@@ -45,7 +57,7 @@ function BlogPost({ post }) {
 
 export default BlogPost;
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
   const query = await fetchPostData(
     `*[_type == "post" && slug.current == "${slug}"]`
@@ -63,9 +75,9 @@ export async function getStaticProps({ params }) {
     props: { post },
     revalidate: 60,
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const query = await fetchPostData('*[_type == "post"] {slug{current}}');
   const paths = query.map((slug) => {
     return { params: { slug: slug.slug.current } };
@@ -75,4 +87,4 @@ export async function getStaticPaths() {
     paths,
     fallback: 'blocking',
   };
-}
+};

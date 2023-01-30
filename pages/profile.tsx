@@ -2,50 +2,51 @@ import Head from 'next/head';
 import Contact from '../components/contact';
 import TechCard from '../components/tech-card';
 
+type CardLinks = { title: string; href: string }[];
+
+const cardOneLinks: CardLinks = [
+  {
+    title: 'JavaScript',
+    href: 'https://javascript.info/',
+  },
+  {
+    title: 'React',
+    href: 'https://reactjs.org/',
+  },
+  {
+    title: 'Tailwind',
+    href: 'https://tailwindcss.com/',
+  },
+  {
+    title: 'Figma',
+    href: 'https://www.figma.com/',
+  },
+  {
+    title: 'NextJS',
+    href: 'https://nextjs.org/',
+  },
+];
+
+const cardTwoLinks: CardLinks = [
+  {
+    title: 'Supabase',
+    href: 'https://supabase.com/',
+  },
+  {
+    title: 'Firebase',
+    href: 'https://firebase.google.com/',
+  },
+  {
+    title: 'Framer Motion',
+    href: 'https://www.framer.com/motion/',
+  },
+];
+
 function Profile() {
-  const cardOneLinks = [
-    {
-      title: 'JavaScript',
-      href: 'https://javascript.info/',
-    },
-    {
-      title: 'React',
-      href: 'https://reactjs.org/',
-    },
-    {
-      title: 'Tailwind',
-      href: 'https://tailwindcss.com/',
-    },
-    {
-      title: 'Figma',
-      href: 'https://www.figma.com/',
-    },
-    {
-      title: 'NextJS',
-      href: 'https://nextjs.org/',
-    },
-  ];
-
-  const cardTwoLinks = [
-    {
-      title: 'Supabase',
-      href: 'https://supabase.com/',
-    },
-    {
-      title: 'Firebase',
-      href: 'https://firebase.google.com/',
-    },
-    {
-      title: 'Framer Motion',
-      href: 'https://www.framer.com/motion/',
-    },
-  ];
-
   return (
     <>
       <Head>
         <title>Brandon Carlisle | Profile</title>
-
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

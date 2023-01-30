@@ -2,7 +2,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { fetchPostData, transformPostCovers } from '../../lib/helpers';
 
-function Blog({ posts }) {
+interface BlogProps {
+  posts: Posts;
+}
+
+function Blog({ posts }: BlogProps) {
   return (
     <>
       <Head>
@@ -31,12 +35,14 @@ function Blog({ posts }) {
 
 export default Blog;
 
+type Posts = { slug: string; title: string; date: string }[];
+
 export async function getServerSideProps() {
   const query = await fetchPostData(
     '*[_type == "post"] | order(date desc) {title, slug, date}[0...10]'
   );
 
-  const posts = await transformPostCovers(query);
+  const posts: Posts = await transformPostCovers(query);
 
   return {
     props: { posts },
