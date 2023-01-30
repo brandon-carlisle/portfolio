@@ -57,10 +57,11 @@ function BlogPost({ post }: BlogsPostProps) {
 
 export default BlogPost;
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const params = context.params!;
+
   const query = await fetchPostData(
-    `*[_type == "post" && slug.current == "${slug}"]`
+    `*[_type == "post" && slug.current == "${params.slug}"]`
   );
 
   if (query.length === 0) {
@@ -77,8 +78,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
+type Query = { slug: { current: string } }[];
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const query = await fetchPostData('*[_type == "post"] {slug{current}}');
+  const query: Query = await fetchPostData(
+    '*[_type == "post"] {slug{current}}'
+  );
+
   const paths = query.map((slug) => {
     return { params: { slug: slug.slug.current } };
   });
