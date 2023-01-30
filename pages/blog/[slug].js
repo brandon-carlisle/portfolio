@@ -35,7 +35,7 @@ function BlogPost({ post }) {
           )}
         </div>
 
-        <div className="portable">
+        <div className="prose prose-invert max-w-none rounded-md bg-slate-900/50 p-8 md:prose-lg lg:prose-xl">
           <PortableText value={post.content} />
         </div>
       </section>
