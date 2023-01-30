@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { fetchPostData, transformPostCovers } from '../../lib/helpers';
+import { Posts } from '../../lib/helpers';
 
 interface BlogProps {
   posts: Posts;
@@ -20,7 +21,7 @@ function Blog({ posts }: BlogProps) {
 
         <div className="flex flex-col gap-5">
           {posts.map((post) => (
-            <div key={post.slug}>
+            <div key={post.slug.current}>
               <Link href={`/blog/${post.slug}`}>
                 <h3>{post.title}</h3>
                 <p className="text-base">{post.date}</p>
@@ -35,14 +36,12 @@ function Blog({ posts }: BlogProps) {
 
 export default Blog;
 
-type Posts = { slug: string; title: string; date: string }[];
-
 export async function getServerSideProps() {
   const query = await fetchPostData(
     '*[_type == "post"] | order(date desc) {title, slug, date}[0...10]'
   );
 
-  const posts: Posts = await transformPostCovers(query);
+  const posts = transformPostCovers(query);
 
   return {
     props: { posts },

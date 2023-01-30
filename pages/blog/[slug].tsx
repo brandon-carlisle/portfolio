@@ -57,11 +57,13 @@ function BlogPost({ post }: BlogsPostProps) {
 
 export default BlogPost;
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const params = context.params!;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params;
+
+  console.log(slug);
 
   const query = await fetchPostData(
-    `*[_type == "post" && slug.current == "${params.slug}"]`
+    `*[_type == "post" && slug.current == "${slug}"]`
   );
 
   if (query.length === 0) {
