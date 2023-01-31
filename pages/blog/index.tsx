@@ -1,11 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { fetchPostData, transformPostCovers } from '../../lib/helpers';
-import { Posts } from '../../lib/helpers';
 
-interface BlogProps {
-  posts: Posts;
-}
+import { sanityClient } from '../../lib/sanity'; // Temp?
+import { format, parseISO } from 'date-fns';
+
+type BlogProps = {
+  posts: {
+    date: string;
+    slug: { current: string };
+    title: string;
+  }[];
+};
 
 function Blog({ posts }: BlogProps) {
   return (
@@ -22,9 +27,11 @@ function Blog({ posts }: BlogProps) {
         <div className="flex flex-col gap-5">
           {posts.map((post) => (
             <div key={post.slug.current}>
-              <Link href={`/blog/${post.slug}`}>
+              <Link href={`/blog/${post.slug.current}`}>
                 <h3>{post.title}</h3>
-                <p className="text-base">{post.date}</p>
+                <p className="text-base">
+                  {format(parseISO(post.date), 'LLL d, yyyy')}
+                </p>
               </Link>
             </div>
           ))}
@@ -37,11 +44,9 @@ function Blog({ posts }: BlogProps) {
 export default Blog;
 
 export async function getServerSideProps() {
-  const query = await fetchPostData(
-    '*[_type == "post"] | order(date desc) {title, slug, date}[0...10]'
+  const posts = await sanityClient.fetch(
+    "*[_type == 'post']{title, date, slug{current}}"
   );
-
-  const posts = transformPostCovers(query);
 
   return {
     props: { posts },

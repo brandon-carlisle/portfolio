@@ -45,30 +45,6 @@ export type Posts = {
   date: string;
 }[];
 
-export function transformPostCovers(postsArray: Posts) {
-  const posts = postsArray.map((post) => {
-    return {
-      slug: post.slug,
-      title: post.title,
-      date: formatDate(post.date),
-    };
-  });
-
-  return posts;
-}
-
-async function getAuthorOfPost(reference: string) {
-  if (!reference) return null;
-
-  const res = await sanityClient.fetch(`*[_id == "${reference}"]`);
-  const author = {
-    name: res[0].name,
-    image: urlForImage(res[0].picture),
-  };
-
-  return author;
-}
-
 function formatDate(date) {
   return format(parseISO(date), 'LLL d, yyyy');
 }
