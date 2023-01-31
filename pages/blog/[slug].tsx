@@ -1,21 +1,22 @@
 import Head from 'next/head';
-import { fetchPostData, transformPostData } from '../../lib/helpers';
-import { GetStaticProps, GetStaticPaths } from 'next';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 
-interface BlogsPostProps {
-  post: {
-    slug: string;
-    title: string;
-    coverImageURL?: string;
-    author: { name: string; url: string };
-    content: any; // this needs to be fixed
-    date: string;
-  };
-}
+import { sanityClient } from '../../lib/sanity'; // Temp?
 
-function BlogPost({ post }: BlogsPostProps) {
+type Post = {
+  title: string;
+  author: { name: string };
+  content: any[];
+};
+
+type BlogPostProps = {
+  post: Post;
+};
+
+function BlogPost({ post }: BlogPostProps) {
+  console.log(post);
+
   return (
     <>
       <Head>
@@ -27,11 +28,9 @@ function BlogPost({ post }: BlogsPostProps) {
       <section className="mx-auto">
         <div className="mb-8">
           <h1>{post.title}</h1>
-          <p className="mt-2 text-base">
-            By {post.author.name} on {post.date}
-          </p>
+          <p className="mt-2 text-base">By {post.author.name} on</p>
 
-          {post.coverImageURL ? (
+          {/* {post.coverImageURL ? (
             <div className="relative mt-8 h-96 w-full">
               <Image
                 src={post.coverImageURL}
@@ -44,7 +43,7 @@ function BlogPost({ post }: BlogsPostProps) {
             </div>
           ) : (
             ''
-          )}
+          )} */}
         </div>
 
         <div className="prose prose-invert max-w-none rounded-md bg-slate-900/50 p-8 md:prose-lg lg:prose-xl">
@@ -57,42 +56,35 @@ function BlogPost({ post }: BlogsPostProps) {
 
 export default BlogPost;
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  console.log(slug);
-
-  const query = await fetchPostData(
-    `*[_type == "post" && slug.current == "${slug}"]`
+  const data = await sanityClient.fetch(
+    `*[_type == "post" && slug.current == "${slug}"]{title, author -> {name}, content}`
   );
 
-  if (query.length === 0) {
+  if (data.length === 0) {
     return {
       notFound: true,
     };
   }
 
-  const post = await transformPostData(query[0]);
+  const post = data[0];
 
   return {
-    props: { post },
+    props: {
+      post,
+    },
     revalidate: 60,
   };
-};
+}
 
-type Query = { slug: { current: string } }[];
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const query: Query = await fetchPostData(
-    '*[_type == "post"] {slug{current}}'
-  );
-
-  const paths = query.map((slug) => {
-    return { params: { slug: slug.slug.current } };
-  });
+export async function getStaticPaths() {
+  const posts = await sanityClient.fetch("*[_type == 'post']{slug{current}}");
+  const paths = posts.map((post) => ({ params: { slug: post.slug.current } }));
 
   return {
     paths,
     fallback: 'blocking',
   };
-};
+}
