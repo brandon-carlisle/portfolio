@@ -1,3 +1,4 @@
+import Contact from '../components/Contact';
 import Header from '../components/Header';
 import Head from 'next/head';
 
@@ -11,6 +12,7 @@ function Work() {
       </Head>
 
       <Header title="Work Page" />
+      <Contact />
     </>
   );
 }

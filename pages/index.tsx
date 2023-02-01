@@ -16,23 +16,16 @@ function Home() {
         title="A front end web developer interested in modern tools, and making cool
           stuff on the web."
       >
-        <div className="flex flex-col gap-4">
-          <div className="space-y-1">
-            <p>
-              Hey there I&apos;m Brandon, a front end web developer based in
-              England. I love working with JavaScript, React and TailwindCSS.
-            </p>
-          </div>
-
-          <div className="space-y-1">
-            <Link href="/profile">Read more about me &rarr;</Link>
-          </div>
+        <div>
+          <p className="mb-2">
+            Hey there I&apos;m Brandon, a front end web developer based in
+            England. I love working with JavaScript, React and TailwindCSS.
+          </p>
+          <Link href="/profile">Read more about me &rarr;</Link>
         </div>
       </Header>
 
-      <section>
-        <Contact />
-      </section>
+      <Contact />
     </>
   );
 }

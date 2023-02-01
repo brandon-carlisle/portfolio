@@ -1,4 +1,5 @@
 import Header from '../../components/Header';
+import Section from '../../components/Section';
 import { sanityClient } from '../../lib/sanity';
 import { format, parseISO } from 'date-fns';
 import { groq } from 'next-sanity';
@@ -24,7 +25,7 @@ function Blog({ posts }: BlogProps) {
 
       <Header title="Blog" />
 
-      <section className="mb-8">
+      <Section>
         <div className="flex flex-col gap-5">
           {posts.map((post) => (
             <div key={post.slug.current}>
@@ -37,7 +38,7 @@ function Blog({ posts }: BlogProps) {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Contact from '../components/Contact';
 import Header from '../components/Header';
+import Section from '../components/Section';
 import TechCard from '../components/TechCard';
 import Head from 'next/head';
 
@@ -62,17 +63,15 @@ function Profile() {
         </p>
       </Header>
 
-      <section className="mb-16 border-b-2 border-blue-800/30">
+      <Section>
         <TechCard title="Tech I use currently:" links={cardOneLinks} />
         <TechCard
           title="Tech I want to learn / am currently learing:"
           links={cardTwoLinks}
         />
-      </section>
+      </Section>
 
-      <section>
-        <Contact />
-      </section>
+      <Contact />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import Section from '../../components/Section';
 import { sanityClient } from '../../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { GetStaticPropsContext } from 'next';
@@ -23,11 +24,11 @@ function BlogPost({ post }: BlogPostProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section>
+      <Section>
         <div className="prose prose-invert max-w-none md:prose-lg lg:prose-xl">
           <PortableText value={post.content} />
         </div>
-      </section>
+      </Section>
     </>
   );
 }
