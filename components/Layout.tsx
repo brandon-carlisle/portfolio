@@ -1,4 +1,4 @@
-import Navbar from './navbar';
+import Navbar from './Navbar';
 import { ReactNode } from 'react';
 
 type LayoutProps = {

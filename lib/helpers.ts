@@ -1,5 +1,8 @@
-import { format, parseISO } from 'date-fns';
+import { sanityClient } from './sanity';
+import imageUrlBuilder from '@sanity/image-url';
 
-function formatDate(date) {
-  return format(parseISO(date), 'LLL d, yyyy');
+const builder = imageUrlBuilder(sanityClient);
+
+function urlFor(source) {
+  return builder.image(source);
 }
