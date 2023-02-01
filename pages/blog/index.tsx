@@ -1,5 +1,6 @@
 import { sanityClient } from '../../lib/sanity';
 import { format, parseISO } from 'date-fns';
+import { groq } from 'next-sanity';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -44,7 +45,7 @@ export default Blog;
 
 export async function getServerSideProps() {
   const posts = await sanityClient.fetch(
-    "*[_type == 'post']{title, date, slug{current}}"
+    groq`*[_type == 'post']{title, date, slug{current}}`
   );
 
   return {

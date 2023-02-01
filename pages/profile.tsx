@@ -1,5 +1,5 @@
+import Contact from '../components/Contact';
 import TechCard from '../components/TechCard';
-import Contact from '../components/contact';
 import Head from 'next/head';
 
 const cardOneLinks = [

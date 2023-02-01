@@ -1,23 +1,21 @@
 import { sanityClient } from '../../lib/sanity';
 import { PortableText } from '@portabletext/react';
+import { GetStaticPropsContext } from 'next';
+import { groq } from 'next-sanity';
 import Head from 'next/head';
 import Image from 'next/image';
 
-// Temp?
-
-type Post = {
+type TPost = {
   title: string;
   author: { name: string };
   content: any[];
 };
 
 type BlogPostProps = {
-  post: Post;
+  post: TPost;
 };
 
 function BlogPost({ post }: BlogPostProps) {
-  console.log(post);
-
   return (
     <>
       <Head>
@@ -28,23 +26,7 @@ function BlogPost({ post }: BlogPostProps) {
 
       <section className="mx-auto">
         <div className="mb-8">
-          <h1>{post.title}</h1>
           <p className="mt-2 text-base">By {post.author.name} on</p>
-
-          {/* {post.coverImageURL ? (
-            <div className="relative mt-8 h-96 w-full">
-              <Image
-                src={post.coverImageURL}
-                alt={`Cover image for ${post.title}`}
-                fill
-                className="rounded-md object-cover"
-                priority
-                sizes="768px"
-              />
-            </div>
-          ) : (
-            ''
-          )} */}
         </div>
 
         <div className="prose prose-invert max-w-none rounded-md bg-slate-900/50 p-8 md:prose-lg lg:prose-xl">
@@ -57,11 +39,11 @@ function BlogPost({ post }: BlogPostProps) {
 
 export default BlogPost;
 
-export async function getStaticProps({ params }) {
-  const { slug } = params;
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const slug = context.params?.slug;
 
   const data = await sanityClient.fetch(
-    `*[_type == "post" && slug.current == "${slug}"]{title, author -> {name}, content}`
+    groq`*[_type == "post" && slug.current == "${slug}"]{title, author -> {name}, content}`
   );
 
   if (data.length === 0) {
@@ -72,6 +54,8 @@ export async function getStaticProps({ params }) {
 
   const post = data[0];
 
+  console.log(post);
+
   return {
     props: {
       post,
@@ -80,8 +64,14 @@ export async function getStaticProps({ params }) {
   };
 }
 
+type TPostPath = {
+  slug: { current: string };
+};
+
 export async function getStaticPaths() {
-  const posts = await sanityClient.fetch("*[_type == 'post']{slug{current}}");
+  const posts: TPostPath[] = await sanityClient.fetch(groq`
+    *[_type == 'post']{slug{current}}`);
+
   const paths = posts.map((post) => ({ params: { slug: post.slug.current } }));
 
   return {
