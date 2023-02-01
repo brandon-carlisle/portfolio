@@ -1,8 +1,8 @@
-type TCardLink = { title: string; href: string };
+import { CardLinks } from '../pages/profile';
 
 type TechCardProps = {
   title: string;
-  links: TCardLink[];
+  links: CardLinks;
 };
 
 function TechCard({ title, links }: TechCardProps) {

@@ -2,7 +2,10 @@ import Contact from '../components/Contact';
 import TechCard from '../components/TechCard';
 import Head from 'next/head';
 
-const cardOneLinks = [
+type CardLink = { title: string; href: string };
+export type CardLinks = CardLink[];
+
+const cardOneLinks: CardLinks = [
   {
     title: 'JavaScript',
     href: 'https://javascript.info/',
@@ -25,7 +28,7 @@ const cardOneLinks = [
   },
 ];
 
-const cardTwoLinks = [
+const cardTwoLinks: CardLinks = [
   {
     title: 'Supabase',
     href: 'https://supabase.com/',
