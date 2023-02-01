@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-function Navbar({}) {
+function Navbar() {
   return (
     <nav className="mx-auto flex max-w-screen-md items-center justify-between pt-2 text-lg">
       <div>

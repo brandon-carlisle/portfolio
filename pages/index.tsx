@@ -1,6 +1,6 @@
+import Contact from '../components/contact';
 import Head from 'next/head';
 import Link from 'next/link';
-import Contact from '../components/contact';
 
 function Home() {
   return (

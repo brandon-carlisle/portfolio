@@ -1,8 +1,9 @@
-import Head from 'next/head';
+import { sanityClient } from '../../lib/sanity';
 import { PortableText } from '@portabletext/react';
+import Head from 'next/head';
 import Image from 'next/image';
 
-import { sanityClient } from '../../lib/sanity'; // Temp?
+// Temp?
 
 type Post = {
   title: string;

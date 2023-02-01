@@ -1,5 +1,5 @@
+import Layout from '../components/Layout';
 import '../styles/globals.css';
-import Layout from '../components/layout';
 import { Heebo } from '@next/font/google';
 
 const heebo = Heebo({ subsets: ['hebrew', 'latin'] });

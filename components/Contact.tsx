@@ -1,4 +1,4 @@
-function Contact({}) {
+function Contact() {
   return (
     <div className="mb-8 flex flex-col gap-2">
       <h2 className="mb-2">Feel free to reach out to me via</h2>

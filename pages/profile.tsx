@@ -1,10 +1,8 @@
-import Head from 'next/head';
+import TechCard from '../components/TechCard';
 import Contact from '../components/contact';
-import TechCard from '../components/tech-card';
+import Head from 'next/head';
 
-type CardLinks = { title: string; href: string }[];
-
-const cardOneLinks: CardLinks = [
+const cardOneLinks = [
   {
     title: 'JavaScript',
     href: 'https://javascript.info/',
@@ -27,7 +25,7 @@ const cardOneLinks: CardLinks = [
   },
 ];
 
-const cardTwoLinks: CardLinks = [
+const cardTwoLinks = [
   {
     title: 'Supabase',
     href: 'https://supabase.com/',

@@ -1,8 +1,7 @@
+import { sanityClient } from '../../lib/sanity';
+import { format, parseISO } from 'date-fns';
 import Head from 'next/head';
 import Link from 'next/link';
-
-import { sanityClient } from '../../lib/sanity'; // Temp?
-import { format, parseISO } from 'date-fns';
 
 type BlogProps = {
   posts: {

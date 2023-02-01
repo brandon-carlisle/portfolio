@@ -1,4 +1,11 @@
-function TechCard({ title, links }) {
+type TCardLink = { title: string; href: string };
+
+type TechCardProps = {
+  title: string;
+  links: TCardLink[];
+};
+
+function TechCard({ title, links }: TechCardProps) {
   return (
     <div className="mb-8 rounded-md bg-slate-900/50 p-8">
       <p className="mb-4">{title}</p>
