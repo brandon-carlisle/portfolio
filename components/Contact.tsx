@@ -3,7 +3,7 @@ import Section from './Section';
 function Contact() {
   return (
     <Section>
-      <div className="">
+      <div>
         <h2 className="mb-2">Feel free to reach out to me via</h2>
         <div className="flex flex-col">
           <a href="mailto:brandon@carlisle.dev">Email</a>
