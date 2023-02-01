@@ -64,12 +64,20 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   };
 }
 
+<<<<<<< HEAD
 type TPostSlug = {
+=======
+type TPostPath = {
+>>>>>>> 01397e991f506e02f04dfaf59a00f756c47e9b8d
   slug: { current: string };
 };
 
 export async function getStaticPaths() {
+<<<<<<< HEAD
   const posts: TPostSlug[] = await sanityClient.fetch(groq`
+=======
+  const posts: TPostPath[] = await sanityClient.fetch(groq`
+>>>>>>> 01397e991f506e02f04dfaf59a00f756c47e9b8d
     *[_type == 'post']{slug{current}}`);
 
   const paths = posts.map((post) => ({ params: { slug: post.slug.current } }));
