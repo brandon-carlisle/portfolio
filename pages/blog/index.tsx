@@ -1,16 +1,17 @@
+import Header from '../../components/Header';
 import { sanityClient } from '../../lib/sanity';
 import { format, parseISO } from 'date-fns';
 import { groq } from 'next-sanity';
 import Head from 'next/head';
 import Link from 'next/link';
 
-type BlogProps = {
+interface BlogProps {
   posts: {
     date: string;
     slug: { current: string };
     title: string;
   }[];
-};
+}
 
 function Blog({ posts }: BlogProps) {
   return (
@@ -21,9 +22,9 @@ function Blog({ posts }: BlogProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="mb-8">
-        <h1 className="mb-8">Blog</h1>
+      <Header title="Blog" />
 
+      <section className="mb-8">
         <div className="flex flex-col gap-5">
           {posts.map((post) => (
             <div key={post.slug.current}>

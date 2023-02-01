@@ -1,3 +1,4 @@
+import Header from '../components/Header';
 import Head from 'next/head';
 
 function Work() {
@@ -9,9 +10,7 @@ function Work() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section>
-        <h1>Work Section</h1>
-      </section>
+      <Header title="Work Page" />
     </>
   );
 }

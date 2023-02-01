@@ -1,4 +1,5 @@
 import Contact from '../components/Contact';
+import Header from '../components/Header';
 import TechCard from '../components/TechCard';
 import Head from 'next/head';
 
@@ -52,18 +53,16 @@ function Profile() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header title="Profile">
+        <p>
+          I&apos;m Brandon, a frontend web developer interested in making cool
+          and interesting web apps using modern technologies. I am based in
+          York, England, currently self teaching myself web development (using
+          good ol YouTube and docs).
+        </p>
+      </Header>
+
       <section className="mb-16 border-b-2 border-blue-800/30">
-        <div className="mb-16 flex flex-col gap-4">
-          <h1 className="">Profile</h1>
-
-          <p>
-            I&apos;m Brandon, a frontend web developer interested in making cool
-            and interesting web apps using modern technologies. I am based in
-            York, England, currently self teaching myself web development (using
-            good ol YouTube and docs).
-          </p>
-        </div>
-
         <TechCard title="Tech I use currently:" links={cardOneLinks} />
         <TechCard
           title="Tech I want to learn / am currently learing:"

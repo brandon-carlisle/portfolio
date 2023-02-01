@@ -1,4 +1,5 @@
 import Contact from '../components/Contact';
+import Header from '../components/Header';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -11,27 +12,23 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="mb-16 border-b-2 border-blue-800/30">
-        <h1 className="text-left">
-          A front end web developer interested in modern tools, and making cool
-          stuff on the web.
-        </h1>
-
-        <div className="my-8 flex flex-col gap-4">
-          <div className="flex gap-1 text-2xl">
-            <span>👋</span>
+      <Header
+        title="A front end web developer interested in modern tools, and making cool
+          stuff on the web."
+      >
+        <div className="flex flex-col gap-4">
+          <div className="space-y-1">
             <p>
               Hey there I&apos;m Brandon, a front end web developer based in
               England. I love working with JavaScript, React and TailwindCSS.
             </p>
           </div>
 
-          <div className="flex gap-1 text-2xl">
-            <span>🤝</span>
+          <div className="space-y-1">
             <Link href="/profile">Read more about me &rarr;</Link>
           </div>
         </div>
-      </section>
+      </Header>
 
       <section>
         <Contact />
