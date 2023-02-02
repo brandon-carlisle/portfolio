@@ -1,4 +1,5 @@
 import Section from '../../components/Section';
+import { urlFor } from '../../lib/helpers';
 import { sanityClient } from '../../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { GetStaticPropsContext } from 'next';
@@ -15,7 +16,15 @@ interface BlogPostProps {
   post: Post;
 }
 
+const myPortableTextComponents = {
+  types: {
+    image: ({ value }) => <img src={urlFor(value)} />,
+  },
+};
+
 function BlogPost({ post }: BlogPostProps) {
+  console.log(post.content);
+
   return (
     <>
       <Head>
@@ -26,7 +35,10 @@ function BlogPost({ post }: BlogPostProps) {
 
       <Section>
         <div className="prose prose-invert max-w-none md:prose-lg lg:prose-xl">
-          <PortableText value={post.content} />
+          <PortableText
+            value={post.content}
+            components={myPortableTextComponents}
+          />
         </div>
       </Section>
     </>
