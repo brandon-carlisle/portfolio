@@ -5,10 +5,12 @@ import { PortableText } from '@portabletext/react';
 import { GetStaticPropsContext } from 'next';
 import { groq } from 'next-sanity';
 import Head from 'next/head';
+import Image from 'next/image';
 
 type Post = {
   title: string;
   author: { name: string };
+  date: string;
   content: any[];
 };
 
@@ -18,13 +20,21 @@ interface BlogPostProps {
 
 const myPortableTextComponents = {
   types: {
-    image: ({ value }) => <img src={urlFor(value)} />,
+    image: ({ value }) => (
+      <div className="relative w-[768px] h-[432px]">
+        <Image
+          src={urlFor(value).maxWidth(768).maxHeight(432).url()}
+          alt="blog image"
+          className="object-scale-down max-w-[768px] max-h-[432px]"
+          width={768}
+          height={432}
+        />
+      </div>
+    ),
   },
 };
 
 function BlogPost({ post }: BlogPostProps) {
-  console.log(post.content);
-
   return (
     <>
       <Head>
@@ -34,7 +44,12 @@ function BlogPost({ post }: BlogPostProps) {
       </Head>
 
       <Section>
-        <div className="prose prose-invert max-w-none md:prose-lg lg:prose-xl">
+        <div>
+          <p>{post.author.name}</p>
+          <span>{post.date}</span>
+        </div>
+
+        <div className="prose prose-invert max-w-none md:prose-lg lg:prose-xl prose-img:aspect-auto prose-img:h-auto prose-img:w-auto prose-img:mx-auto">
           <PortableText
             value={post.content}
             components={myPortableTextComponents}
@@ -51,7 +66,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const slug = context.params?.slug;
 
   const data = await sanityClient.fetch(
-    groq`*[_type == "post" && slug.current == "${slug}"]{title, author -> {name}, content}`
+    groq`*[_type == "post" && slug.current == "${slug}"]{title, author -> {name, picture}, date, content}`
   );
 
   if (data.length === 0) {
@@ -60,7 +75,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     };
   }
 
-  const post = data[0];
+  const [post] = data;
 
   return {
     props: {
