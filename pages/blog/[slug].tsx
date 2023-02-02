@@ -2,6 +2,7 @@ import Section from '../../components/Section';
 import { urlFor } from '../../lib/helpers';
 import { sanityClient } from '../../lib/sanity';
 import { PortableText } from '@portabletext/react';
+import { getImageDimensions } from '@sanity/asset-utils';
 import { GetStaticPropsContext } from 'next';
 import { groq } from 'next-sanity';
 import Head from 'next/head';
@@ -20,17 +21,18 @@ interface BlogPostProps {
 
 const myPortableTextComponents = {
   types: {
-    image: ({ value }) => (
-      <div className="relative w-[768px] h-[432px]">
+    image: ({ value }) => {
+      const dimensions = getImageDimensions(value);
+
+      return (
         <Image
           src={urlFor(value).maxWidth(768).maxHeight(432).url()}
           alt="blog image"
-          className="object-scale-down max-w-[768px] max-h-[432px]"
-          width={768}
-          height={432}
+          width={dimensions.width}
+          height={dimensions.height}
         />
-      </div>
-    ),
+      );
+    },
   },
 };
 
