@@ -1,12 +1,11 @@
+import PortableTextComponents from '../../components/PortableTextComponents';
 import Section from '../../components/Section';
-import { urlFor } from '../../lib/helpers';
+import { parseDate } from '../../lib/helpers';
 import { sanityClient } from '../../lib/sanity';
 import { PortableText } from '@portabletext/react';
-import { getImageDimensions } from '@sanity/asset-utils';
 import { GetStaticPropsContext } from 'next';
 import { groq } from 'next-sanity';
 import Head from 'next/head';
-import Image from 'next/image';
 
 type Post = {
   title: string;
@@ -18,23 +17,6 @@ type Post = {
 interface BlogPostProps {
   post: Post;
 }
-
-const myPortableTextComponents = {
-  types: {
-    image: ({ value }) => {
-      const dimensions = getImageDimensions(value);
-
-      return (
-        <Image
-          src={urlFor(value).maxWidth(768).maxHeight(432).url()}
-          alt="blog image"
-          width={dimensions.width}
-          height={dimensions.height}
-        />
-      );
-    },
-  },
-};
 
 function BlogPost({ post }: BlogPostProps) {
   return (
@@ -48,13 +30,13 @@ function BlogPost({ post }: BlogPostProps) {
       <Section>
         <div>
           <p>{post.author.name}</p>
-          <span>{post.date}</span>
+          <span>{parseDate(post.date)}</span>
         </div>
 
         <div className="prose prose-invert max-w-none md:prose-lg lg:prose-xl prose-img:aspect-auto prose-img:h-auto prose-img:w-auto prose-img:mx-auto">
           <PortableText
             value={post.content}
-            components={myPortableTextComponents}
+            components={PortableTextComponents}
           />
         </div>
       </Section>

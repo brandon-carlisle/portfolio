@@ -1,5 +1,6 @@
 import Header from '../../components/Header';
 import Section from '../../components/Section';
+import { parseDate } from '../../lib/helpers';
 import { sanityClient } from '../../lib/sanity';
 import { format, parseISO } from 'date-fns';
 import { groq } from 'next-sanity';
@@ -31,9 +32,7 @@ function Blog({ posts }: BlogProps) {
             <div key={post.slug.current}>
               <Link href={`/blog/${post.slug.current}`}>
                 <h3>{post.title}</h3>
-                <p className="text-base">
-                  {format(parseISO(post.date), 'LLL d, yyyy')}
-                </p>
+                <p className="text-base">{parseDate(post.date)}</p>
               </Link>
             </div>
           ))}
