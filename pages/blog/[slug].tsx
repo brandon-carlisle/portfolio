@@ -1,8 +1,7 @@
-import PortableTextComponents from '../../components/PortableTextComponents';
+import Prose from '../../components/Prose';
 import Section from '../../components/Section';
 import { parseDate } from '../../lib/helpers';
 import { sanityClient } from '../../lib/sanity';
-import { PortableText } from '@portabletext/react';
 import { GetStaticPropsContext } from 'next';
 import { groq } from 'next-sanity';
 import Head from 'next/head';
@@ -11,7 +10,7 @@ type Post = {
   title: string;
   author: { name: string };
   date: string;
-  content: any[];
+  content: any[]; // fix
 };
 
 interface BlogPostProps {
@@ -33,12 +32,7 @@ function BlogPost({ post }: BlogPostProps) {
           <span>{parseDate(post.date)}</span>
         </div>
 
-        <div className="prose prose-invert max-w-none md:prose-lg lg:prose-xl prose-img:aspect-auto prose-img:h-auto prose-img:w-auto prose-img:mx-auto">
-          <PortableText
-            value={post.content}
-            components={PortableTextComponents}
-          />
-        </div>
+        <Prose portableTextContent={post.content} />
       </Section>
     </>
   );
