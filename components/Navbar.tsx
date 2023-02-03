@@ -3,11 +3,9 @@ import Link from 'next/link';
 function Navbar() {
   return (
     <nav className="mx-auto flex max-w-screen-md items-center justify-between pt-2 text-lg">
-      <div>
-        <Link href="/" className="font-normal">
-          Brandon Carlisle
-        </Link>
-      </div>
+      <Link href="/" className="font-normal">
+        Brandon Carlisle
+      </Link>
 
       <ul className="flex gap-3">
         <li>
