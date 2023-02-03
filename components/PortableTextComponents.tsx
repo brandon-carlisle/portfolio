@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const PortableTextComponents = {
   types: {
-    image: ({ value }) => {
+    image: ({ value }: any) => {
       const dimensions = getImageDimensions(value);
 
       return (
@@ -13,6 +13,7 @@ const PortableTextComponents = {
           alt="blog image"
           width={dimensions.width}
           height={dimensions.height}
+          priority
         />
       );
     },

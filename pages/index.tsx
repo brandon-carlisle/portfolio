@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Head from 'next/head';
 import Link from 'next/link';
 
-const pageTitle = 'Front end web developer';
+const pageTitle = 'Web developer';
 
 function Home() {
   return (
@@ -16,13 +16,13 @@ function Home() {
       </Head>
 
       <Header
-        title="A front end web developer interested in modern tools, and making cool
+        title="Web developer interested in modern tools, and making cool
           stuff on the web."
       >
         <div>
           <p className="mb-2">
-            Hey there I&apos;m Brandon, a front end web developer based in
-            England. I love working with JavaScript, React and TailwindCSS.
+            Hey there I&apos;m Brandon, a web developer based in England. I love
+            working with JavaScript, React and TailwindCSS.
           </p>
           <Link href="/profile">Read more about me &rarr;</Link>
         </div>

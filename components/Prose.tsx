@@ -7,7 +7,7 @@ interface ProseProps {
 
 function Prose({ content }: ProseProps) {
   return (
-    <div className="prose prose-invert max-w-none md:prose-lg lg:prose-xl prose-img:aspect-auto prose-img:h-auto prose-img:w-auto prose-img:mx-auto">
+    <div className="prose prose-invert max-w-none md:prose-lg lg:prose-xl prose-img:aspect-auto prose-img:h-auto prose-img:w-auto prose-img:mx-auto prose-img:rounded-md">
       <PortableText value={content} components={PortableTextComponents} />
     </div>
   );
