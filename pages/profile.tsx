@@ -45,16 +45,18 @@ const cardTwoLinks: CardLinks = [
   },
 ];
 
+const pageTitle = 'Profile';
+
 function Profile() {
   return (
     <>
       <Head>
-        <title>Brandon Carlisle | Profile</title>
+        <title>Brandon Carlisle | {pageTitle}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header title="Profile">
+      <Header title={pageTitle}>
         <p>
           I&apos;m Brandon, a frontend web developer interested in making cool
           and interesting web apps using modern technologies. I am based in

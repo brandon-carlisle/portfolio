@@ -10,7 +10,7 @@ type Post = {
   title: string;
   author: { name: string };
   date: string;
-  content: any[]; // fix
+  content: any[]; // FIXME
 };
 
 interface BlogPostProps {
@@ -32,7 +32,7 @@ function BlogPost({ post }: BlogPostProps) {
           <span>{parseDate(post.date)}</span>
         </div>
 
-        <Prose portableTextContent={post.content} />
+        <Prose content={post.content} />
       </Section>
     </>
   );

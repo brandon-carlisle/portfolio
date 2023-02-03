@@ -1,22 +1,23 @@
+import Contact from '../../components/Contact';
+import Container from '../../components/Container';
 import Header from '../../components/Header';
 import Section from '../../components/Section';
-import { parseDate } from '../../lib/helpers';
 import { sanityClient } from '../../lib/sanity';
 import { groq } from 'next-sanity';
 import Head from 'next/head';
 import Link from 'next/link';
 
-interface BlogProps {
-  posts: {
-    date: string;
-    slug: { current: string };
+interface ProjectsProps {
+  projects: {
     title: string;
+    description: string;
+    slug: { current: string };
   }[];
 }
 
-const pageTitle = 'Blog';
+const pageTitle = 'Projects';
 
-function Blog({ posts }: BlogProps) {
+function Projects({ projects }: ProjectsProps) {
   return (
     <>
       <Head>
@@ -29,28 +30,32 @@ function Blog({ posts }: BlogProps) {
 
       <Section>
         <div className="flex flex-col gap-5">
-          {posts.map((post) => (
-            <div key={post.slug.current}>
-              <Link href={`/blog/${post.slug.current}`}>
-                <p>{post.title}</p>
-                <p className="text-base">{parseDate(post.date)}</p>
+          {projects.map((project) => (
+            <div key={project.slug.current}>
+              <Link href={`/projects/${project.slug.current}`}>
+                <Container>
+                  <p>{project.title}</p>
+                  <p>{project.description}</p>
+                </Container>
               </Link>
             </div>
           ))}
         </div>
       </Section>
+
+      <Contact />
     </>
   );
 }
 
-export default Blog;
+export default Projects;
 
 export async function getServerSideProps() {
-  const posts = await sanityClient.fetch(
-    groq`*[_type == 'post']{title, date, slug{current}}`
+  const projects = await sanityClient.fetch(
+    groq`*[_type == 'project']{title, description, slug{current}}`
   );
 
   return {
-    props: { posts },
+    props: { projects },
   };
 }

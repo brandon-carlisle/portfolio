@@ -1,4 +1,5 @@
 import { CardLinks } from '../pages/profile';
+import Container from './Container';
 
 interface TechCardProps {
   title: string;
@@ -7,7 +8,7 @@ interface TechCardProps {
 
 function TechCard({ title, links }: TechCardProps) {
   return (
-    <div className="mb-8 rounded-md bg-slate-900/50 p-8">
+    <Container>
       <p className="mb-4">{title}</p>
 
       <ul className="flex flex-col gap-2">
@@ -19,7 +20,7 @@ function TechCard({ title, links }: TechCardProps) {
           );
         })}
       </ul>
-    </div>
+    </Container>
   );
 }
 
