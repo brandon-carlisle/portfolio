@@ -5,13 +5,6 @@ import clsx from 'clsx';
 
 const heebo = Heebo({ subsets: ['hebrew', 'latin'] });
 
-export const metadata = {
-  title: {
-    default: 'Brandon Carlisle',
-    template: '%s | Brandon Carlisle',
-  },
-};
-
 export default function RootLayout({
   children,
 }: {
