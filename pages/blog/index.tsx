@@ -6,13 +6,13 @@ import { groq } from 'next-sanity';
 import Head from 'next/head';
 import Link from 'next/link';
 
-interface BlogProps {
+type BlogProps = {
   posts: {
     date: string;
     slug: { current: string };
     title: string;
   }[];
-}
+};
 
 const pageTitle = 'Blog';
 

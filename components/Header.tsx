@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-interface HeaderProps {
+type HeaderProps = {
   title: string;
   children?: ReactNode;
-}
+};
 
 function Header({ title, children }: HeaderProps) {
   return (

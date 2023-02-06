@@ -1,9 +1,9 @@
 import PortableTextComponents from './PortableTextComponents';
 import { PortableText } from '@portabletext/react';
 
-interface ProseProps {
+type ProseProps = {
   content: any[]; // FIXME
-}
+};
 
 function Prose({ content }: ProseProps) {
   return (

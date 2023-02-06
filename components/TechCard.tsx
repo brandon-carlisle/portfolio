@@ -1,10 +1,10 @@
 import { CardLinks } from '../pages/profile';
 import Container from './Container';
 
-interface TechCardProps {
+type TechCardProps = {
   title: string;
   links: CardLinks;
-}
+};
 
 function TechCard({ title, links }: TechCardProps) {
   return (

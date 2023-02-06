@@ -7,13 +7,13 @@ import { groq } from 'next-sanity';
 import Head from 'next/head';
 import Link from 'next/link';
 
-interface ProjectsProps {
+type ProjectsProps = {
   projects: {
     title: string;
     description: string;
     slug: { current: string };
   }[];
-}
+};
 
 const pageTitle = 'Projects';
 

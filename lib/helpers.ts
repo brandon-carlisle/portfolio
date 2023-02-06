@@ -5,15 +5,6 @@ import { format, parseISO } from 'date-fns';
 
 const builder = imageUrlBuilder(sanityClient);
 
-interface SanityAsset {
-  _id?: string;
-  url?: string;
-  path?: string;
-  assetId?: string;
-  extension?: string;
-  [key: string]: any;
-}
-
 export function urlFor(source: SanityImageAsset) {
   return builder.image(source);
 }

@@ -10,9 +10,9 @@ type Project = {
   content: any[]; // FIXME
 };
 
-interface ProjectPostProps {
+type ProjectPostProps = {
   project: Project;
-}
+};
 
 function Project({ project }: ProjectPostProps) {
   return (

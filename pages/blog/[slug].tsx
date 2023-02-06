@@ -13,9 +13,9 @@ type Post = {
   content: any[]; // FIXME
 };
 
-interface BlogPostProps {
+type BlogPostProps = {
   post: Post;
-}
+};
 
 function BlogPost({ post }: BlogPostProps) {
   return (
