@@ -20,11 +20,20 @@ function Home() {
           stuff on the web."
       >
         <div>
-          <p className="mb-2">
+          <p className="mb-6">
             Hey there I&apos;m Brandon, a web developer based in England. I love
             working with JavaScript, React and TailwindCSS.
           </p>
-          <Link href="/profile">Read more about me &rarr;</Link>
+
+          <Link
+            href="/profile"
+            className="bg-blue-300 text-blue-900 font-semibold py-2 px-4 rounded-md group"
+          >
+            Read more about me{' '}
+            <span className="group-hover:translate-x-1 transition-all inline-block">
+              &rarr;
+            </span>
+          </Link>
         </div>
       </Header>
 
