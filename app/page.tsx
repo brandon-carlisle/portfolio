@@ -1,20 +1,10 @@
 import Contact from '../components/Contact';
 import Header from '../components/Header';
-import Head from 'next/head';
 import Link from 'next/link';
-
-const pageTitle = 'Web developer';
 
 function Home() {
   return (
     <>
-      <Head>
-        <title>Brandon Carlisle | {pageTitle}</title>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Header
         title="Web developer interested in modern tools, and making cool
           stuff on the web."
