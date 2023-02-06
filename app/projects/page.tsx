@@ -4,29 +4,26 @@ import Header from '../../components/Header';
 import Section from '../../components/Section';
 import { sanityClient } from '../../lib/sanity';
 import { groq } from 'next-sanity';
-import Head from 'next/head';
 import Link from 'next/link';
 
-type ProjectsProps = {
-  projects: {
-    title: string;
-    description: string;
-    slug: { current: string };
-  }[];
+export const metadata = {
+  title: 'Projects',
 };
 
-const pageTitle = 'Projects';
+type Project = {
+  title: string;
+  description: string;
+  slug: { current: string };
+};
 
-function Projects({ projects }: ProjectsProps) {
+export default async function Projects() {
+  const projects: Project[] = await sanityClient.fetch(
+    groq`*[_type == 'project']{title, description, slug{current}}`
+  );
+
   return (
     <>
-      <Head>
-        <title>Brandon Carlisle | {pageTitle}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header title={pageTitle} />
+      <Header title="Projects" />
 
       <Section>
         <div className="flex flex-col gap-5">
@@ -46,16 +43,4 @@ function Projects({ projects }: ProjectsProps) {
       <Contact />
     </>
   );
-}
-
-export default Projects;
-
-export async function getServerSideProps() {
-  const projects = await sanityClient.fetch(
-    groq`*[_type == 'project']{title, description, slug{current}}`
-  );
-
-  return {
-    props: { projects },
-  };
 }
