@@ -9,8 +9,8 @@ function Navbar() {
 
       <ul className="flex gap-3">
         <li>
-          <Link href="/profile" className="font-normal">
-            Profile
+          <Link href="/about" className="font-normal">
+            About
           </Link>
         </li>
         <li>

@@ -1,10 +1,14 @@
-import Contact from '../components/Contact';
-import Header from '../components/Header';
-import Section from '../components/Section';
-import TechCard from '../components/TechCard';
-import Head from 'next/head';
+import Contact from '../../components/Contact';
+import Header from '../../components/Header';
+import Section from '../../components/Section';
+import TechCard from '../../components/TechCard';
+
+export const metadata = {
+  title: 'About Me',
+};
 
 type CardLink = { title: string; href: string };
+
 export type CardLinks = CardLink[];
 
 const cardOneLinks: CardLinks = [
@@ -45,18 +49,10 @@ const cardTwoLinks: CardLinks = [
   },
 ];
 
-const pageTitle = 'Profile';
-
-function Profile() {
+export default function About() {
   return (
     <>
-      <Head>
-        <title>Brandon Carlisle | {pageTitle}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header title={pageTitle}>
+      <Header title="About Me">
         <p>
           I&apos;m Brandon, a frontend web developer interested in making cool
           and interesting web apps using modern technologies. I am based in
@@ -77,5 +73,3 @@ function Profile() {
     </>
   );
 }
-
-export default Profile;

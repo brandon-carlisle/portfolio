@@ -16,7 +16,7 @@ function Home() {
           </p>
 
           <Link
-            href="/profile"
+            href="/about"
             className="bg-blue-300 text-blue-900 font-semibold py-2 px-4 rounded-md group"
           >
             Read more about me{' '}
