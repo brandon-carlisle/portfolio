@@ -10,7 +10,7 @@ export type ProjectData = {
   title?: string;
   slug?: { current: string };
   description?: string;
-  content?: any[] | undefined;
+  content?: any[];
   date?: string;
   isFeatured?: boolean;
 };
@@ -23,7 +23,6 @@ export default async function Projects() {
   return (
     <>
       <Header title="Projects" />
-
       <Section>
         <div className="flex flex-col gap-5">
           {projects.map((project) => (
@@ -38,7 +37,6 @@ export default async function Projects() {
           ))}
         </div>
       </Section>
-
       <Contact />
     </>
   );
