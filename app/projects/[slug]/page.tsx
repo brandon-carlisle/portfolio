@@ -17,7 +17,7 @@ export async function generateStaticParams() {
   });
 }
 
-async function getProject(slug: string) {
+async function getProject({ slug }: { slug: string }) {
   const [project]: ProjectData[] = await sanityClient.fetch(
     groq`*[_type == "project" && slug.current == "${slug}"]{title, content}`
   );
@@ -32,7 +32,7 @@ type ProjectProps = {
 };
 
 export default async function Project({ params }: ProjectProps) {
-  const project = await getProject(params.slug);
+  const project = await getProject({ slug: params.slug });
 
   if (!project) notFound();
 

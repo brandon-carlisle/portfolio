@@ -25,7 +25,7 @@ function Navbar() {
             <Link
               className={clsx(
                 'font-normal hover:bg-blue-900/40 transition-all py-2 px-4 rounded-md',
-                item.title.toLowerCase() === segments[0] && 'bg-blue-900/30'
+                item.pathname.slice(1) === segments[0] && 'bg-blue-900/30'
               )}
               href={item.pathname}
             >
