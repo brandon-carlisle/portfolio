@@ -14,7 +14,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={clsx(
-          'min-h-screen min-w-full bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-slate-900 via-blue-900 to-black p-4 text-white',
+          'min-h-screen min-w-full bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-slate-900 via-blue-900 to-black p-4 text-white antialiased',
           heebo.className
         )}
       >

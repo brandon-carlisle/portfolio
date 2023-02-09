@@ -6,7 +6,6 @@ import Section from '../components/Section';
 import { sanityClient } from '../lib/sanity';
 import { ProjectData } from './projects/page';
 import { groq } from 'next-sanity';
-import Link from 'next/link';
 
 export default async function Home() {
   // *[_type == "project" && isFeatured == true]{title, content, isFeatured}
@@ -27,7 +26,7 @@ export default async function Home() {
             working with JavaScript, React and TailwindCSS.
           </p>
 
-          <LinkButton path="about" text="Read more about me">
+          <LinkButton path="about" text="Read more about me" style="primary">
             <span className="group-hover:translate-x-1 transition-all inline-block">
               &rarr;
             </span>
@@ -36,11 +35,16 @@ export default async function Home() {
       </Header>
 
       <Section title="Featured Projects">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 auto-rows-fr">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 auto-rows-fr mb-8">
           {projects.map((project) => (
             <ProjectCard key={project.slug?.current} project={project} />
           ))}
         </div>
+        <LinkButton
+          path="projects"
+          text="View all projects"
+          style="secondary"
+        />
       </Section>
 
       <Contact />

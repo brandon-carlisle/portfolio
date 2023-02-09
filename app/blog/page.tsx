@@ -15,7 +15,7 @@ export type BlogPostData = {
 
 export default async function Blog() {
   const posts: BlogPostData[] = await sanityClient.fetch(
-    groq`*[_type == 'post']{title, date, slug{current}}`
+    groq`*[_type == 'post'] | order(_createdAt desc){title, date, slug{current}}`
   );
 
   return (
