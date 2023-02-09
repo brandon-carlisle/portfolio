@@ -1,3 +1,4 @@
+import BlogPostPreviews from '../../components/BlogPostPreviews';
 import Header from '../../components/Header';
 import Section from '../../components/Section';
 import { parseDate } from '../../lib/helpers';
@@ -23,19 +24,7 @@ export default async function Blog() {
       <Header title="Blog" />
 
       <Section>
-        <div className="flex flex-col gap-5">
-          {posts.map((post) => (
-            <div key={post.slug?.current}>
-              <Link href={`/blog/${post.slug?.current}`}>
-                <p>{post.title}</p>
-
-                {post.date && (
-                  <p className="text-base">{parseDate(post.date)}</p>
-                )}
-              </Link>
-            </div>
-          ))}
-        </div>
+        <BlogPostPreviews posts={posts} />
       </Section>
     </>
   );

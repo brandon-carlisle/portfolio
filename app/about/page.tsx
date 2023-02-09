@@ -53,7 +53,7 @@ export default function About() {
   return (
     <>
       <Header title="About Me">
-        <p>
+        <p className="text-lg">
           I&apos;m Brandon, a frontend web developer interested in making cool
           and interesting web apps using modern technologies. I am based in
           York, England, currently self teaching myself web development (using
