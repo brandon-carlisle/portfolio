@@ -3,15 +3,22 @@ import Header from '../components/Header';
 import LinkButton from '../components/LinkButton';
 import ProjectCard from '../components/ProjectCard';
 import Section from '../components/Section';
+import { parseDate } from '../lib/helpers';
 import { sanityClient } from '../lib/sanity';
-import { ProjectData } from './projects/page';
+import type { BlogPostData } from './blog/page';
+import type { ProjectData } from './projects/page';
 import { groq } from 'next-sanity';
+import Link from 'next/link';
 
 export default async function Home() {
   // *[_type == "project" && isFeatured == true]{title, content, isFeatured}
 
-  const projects: ProjectData[] = await sanityClient.fetch(
+  const featuredProjects: ProjectData[] = await sanityClient.fetch(
     groq`*[_type == "project" && isFeatured == true]{title, slug{current}, content, isFeatured, description}`
+  );
+
+  const recentBlogPosts: BlogPostData[] = await sanityClient.fetch(
+    groq`*[_type == 'post'][0..1] | order(_createdAt desc){title, date, slug{current}}`
   );
 
   return (
@@ -34,16 +41,37 @@ export default async function Home() {
         </div>
       </Header>
 
-      <Section title="Featured Projects">
+      <Section title="Featured projects">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 auto-rows-fr mb-8">
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <ProjectCard key={project.slug?.current} project={project} />
           ))}
         </div>
+        <LinkButton path="projects" text="View all projects" style="tertiary" />
+      </Section>
+
+      <Section title="Recent blog posts">
+        <div className="mb-8">
+          {recentBlogPosts.map((post) => (
+            <Link
+              key={post.slug?.current}
+              href={`/${post.slug?.current}`}
+              className="mb-4 block"
+            >
+              <p className="underline underline-offset-2">{post.title}</p>
+              {post.date && (
+                <p className="underline underline-offset-2">
+                  {parseDate(post.date)}
+                </p>
+              )}
+            </Link>
+          ))}
+        </div>
+
         <LinkButton
           path="projects"
-          text="View all projects"
-          style="secondary"
+          text="View all blog posts"
+          style="tertiary"
         />
       </Section>
 

@@ -12,14 +12,17 @@ const styleColors = {
   primary: {
     backgroundColor: 'bg-blue-300',
     textColor: 'text-blue-900',
+    weight: 'font-semibold',
   },
   secondary: {
-    backgroundColor: 'bg-green-300/90',
-    textColor: 'text-green-900',
+    backgroundColor: 'border-2 border-green-400',
+    textColor: 'text-gray-100',
+    weight: 'font-normal',
   },
   tertiary: {
-    backgroundColor: 'bg-gray-300',
-    textColor: 'text-gray-900',
+    backgroundColor: 'border-2 border-gray-400',
+    textColor: 'text-gray-100',
+    weight: 'font-normal',
   },
 };
 
@@ -34,6 +37,7 @@ export default function LinkButton({
       href={`/${path}`}
       className={clsx(
         'font-semibold py-2 px-4 rounded-md group',
+        styleColors[style].weight,
         styleColors[style].textColor,
         styleColors[style].backgroundColor
       )}
