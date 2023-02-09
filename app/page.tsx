@@ -1,3 +1,4 @@
+import BlogPostPreviews from '../components/BlogPostPreviews';
 import Contact from '../components/Contact';
 import Header from '../components/Header';
 import LinkButton from '../components/LinkButton';
@@ -18,7 +19,8 @@ export default async function Home() {
   );
 
   const recentBlogPosts: BlogPostData[] = await sanityClient.fetch(
-    groq`*[_type == 'post'][0..1] | order(_createdAt desc){title, date, slug{current}}`
+    // gets last two blog posts - newest first
+    groq`*[_type == 'post'] | order(_createdAt desc)[0..1]{title, date, slug{current}}`
   );
 
   return (
@@ -51,28 +53,9 @@ export default async function Home() {
       </Section>
 
       <Section title="Recent blog posts">
-        <div className="mb-8">
-          {recentBlogPosts.map((post) => (
-            <Link
-              key={post.slug?.current}
-              href={`/${post.slug?.current}`}
-              className="mb-4 block"
-            >
-              <p className="underline underline-offset-2">{post.title}</p>
-              {post.date && (
-                <p className="underline underline-offset-2">
-                  {parseDate(post.date)}
-                </p>
-              )}
-            </Link>
-          ))}
-        </div>
+        <BlogPostPreviews posts={recentBlogPosts} />
 
-        <LinkButton
-          path="projects"
-          text="View all blog posts"
-          style="tertiary"
-        />
+        <LinkButton path="blog" text="View all blog posts" style="tertiary" />
       </Section>
 
       <Contact />
