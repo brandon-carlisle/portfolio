@@ -40,10 +40,11 @@ export default async function Project({ params }: ProjectProps) {
     <>
       <Section>
         {project.site && project.repo && (
-          <div className="-mb-12 flex items-end gap-1 underline flex-col">
+          <div className="flex justify-between items-center mb-12 text-gray-200 underline underline-offset-1 gap-2">
             <a href={project.site} target="_blank" rel="noreferrer">
               Live site
             </a>
+            <div className="h-[1px] w-1/2 bg-blue-500/20"></div>
             <a href={project.repo} target="_blank" rel="noreferrer">
               Github repo
             </a>
