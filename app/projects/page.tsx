@@ -13,6 +13,8 @@ export type ProjectData = {
   date?: string;
   isFeatured?: boolean;
   tech?: { link: string; title: string }[];
+  repo?: string;
+  site?: string;
 };
 
 export default async function Projects() {

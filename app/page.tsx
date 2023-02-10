@@ -33,7 +33,7 @@ export default async function Home() {
             working with JavaScript, React and TailwindCSS.
           </p>
 
-          <LinkButton path="about" text="Read more about me" style="primary">
+          <LinkButton path="/about" text="Read more about me" style="primary">
             <span className="group-hover:translate-x-1 transition-all inline-block">
               &rarr;
             </span>
@@ -47,13 +47,17 @@ export default async function Home() {
             <ProjectCard key={project.slug?.current} project={project} />
           ))}
         </div>
-        <LinkButton path="projects" text="View all projects" style="tertiary" />
+        <LinkButton
+          path="/projects"
+          text="View all projects"
+          style="tertiary"
+        />
       </Section>
 
       <Section title="Recent blog posts">
         <BlogPostPreviews posts={recentBlogPosts} />
 
-        <LinkButton path="blog" text="View all blog posts" style="tertiary" />
+        <LinkButton path="/blog" text="View all blog posts" style="tertiary" />
       </Section>
 
       <Contact />
