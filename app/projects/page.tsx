@@ -12,11 +12,12 @@ export type ProjectData = {
   content?: any[];
   date?: string;
   isFeatured?: boolean;
+  tech?: { link: string; title: string }[];
 };
 
 export default async function Projects() {
   const projects: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == 'project']{title, description, slug{current}, isFeatured}`
+    groq`*[_type == 'project'] | order(isFeatured desc){title, description, slug{current}, isFeatured,  tech[]->{title}}`
   );
 
   return (

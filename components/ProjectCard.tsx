@@ -16,8 +16,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       >
         <Container styles={['hover:bg-blue-900/30 transition-all']}>
           <p className="text-xl font-semibold mb-2">{project.title}</p>
-          <p>{project.description}</p>
-          {project.isFeatured && <InfoBadge text="Featured" style="primary" />}
+          <p className="mb-2">{project.description}</p>
+          <div className="flex flex-wrap gap-x-2">
+            {project.isFeatured && (
+              <InfoBadge text="Featured" style="primary" />
+            )}
+            {project.tech &&
+              project.tech.map((tech) => (
+                <InfoBadge
+                  key={tech.title}
+                  text={tech.title}
+                  style="secondary"
+                />
+              ))}
+          </div>
         </Container>
       </Link>
     </div>

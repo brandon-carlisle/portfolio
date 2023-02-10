@@ -9,7 +9,10 @@ type ContainerProps = {
 function Container({ children, styles }: ContainerProps) {
   return (
     <div
-      className={clsx('rounded-md bg-slate-900/50 p-8 w-full h-full', styles)}
+      className={clsx(
+        'rounded-md bg-slate-900/50 p-8 md:w-full md:h-full',
+        styles
+      )}
     >
       {children}
     </div>

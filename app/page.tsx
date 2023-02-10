@@ -4,18 +4,16 @@ import Header from '../components/Header';
 import LinkButton from '../components/LinkButton';
 import ProjectCard from '../components/ProjectCard';
 import Section from '../components/Section';
-import { parseDate } from '../lib/helpers';
 import { sanityClient } from '../lib/sanity';
 import type { BlogPostData } from './blog/page';
 import type { ProjectData } from './projects/page';
 import { groq } from 'next-sanity';
-import Link from 'next/link';
 
 export default async function Home() {
   // *[_type == "project" && isFeatured == true]{title, content, isFeatured}
 
   const featuredProjects: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == "project" && isFeatured == true]{title, slug{current}, content, isFeatured, description}`
+    groq`*[_type == "project" && isFeatured == true]{title, slug{current}, content, isFeatured, description, tech[]->{title}}`
   );
 
   const recentBlogPosts: BlogPostData[] = await sanityClient.fetch(
