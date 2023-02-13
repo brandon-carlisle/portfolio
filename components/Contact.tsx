@@ -10,7 +10,7 @@ function Contact() {
             Get in touch
           </p>
           <div className="flex flex-col gap-2">
-            <p className="text-lg">
+            <p className="text-lg font-light">
               You can email me at{' '}
               <a
                 className="font-semibold underline"
