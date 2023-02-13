@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar';
 import './global.css';
 import { Heebo } from '@next/font/google';
 import clsx from 'clsx';
+import { AnalyticsWrapper } from '../components/Analytics';
 
 const heebo = Heebo({ subsets: ['hebrew', 'latin'] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
           {children}
         </main>
+        <AnalyticsWrapper />
       </body>
     </html>
   );
