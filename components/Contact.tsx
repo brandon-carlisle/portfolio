@@ -5,18 +5,31 @@ function Contact() {
   return (
     <Section>
       <Container>
-        <h2 className="mb-2 text-center text-2xl font-light underline">
-          Contact
-        </h2>
-        <div className="flex flex-col">
-          <a href="mailto:brandon@carlisle.dev">Email</a>
-          <a
-            href="https://github.com/beanziii"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
+        <div className="grid grid-cols-2 items-center">
+          <p className="text-xl font-semibold leading-tight sm:text-4xl">
+            Get in touch
+          </p>
+          <div className="flex flex-col gap-2">
+            <p className="text-lg">
+              You can email me at{' '}
+              <a
+                className="font-semibold underline"
+                href="mailto:brandon@carlisle.dev"
+              >
+                brandon@carlisle.dev
+              </a>{' '}
+              or you can view my{' '}
+              <a
+                className="font-semibold underline"
+                href="https://github.com/brandon-carlisle"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>{' '}
+              profile to reach out there.
+            </p>
+          </div>
         </div>
       </Container>
     </Section>
