@@ -9,7 +9,7 @@ export const revalidate = 60;
 
 export async function generateStaticParams() {
   const blogPosts: BlogPostData[] = await sanityClient.fetch(
-    groq`*[_type == 'project']{slug{current}}`
+    groq`*[_type == 'post']{slug{current}}`
   );
 
   return blogPosts.map((blogPost) => {
