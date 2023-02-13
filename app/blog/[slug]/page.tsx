@@ -25,14 +25,14 @@ type BlogPostProps = {
 
 export default async function BlogPost({ params }: BlogPostProps) {
   const [blogPost]: BlogPostData[] = await sanityClient.fetch(
-    groq`*[_type == "post" && slug.current == "${params.slug}"]{title, author -> {name}, date, content}`
+    groq`*[_type == "post" && slug.current == "${params.slug}"]{title, date, content}`
   );
 
   return (
     <>
       <Section>
         <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
-          <p>{blogPost.author?.name}</p>
+          <p>Brandon Carlisle</p>
           <div className="h-[1px] w-1/2 bg-blue-500/20"></div>
           <p>{blogPost.date && parseDate(blogPost.date)}</p>
         </div>
