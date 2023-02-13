@@ -5,7 +5,7 @@ type SectionProps = {
   title?: string;
 };
 
-function Section({ children, title }: SectionProps) {
+export default function Section({ children, title }: SectionProps) {
   return (
     <section className="mb-24">
       {title && (
@@ -17,4 +17,3 @@ function Section({ children, title }: SectionProps) {
     </section>
   );
 }
-export default Section;

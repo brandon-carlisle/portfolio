@@ -6,7 +6,7 @@ type ContainerProps = {
   styles?: string[];
 };
 
-function Container({ children, styles }: ContainerProps) {
+export default function Container({ children, styles }: ContainerProps) {
   return (
     <div
       className={clsx(
@@ -18,5 +18,3 @@ function Container({ children, styles }: ContainerProps) {
     </div>
   );
 }
-
-export default Container;

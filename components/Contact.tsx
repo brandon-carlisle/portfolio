@@ -1,7 +1,7 @@
 import Container from './Container';
 import Section from './Section';
 
-function Contact() {
+export default function Contact() {
   return (
     <Section>
       <Container>
@@ -35,5 +35,3 @@ function Contact() {
     </Section>
   );
 }
-
-export default Contact;

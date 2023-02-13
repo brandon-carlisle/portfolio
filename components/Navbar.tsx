@@ -10,7 +10,7 @@ const menu = [
   { title: 'Blog', pathname: '/blog' },
 ];
 
-function Navbar() {
+export default function Navbar() {
   const segments = useSelectedLayoutSegments();
 
   return (
@@ -37,5 +37,3 @@ function Navbar() {
     </nav>
   );
 }
-
-export default Navbar;
