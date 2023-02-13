@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
-    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "autoprefixer": "^10.4.13",
