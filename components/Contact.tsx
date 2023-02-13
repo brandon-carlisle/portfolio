@@ -27,7 +27,7 @@ export default function Contact() {
               >
                 GitHub
               </a>{' '}
-              profile to reach out there.
+              to reach out there.
             </p>
           </div>
         </div>

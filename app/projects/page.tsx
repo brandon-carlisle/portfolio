@@ -1,4 +1,3 @@
-import Contact from '../../components/Contact';
 import Header from '../../components/Header';
 import ProjectCard from '../../components/ProjectCard';
 import Section from '../../components/Section';
@@ -32,7 +31,6 @@ export default async function Projects() {
           ))}
         </div>
       </Section>
-      <Contact />
     </>
   );
 }
