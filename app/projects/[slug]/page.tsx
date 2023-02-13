@@ -40,7 +40,7 @@ export default async function Project({ params }: ProjectProps) {
     <>
       <Section>
         {project.site && project.repo && (
-          <div className="flex justify-between items-center mb-12 text-gray-200 underline underline-offset-1 gap-2">
+          <div className="mb-12 flex items-center justify-between gap-2 text-gray-200 underline underline-offset-1">
             <a href={project.site} target="_blank" rel="noreferrer">
               Live site
             </a>

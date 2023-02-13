@@ -34,7 +34,7 @@ export default async function Home() {
           </p>
 
           <LinkButton path="about" text="Read more about me" style="primary">
-            <span className="group-hover:translate-x-1 transition-all inline-block">
+            <span className="inline-block transition-all group-hover:translate-x-1">
               &rarr;
             </span>
           </LinkButton>
@@ -42,7 +42,7 @@ export default async function Home() {
       </Header>
 
       <Section title="Featured projects">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 auto-rows-fr mb-8">
+        <div className="mb-8 grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug?.current} project={project} />
           ))}

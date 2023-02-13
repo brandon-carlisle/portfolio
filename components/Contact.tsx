@@ -1,10 +1,13 @@
+import Container from './Container';
 import Section from './Section';
 
 function Contact() {
   return (
     <Section>
-      <div>
-        <h2 className="mb-2">Feel free to reach out to me via</h2>
+      <Container>
+        <h2 className="mb-2 text-center text-2xl font-light underline">
+          Contact
+        </h2>
         <div className="flex flex-col">
           <a href="mailto:brandon@carlisle.dev">Email</a>
           <a
@@ -15,7 +18,7 @@ function Contact() {
             GitHub
           </a>
         </div>
-      </div>
+      </Container>
     </Section>
   );
 }

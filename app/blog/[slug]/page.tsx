@@ -31,7 +31,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   return (
     <>
       <Section>
-        <div className="flex justify-between items-center mb-12 text-gray-200/50 gap-2">
+        <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
           <p>{blogPost.author?.name}</p>
           <div className="h-[1px] w-1/2 bg-blue-500/20"></div>
           <p>{blogPost.date && parseDate(blogPost.date)}</p>

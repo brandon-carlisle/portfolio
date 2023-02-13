@@ -15,7 +15,7 @@ function Navbar() {
 
   return (
     <nav className="mx-auto flex max-w-screen-md items-center justify-between text-lg">
-      <Link href="/" className="tracking-wide py-2">
+      <Link href="/" className="py-2 tracking-wide">
         Brandon Carlisle
       </Link>
 
@@ -24,7 +24,7 @@ function Navbar() {
           <li key={item.pathname}>
             <Link
               className={clsx(
-                'font-normal hover:bg-blue-900/40 transition-all py-2 px-4 rounded-md',
+                'rounded-md py-2 px-4 font-normal transition-all hover:bg-blue-900/40',
                 item.pathname.slice(1) === segments[0] && 'bg-blue-900/30'
               )}
               href={item.pathname}

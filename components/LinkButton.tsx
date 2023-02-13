@@ -36,7 +36,7 @@ export default function LinkButton({
     <Link
       href={`/${path}`}
       className={clsx(
-        'font-semibold py-2 px-4 rounded-md group',
+        'group rounded-md py-2 px-4 font-semibold',
         styleColors[style].weight,
         styleColors[style].textColor,
         styleColors[style].backgroundColor

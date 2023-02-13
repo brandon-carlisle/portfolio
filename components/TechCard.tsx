@@ -1,4 +1,4 @@
-import { CardLinks } from '../pages/profile';
+import { CardLinks } from '../app/about/page';
 import Container from './Container';
 
 type TechCardProps = {

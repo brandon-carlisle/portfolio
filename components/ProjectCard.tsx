@@ -15,7 +15,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         href={`/projects/${project.slug?.current}`}
       >
         <Container styles={['hover:bg-blue-900/30 transition-all']}>
-          <p className="text-xl font-semibold mb-2">{project.title}</p>
+          <p className="mb-2 text-xl font-semibold">{project.title}</p>
           <p className="mb-2">{project.description}</p>
           <div className="flex flex-wrap gap-x-2">
             {project.isFeatured && (

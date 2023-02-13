@@ -9,7 +9,7 @@ function Section({ children, title }: SectionProps) {
   return (
     <section className="mb-24">
       {title && (
-        <h2 className="text-3xl sm:text-4xl leading-tight font-semibold mb-8">
+        <h2 className="mb-8 text-3xl font-semibold leading-tight sm:text-4xl">
           {title}
         </h2>
       )}

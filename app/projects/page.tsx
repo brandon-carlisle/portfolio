@@ -26,7 +26,7 @@ export default async function Projects() {
     <>
       <Header title="Projects" />
       <Section>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 auto-rows-fr">
+        <div className="grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.slug?.current} project={project} />
           ))}
