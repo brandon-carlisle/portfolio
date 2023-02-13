@@ -25,7 +25,7 @@ function Contact() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Gitub
+                GitHub
               </a>{' '}
               profile to reach out there.
             </p>
