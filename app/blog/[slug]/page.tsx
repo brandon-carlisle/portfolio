@@ -4,6 +4,7 @@ import { parseDate } from '../../../lib/helpers';
 import { sanityClient } from '../../../lib/sanity';
 import type { BlogPostData } from '../page';
 import { groq } from 'next-sanity';
+import Divider from '../../../components/Divider';
 
 export const revalidate = 60;
 
@@ -31,11 +32,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
   return (
     <>
       <Section>
-        <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
-          <p>Brandon Carlisle</p>
-          <div className="h-[1px] w-1/2 bg-blue-500/20"></div>
-          <p>{blogPost.date && parseDate(blogPost.date)}</p>
-        </div>
+        <Divider
+          childLeft={<p>Brandon Carlisle</p>}
+          childRight={<p>{blogPost.date && parseDate(blogPost.date)}</p>}
+        />
 
         <Prose content={blogPost.content} />
       </Section>
