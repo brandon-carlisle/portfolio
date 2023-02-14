@@ -63,6 +63,7 @@ function MobileMenu({ segments }: { segments: string[] }) {
         type="button"
         onClick={handleMenuClick}
         className="absolute top-4 right-0 z-50 -translate-x-1/2 transition-all active:translate-y-1 md:hidden"
+        aria-label="navigation menu button"
       >
         <TbMenu2 className="text-2xl" />
       </button>
