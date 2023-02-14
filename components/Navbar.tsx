@@ -92,7 +92,7 @@ function MobileMenu({ segments }: { segments: string[] }) {
                   >
                     <Link
                       className={clsx(
-                        'rounded-md py-2 px-4 text-2xl font-normal transition-colors hover:bg-blue-900/40',
+                        'rounded-md py-2 px-4 text-2xl font-normal transition-colors',
                         item.pathname.slice(1) === segments[0] &&
                           'bg-blue-900/30'
                       )}
