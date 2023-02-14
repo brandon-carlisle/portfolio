@@ -40,30 +40,28 @@ export default async function Project({ params }: ProjectProps) {
   return (
     <>
       <Section>
-        {project.site && project.repo && (
-          <Divider
-            childLeft={
-              <a
-                href={project.site}
-                target="_blank"
-                rel="noreferrer"
-                className="text-gray-200 underline underline-offset-1"
-              >
-                Live Site
-              </a>
-            }
-            childRight={
-              <a
-                href={project.repo}
-                target="_blank"
-                rel="noreferrer"
-                className="text-gray-200 underline underline-offset-1"
-              >
-                Source Code
-              </a>
-            }
-          />
-        )}
+        <Divider
+          childLeft={
+            <a
+              href={project.site}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-200 underline underline-offset-1"
+            >
+              Live Site
+            </a>
+          }
+          childRight={
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-200 underline underline-offset-1"
+            >
+              Source Code
+            </a>
+          }
+        />
 
         <Prose content={project.content} />
       </Section>

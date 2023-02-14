@@ -5,6 +5,7 @@ import { sanityClient } from '../../../lib/sanity';
 import type { BlogPostData } from '../page';
 import { groq } from 'next-sanity';
 import Divider from '../../../components/Divider';
+import { notFound } from 'next/navigation';
 
 export const revalidate = 60;
 
@@ -28,6 +29,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
   const [blogPost]: BlogPostData[] = await sanityClient.fetch(
     groq`*[_type == "post" && slug.current == "${params.slug}"]{title, date, content}`
   );
+
+  if (!blogPost) notFound();
 
   return (
     <>
