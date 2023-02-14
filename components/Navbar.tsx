@@ -82,14 +82,10 @@ function MobileMenu({ segments }: { segments: string[] }) {
       {menuIsOpen && (
         <RemoveScroll>
           <nav className="absolute inset-0 min-h-screen min-w-full bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-slate-900 via-blue-900 to-black p-4 md:hidden">
-            <div className="place-it relative grid min-h-screen min-w-full">
+            <div className="relative grid min-h-screen min-w-full place-items-center">
               <ul className="flex flex-col items-center justify-center gap-8">
                 {menu.map((item) => (
-                  <li
-                    key={item.pathname}
-                    className="list-none"
-                    onClick={handleMenuClick}
-                  >
+                  <li key={item.pathname}>
                     <Link
                       className={clsx(
                         'rounded-md py-2 px-4 text-2xl font-normal',
@@ -97,6 +93,7 @@ function MobileMenu({ segments }: { segments: string[] }) {
                           'bg-blue-900/30'
                       )}
                       href={item.pathname}
+                      onClick={handleMenuClick}
                     >
                       {item.title}
                     </Link>
