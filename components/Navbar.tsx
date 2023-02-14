@@ -36,7 +36,7 @@ function DesktopMenu({ segments }: { segments: string[] }) {
           <li key={item.pathname}>
             <Link
               className={clsx(
-                'rounded-md py-2 px-4 font-normal transition-all hover:bg-blue-900/40',
+                'rounded-md py-2 px-4 font-normal transition-colors hover:bg-blue-900/40',
                 item.pathname.slice(1) === segments[0] && 'bg-blue-900/30'
               )}
               href={item.pathname}
