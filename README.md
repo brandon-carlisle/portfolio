@@ -1,4 +1,4 @@
-This is my personal website project setup with Next and Tailwind.
+This is my personal website - Built using Next.js, Tailwind CSS & Sanity.
 
 ## Getting Started
 
