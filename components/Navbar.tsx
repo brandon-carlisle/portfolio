@@ -31,7 +31,7 @@ function DesktopMenu({ segments }: { segments: string[] }) {
         Brandon Carlisle
       </Link>
 
-      <ul className="flex">
+      <ul className="flex gap-2">
         {menu.map((item) => (
           <li key={item.pathname}>
             <Link
