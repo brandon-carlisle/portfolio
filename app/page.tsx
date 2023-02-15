@@ -41,20 +41,28 @@ export default async function Home() {
         </div>
       </Header>
 
-      <Section title="Featured projects">
-        <div className="mb-8 grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug?.current} project={project} />
-          ))}
-        </div>
-        <LinkButton path="projects" text="View all projects" style="tertiary" />
-      </Section>
+      {featuredProjects && featuredProjects.length > 0 && (
+        <Section title="Featured projects">
+          <div className="mb-8 grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.slug?.current} project={project} />
+            ))}
+          </div>
+          <LinkButton
+            path="projects"
+            text="View all projects"
+            style="tertiary"
+          />
+        </Section>
+      )}
 
-      <Section title="Recent blog posts">
-        <BlogPostPreviews posts={recentBlogPosts} />
+      {recentBlogPosts && recentBlogPosts.length > 0 && (
+        <Section title="Recent blog posts">
+          <BlogPostPreviews posts={recentBlogPosts} />
 
-        <LinkButton path="blog" text="View all blog posts" style="tertiary" />
-      </Section>
+          <LinkButton path="blog" text="View all blog posts" style="tertiary" />
+        </Section>
+      )}
 
       <Contact />
     </>

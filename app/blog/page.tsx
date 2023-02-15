@@ -16,6 +16,9 @@ export default async function Blog() {
     groq`*[_type == 'post'] | order(_createdAt desc){title, date, slug{current}}`
   );
 
+  if (!posts || !posts.length)
+    return <p className="text-center">No blog posts yet, come back later.</p>;
+
   return (
     <>
       <Header title="Blog" />

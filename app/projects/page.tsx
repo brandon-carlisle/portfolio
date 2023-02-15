@@ -21,6 +21,9 @@ export default async function Projects() {
     groq`*[_type == 'project'] | order(isFeatured desc){title, description, slug{current}, isFeatured,  tech[]->{title}}`
   );
 
+  if (!projects || !projects.length)
+    return <p className="text-center">No projects yet, come back later.</p>;
+
   return (
     <>
       <Header title="Projects" />
