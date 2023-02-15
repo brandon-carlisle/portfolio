@@ -4,7 +4,7 @@ import Section from '../../components/Section';
 import { sanityClient } from '../../lib/sanity';
 import { groq } from 'next-sanity';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export type BlogPostData = {
   title?: string;

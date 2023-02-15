@@ -4,6 +4,8 @@ import Section from '../../components/Section';
 import { sanityClient } from '../../lib/sanity';
 import { groq } from 'next-sanity';
 
+export const revalidate = 60;
+
 export type ProjectData = {
   title?: string;
   slug?: { current: string };

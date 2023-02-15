@@ -9,6 +9,8 @@ import type { BlogPostData } from './blog/page';
 import type { ProjectData } from './projects/page';
 import { groq } from 'next-sanity';
 
+export const revalidate = 60;
+
 export default async function Home() {
   // *[_type == "project" && isFeatured == true]{title, content, isFeatured}
 
