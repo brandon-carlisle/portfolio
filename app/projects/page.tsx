@@ -23,18 +23,19 @@ export default async function Projects() {
     groq`*[_type == 'project'] | order(isFeatured desc){title, description, slug{current}, isFeatured,  tech[]->{title}}`
   );
 
-  if (!projects || !projects.length)
-    return <p className="text-center">No projects yet, come back later.</p>;
-
   return (
     <>
       <Header title="Projects" />
       <Section>
-        <div className="grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard key={project.slug?.current} project={project} />
-          ))}
-        </div>
+        {!projects || !projects.length ? (
+          <p className="text-center">No blog posts yet, come back later.</p>
+        ) : (
+          <div className="grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
+            {projects.map((project) => (
+              <ProjectCard key={project.slug?.current} project={project} />
+            ))}
+          </div>
+        )}
       </Section>
     </>
   );
