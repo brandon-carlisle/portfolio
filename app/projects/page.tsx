@@ -28,7 +28,7 @@ export default async function Projects() {
       <Header title="Projects" />
       <Section>
         {!projects || !projects.length ? (
-          <p className="text-center">No blog posts yet, come back later.</p>
+          <p className="text-center">No projects yet, come back later.</p>
         ) : (
           <div className="grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
             {projects.map((project) => (
