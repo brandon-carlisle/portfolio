@@ -3,6 +3,7 @@ import './global.css';
 import { Heebo } from '@next/font/google';
 import clsx from 'clsx';
 import { AnalyticsWrapper } from '../components/Analytics';
+import AnimationWrapper from '../components/AnimationWrapper';
 
 const heebo = Heebo({ subsets: ['hebrew', 'latin'] });
 
@@ -20,9 +21,11 @@ export default function RootLayout({
         )}
       >
         <Navbar />
-        <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
-          {children}
-        </main>
+        <AnimationWrapper>
+          <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
+            {children}
+          </main>
+        </AnimationWrapper>
         <AnalyticsWrapper />
       </body>
     </html>
