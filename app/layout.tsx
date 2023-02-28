@@ -1,9 +1,8 @@
+import AnimationWrapper from '../components/AnimationWrapper';
 import Navbar from '../components/Navbar';
 import './global.css';
 import { Heebo } from '@next/font/google';
 import clsx from 'clsx';
-import { AnalyticsWrapper } from '../components/Analytics';
-import AnimationWrapper from '../components/AnimationWrapper';
 
 const heebo = Heebo({ subsets: ['hebrew', 'latin'] });
 
@@ -26,7 +25,6 @@ export default function RootLayout({
             {children}
           </main>
         </AnimationWrapper>
-        <AnalyticsWrapper />
       </body>
     </html>
   );
