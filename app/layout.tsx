@@ -1,4 +1,3 @@
-import AnimationWrapper from '../components/AnimationWrapper';
 import Navbar from '../components/Navbar';
 import './global.css';
 import { Heebo } from '@next/font/google';
@@ -20,11 +19,10 @@ export default function RootLayout({
         )}
       >
         <Navbar />
-        <AnimationWrapper>
-          <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
-            {children}
-          </main>
-        </AnimationWrapper>
+
+        <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
+          {children}
+        </main>
       </body>
     </html>
   );
