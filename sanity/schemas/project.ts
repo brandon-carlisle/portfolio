@@ -51,7 +51,6 @@ export default defineType({
           to: { type: 'tech' },
         },
       ],
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'content',
