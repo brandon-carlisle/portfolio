@@ -3,8 +3,15 @@ import Header from '../../components/Header';
 import Section from '../../components/Section';
 import { sanityClient } from '../../lib/sanity';
 import { groq } from 'next-sanity';
+import { type Metadata } from 'next';
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description:
+    'Read any blog posts about frontend web development I have written.',
+};
 
 export type BlogPostData = {
   title?: string;

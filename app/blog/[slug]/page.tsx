@@ -9,6 +9,8 @@ import { notFound } from 'next/navigation';
 
 export const revalidate = 60;
 
+// TODO: Add dynamic metadata here.
+
 export async function generateStaticParams() {
   const blogPosts: BlogPostData[] = await sanityClient.fetch(
     groq`*[_type == 'post']{slug{current}}`

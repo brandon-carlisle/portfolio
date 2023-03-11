@@ -8,6 +8,8 @@ import Divider from '../../../components/Divider';
 
 export const revalidate = 60;
 
+// TODO: Add dynamic metadata here.
+
 export async function generateStaticParams() {
   const projects: ProjectData[] = await sanityClient.fetch(
     groq`*[_type == 'project']{slug{current}}`

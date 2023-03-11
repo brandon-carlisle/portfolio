@@ -1,7 +1,6 @@
 import Contact from '../../components/Contact';
 import Header from '../../components/Header';
 import Section from '../../components/Section';
-
 import {
   SiJavascript,
   SiTypescript,
@@ -9,6 +8,12 @@ import {
   SiTailwindcss,
   SiReact,
 } from 'react-icons/si';
+import { type Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Read more about me.',
+};
 
 export default function About() {
   return (
