@@ -26,13 +26,13 @@ export default async function Home() {
   return (
     <>
       <Header
-        title="Web developer interested in modern tools, and making cool
+        title="Frontend web developer interested in modern tools, and making cool
           stuff on the web."
       >
         <div>
           <p className="mb-7 text-lg">
-            Hey there I&apos;m Brandon, a web developer based in England. I love
-            working with JavaScript, React and TailwindCSS.
+            Hey there I&apos;m Brandon, a frontend web developer based in
+            England. I love working with JavaScript, React and TailwindCSS.
           </p>
 
           <LinkButton path="about" text="Read more about me" style="primary">

@@ -3,8 +3,14 @@ import ProjectCard from '../../components/ProjectCard';
 import Section from '../../components/Section';
 import { sanityClient } from '../../lib/sanity';
 import { groq } from 'next-sanity';
+import { type Metadata } from 'next';
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description: 'View my personal web dev projects I have worked on.',
+};
 
 export type ProjectData = {
   title?: string;

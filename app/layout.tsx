@@ -1,9 +1,25 @@
 import Navbar from '../components/Navbar';
 import './global.css';
-import { Heebo } from '@next/font/google';
+import { Heebo } from 'next/font/google';
 import clsx from 'clsx';
+import { type Metadata } from 'next';
 
 const heebo = Heebo({ subsets: ['hebrew', 'latin'] });
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Brandon Carlisle',
+    template: '%s | Brandon Carlisle',
+  },
+  authors: { name: 'Brandon Carlisle' },
+  description:
+    'Frontend web developer interested in modern tools, and making cool stuff on the web.',
+  colorScheme: 'dark',
+  viewport: { width: 'device-width', initialScale: 1 },
+  icons: {
+    shortcut: '/favicon.ico',
+  },
+};
 
 export default function RootLayout({
   children,
