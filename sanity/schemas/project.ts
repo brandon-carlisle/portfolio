@@ -1,5 +1,5 @@
-import {defineType, defineField} from 'sanity'
-import {format, parseISO} from 'date-fns'
+import { defineType, defineField } from 'sanity';
+import { format, parseISO } from 'date-fns';
 
 export default defineType({
   name: 'project',
@@ -48,10 +48,9 @@ export default defineType({
       of: [
         {
           type: 'reference',
-          to: {type: 'tech'},
+          to: { type: 'tech' },
         },
       ],
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'content',
@@ -80,7 +79,8 @@ export default defineType({
       type: 'boolean',
       initialValue: false,
       validation: (rule) => rule.required(),
-      description: 'If featured set to true, will be displayed on "Featured Section" of homepage',
+      description:
+        'If featured set to true, will be displayed on "Featured Section" of homepage',
     }),
   ],
   preview: {
@@ -89,10 +89,5 @@ export default defineType({
       author: 'author.name',
       date: 'date',
     },
-    prepare({title, media, date}) {
-      const subtitles = [date && `on ${format(parseISO(date), 'LLL d, yyyy')}`].filter(Boolean)
-
-      return {title, media, subtitle: subtitles.join(' ')}
-    },
   },
-})
+});
