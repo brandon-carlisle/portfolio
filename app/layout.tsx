@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar';
 import './global.css';
-import { Heebo } from '@next/font/google';
+import { Heebo } from "next/font/google";
 import clsx from 'clsx';
 
 const heebo = Heebo({ subsets: ['hebrew', 'latin'] });
