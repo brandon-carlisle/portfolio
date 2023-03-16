@@ -10,7 +10,7 @@ import { RemoveScroll } from 'react-remove-scroll';
 const menu = [
   { title: 'About', pathname: '/about' },
   { title: 'Projects', pathname: '/projects' },
-  { title: 'Blog', pathname: '/blog' },
+  // { title: 'Blog', pathname: '/blog' },
 ];
 
 export default function Navbar() {

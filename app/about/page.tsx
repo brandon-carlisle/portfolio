@@ -9,6 +9,7 @@ import {
   SiReact,
 } from 'react-icons/si';
 import { type Metadata } from 'next';
+import Prose from '../../components/Prose';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -21,11 +22,19 @@ export default function About() {
       <Header title="About Me" />
 
       <Section>
-        <p className="mb-8 text-xl">
-          I&apos;m Brandon, a web developer (mainly frontend but currently
-          learning backend). I&apos;m passionate about making cool and
-          interesting web apps using modern technologies. I am based in the UK.
-        </p>
+        <Prose>
+          <p>
+            Hi, I&apos;m Brandon - a frontend web developer based in the UK with
+            experience working on both frontend and backend development
+            projects. I&apos;m passionate about creating modern and engaging web
+            applications that provide great user experiences.
+          </p>
+          <p>
+            I&apos;m actively seeking frontend web developer roles and open to
+            freelance projects. If you&apos;re interested in collaborating or
+            have any questions, please don&apos;t hesitate to get in touch!
+          </p>
+        </Prose>
       </Section>
 
       <Section title="Tech I love to use">

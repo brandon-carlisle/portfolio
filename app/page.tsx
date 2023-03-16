@@ -31,8 +31,9 @@ export default async function Home() {
       >
         <div>
           <p className="mb-7 text-lg">
-            Hey there I&apos;m Brandon, a frontend web developer based in
-            England. I love working with JavaScript, React and TailwindCSS.
+            Hi, I&apos;m Brandon - a frontend web developer based in the UK with
+            experience working on both frontend and backend development
+            projects.
           </p>
 
           <LinkButton path="about" text="Read more about me" style="primary">
