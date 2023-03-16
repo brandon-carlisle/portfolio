@@ -32,8 +32,6 @@ export async function generateMetadata({
     groq`*[_type == "project" && slug.current == "${params.slug}"]{title}`
   );
 
-  console.log(project);
-
   return { title: project.title };
 }
 
@@ -51,6 +49,8 @@ export default async function Project({ params }: ProjectParams) {
   const project = await getProject({ slug: params.slug });
 
   if (!project) notFound();
+
+  console.log('Is the rendering twice?');
 
   return (
     <>

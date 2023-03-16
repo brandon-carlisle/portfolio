@@ -24,8 +24,6 @@ export async function generateMetadata({
     groq`*[_type == "post" && slug.current == "${params.slug}"]{title}`
   );
 
-  console.log(project);
-
   return { title: project.title };
 }
 
