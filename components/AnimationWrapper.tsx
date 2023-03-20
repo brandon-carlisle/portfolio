@@ -11,7 +11,7 @@ export default function AnimationWrapper({ children }: AnimationWrapperProps) {
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
       <motion.div
         key={pathname}
         initial={{ opacity: 0, y: 20 }}
