@@ -1,26 +1,17 @@
-import BlogPostPreviews from '../components/BlogPostPreviews';
 import Contact from '../components/Contact';
 import Header from '../components/Header';
 import LinkButton from '../components/LinkButton';
 import ProjectCard from '../components/ProjectCard';
 import Section from '../components/Section';
 import { sanityClient } from '../lib/sanity';
-import type { BlogPostData } from './blog/page';
 import type { ProjectData } from './projects/page';
 import { groq } from 'next-sanity';
 
 export const revalidate = 60;
 
 export default async function Home() {
-  // *[_type == "project" && isFeatured == true]{title, content, isFeatured}
-
   const featuredProjects: ProjectData[] = await sanityClient.fetch(
     groq`*[_type == "project" && isFeatured == true]{title, slug{current}, content, isFeatured, description, tech[]->{title}}`
-  );
-
-  const recentBlogPosts: BlogPostData[] = await sanityClient.fetch(
-    // gets last two blog posts - newest first
-    groq`*[_type == 'post'] | order(_createdAt desc)[0..1]{title, date, slug{current}}`
   );
 
   return (
@@ -56,14 +47,6 @@ export default async function Home() {
             text="View all projects"
             style="tertiary"
           />
-        </Section>
-      )}
-
-      {recentBlogPosts && recentBlogPosts.length > 0 && (
-        <Section title="Recent blog posts">
-          <BlogPostPreviews posts={recentBlogPosts} />
-
-          <LinkButton path="blog" text="View all blog posts" style="tertiary" />
         </Section>
       )}
 
