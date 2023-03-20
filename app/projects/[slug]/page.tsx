@@ -7,16 +7,6 @@ import { notFound } from 'next/navigation';
 import Divider from '../../../components/Divider';
 import type { Metadata } from 'next';
 
-export const revalidate = 60;
-
-async function getProject({ slug }: { slug: string }) {
-  const [project]: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == "project" && slug.current == "${slug}"]{title, content, repo, site}`
-  );
-
-  return project;
-}
-
 // TODO: Add dynamic metadata here.
 
 type ProjectParams = {
@@ -43,6 +33,14 @@ export async function generateStaticParams() {
   return projects.map((project) => {
     return { slug: project.slug?.current };
   });
+}
+
+async function getProject({ slug }: { slug: string }) {
+  const [project]: ProjectData[] = await sanityClient.fetch(
+    groq`*[_type == "project" && slug.current == "${slug}"]{title, content, repo, site}`
+  );
+
+  return project;
 }
 
 export default async function Project({ params }: ProjectParams) {
