@@ -50,8 +50,6 @@ export default async function Project({ params }: ProjectParams) {
 
   if (!project) notFound();
 
-  console.log('Is the rendering twice?');
-
   return (
     <>
       <Section>

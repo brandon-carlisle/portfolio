@@ -25,7 +25,7 @@ export default function About() {
         <Prose>
           <p>
             Hi, I&apos;m Brandon - a frontend web developer based in the UK with
-            experience working on both frontend and backend development
+            1+ years experience working on both frontend and backend development
             projects. I&apos;m passionate about creating modern and engaging web
             applications that provide great user experiences.
           </p>
