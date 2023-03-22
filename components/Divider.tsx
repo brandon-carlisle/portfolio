@@ -1,7 +1,7 @@
-type DividerProps = {
+interface DividerProps {
   childLeft: React.ReactNode;
   childRight: React.ReactNode;
-};
+}
 
 export default function Divider({ childLeft, childRight }: DividerProps) {
   return (

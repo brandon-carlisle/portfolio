@@ -1,10 +1,11 @@
-import { urlFor } from '../lib/helpers';
+import { urlFor } from '@lib/helpers';
 import { getImageDimensions } from '@sanity/asset-utils';
 import Image from 'next/image';
+import { type PortableTextComponents } from '@portabletext/react';
 
-const PortableTextComponents = {
+const PortableTextComponents: PortableTextComponents = {
   types: {
-    image: ({ value }: any) => {
+    image: ({ value }) => {
       const dimensions = getImageDimensions(value);
 
       return (
@@ -15,7 +16,7 @@ const PortableTextComponents = {
           height={dimensions.height}
           priority
         />
-      );
+      )
     },
   },
 };

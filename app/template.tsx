@@ -1,4 +1,4 @@
-import AnimationWrapper from '../components/AnimationWrapper';
+import AnimationWrapper from '@components/AnimationWrapper';
 
 interface TemplateProps {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import {defineType, defineField} from 'sanity'
+import { defineField, defineType } from 'sanity/lib/exports';
 
 export default defineType({
   name: 'tech',
@@ -23,4 +23,4 @@ export default defineType({
       title: 'title',
     },
   },
-})
+});

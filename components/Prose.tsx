@@ -1,8 +1,10 @@
-import PortableTextComponents from './PortableTextComponents';
 import { PortableText } from '@portabletext/react';
+import type { PortableTextBlock } from '@portabletext/types';
+
+import PortableTextComponents from './PortableTextComponents';
 
 interface ProseProps {
-  content?: any;
+  content?: PortableTextBlock;
   children?: React.ReactNode;
 }
 

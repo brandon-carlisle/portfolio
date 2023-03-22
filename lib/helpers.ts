@@ -1,7 +1,8 @@
-import { sanityClient } from './sanity';
-import { SanityImageAsset } from '@sanity/asset-utils';
+import type { SanityImageAsset } from '@sanity/asset-utils';
 import imageUrlBuilder from '@sanity/image-url';
 import { format, parseISO } from 'date-fns';
+
+import { sanityClient } from './sanity';
 
 const builder = imageUrlBuilder(sanityClient);
 

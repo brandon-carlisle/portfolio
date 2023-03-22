@@ -1,15 +1,16 @@
-import Contact from '../../components/Contact';
-import Header from '../../components/Header';
-import Section from '../../components/Section';
+import { type Metadata } from 'next';
 import {
   SiJavascript,
-  SiTypescript,
   SiNextdotjs,
-  SiTailwindcss,
   SiReact,
+  SiTailwindcss,
+  SiTypescript,
 } from 'react-icons/si';
-import { type Metadata } from 'next';
-import Prose from '../../components/Prose';
+
+import Contact from '@components/Contact';
+import Header from '@components/Header';
+import Prose from '@components/Prose';
+import Section from '@components/Section';
 
 export const metadata: Metadata = {
   title: 'About',

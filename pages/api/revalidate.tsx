@@ -1,10 +1,11 @@
 import { isValidRequest } from '@sanity/webhook';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-type Data = {
+interface Data {
   message: string;
-};
+}
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const secret = process.env.SANITY_WEBHOOK_SECRET!;
 
 export default async function handler(

@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 
-type LinkButtonProps = {
+interface LinkButtonProps {
   path: string;
   text: string;
   style: 'primary' | 'secondary' | 'tertiary';
   children?: React.ReactNode;
-};
+}
 
 const styleColors = {
   primary: {
@@ -39,7 +39,7 @@ export default function LinkButton({
         'group rounded-md py-2 px-4 font-semibold',
         styleColors[style].weight,
         styleColors[style].textColor,
-        styleColors[style].backgroundColor
+        styleColors[style].backgroundColor,
       )}
     >
       {text} {children}

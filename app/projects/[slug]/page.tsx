@@ -1,25 +1,28 @@
-import Prose from '../../../components/Prose';
-import Section from '../../../components/Section';
-import { sanityClient } from '../../../lib/sanity';
-import type { ProjectData } from '../page';
+import type { Metadata } from 'next';
 import { groq } from 'next-sanity';
 import { notFound } from 'next/navigation';
-import Divider from '../../../components/Divider';
-import type { Metadata } from 'next';
+
+import { sanityClient } from '@lib/sanity';
+
+import Divider from '@components/Divider';
+import Prose from '@components/Prose';
+import Section from '@components/Section';
+
+import type { ProjectData } from '../page';
 
 // TODO: Add dynamic metadata here.
 
-type ProjectParams = {
+interface ProjectParams {
   params: {
     slug: string;
   };
-};
+}
 
 export async function generateMetadata({
   params,
 }: ProjectParams): Promise<Metadata> {
   const [project]: { title: string }[] = await sanityClient.fetch(
-    groq`*[_type == "project" && slug.current == "${params.slug}"]{title}`
+    groq`*[_type == "project" && slug.current == "${params.slug}"]{title}`,
   );
 
   return { title: project.title };
@@ -27,7 +30,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const projects: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == 'project']{slug{current}}`
+    groq`*[_type == 'project']{slug{current}}`,
   );
 
   return projects.map((project) => {
@@ -37,7 +40,7 @@ export async function generateStaticParams() {
 
 async function getProject({ slug }: { slug: string }) {
   const [project]: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == "project" && slug.current == "${slug}"]{title, content, repo, site}`
+    groq`*[_type == "project" && slug.current == "${slug}"]{title, content, repo, site}`,
   );
 
   return project;

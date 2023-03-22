@@ -1,5 +1,4 @@
-import { defineType, defineField } from 'sanity';
-import { format, parseISO } from 'date-fns';
+import { defineField, defineType } from 'sanity/lib/exports';
 
 export default defineType({
   name: 'project',

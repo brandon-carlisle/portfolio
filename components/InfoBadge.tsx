@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 
-type InfoBadgeProps = {
+interface InfoBadgeProps {
   text: string;
   style: 'primary' | 'secondary';
-};
+}
 
 const styleColors = {
   primary: {
@@ -19,7 +19,7 @@ export default function InfoBadge({ text, style }: InfoBadgeProps) {
     <span
       className={clsx(
         'align-center my-1 flex w-max rounded-full border-2 border-green-500 px-4 py-2 text-sm font-semibold text-gray-400',
-        styleColors[style].borderColor
+        styleColors[style].borderColor,
       )}
     >
       {text}

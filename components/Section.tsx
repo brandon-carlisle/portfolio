@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-type SectionProps = {
+interface SectionProps {
   children: ReactNode;
   title?: string;
-};
+}
 
 export default function Section({ children, title }: SectionProps) {
   return (

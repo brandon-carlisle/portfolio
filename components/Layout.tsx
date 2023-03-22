@@ -1,9 +1,10 @@
-import Navbar from './Navbar';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-type LayoutProps = {
+import Navbar from './Navbar';
+
+interface LayoutProps {
   children: ReactNode;
-};
+}
 
 function Layout({ children }: LayoutProps) {
   return (

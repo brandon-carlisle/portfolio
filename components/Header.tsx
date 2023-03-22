@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-type HeaderProps = {
+interface HeaderProps {
   title: string;
   children?: ReactNode;
-};
+}
 
 export default function Header({ title, children }: HeaderProps) {
   return (

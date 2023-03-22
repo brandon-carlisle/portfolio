@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity/lib/exports';
 
 export default defineType({
   name: 'author',
@@ -15,8 +15,8 @@ export default defineType({
       name: 'picture',
       title: 'Picture',
       type: 'image',
-      options: {hotspot: true},
+      options: { hotspot: true },
       validation: (rule) => rule.required(),
     }),
   ],
-})
+});

@@ -1,11 +1,12 @@
+import Link from 'next/link';
+
 import type { ProjectData } from '../app/projects/page';
 import Container from './Container';
 import InfoBadge from './InfoBadge';
-import Link from 'next/link';
 
-type ProjectCardProps = {
+interface ProjectCardProps {
   project: ProjectData;
-};
+}
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (

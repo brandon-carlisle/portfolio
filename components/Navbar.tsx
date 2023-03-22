@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useSelectedLayoutSegments } from 'next/navigation';
-import { TbMenu2 } from 'react-icons/tb';
 import { useState } from 'react';
+import { TbMenu2 } from 'react-icons/tb';
 import { RemoveScroll } from 'react-remove-scroll';
 
 const menu = [
@@ -36,7 +36,7 @@ function DesktopMenu({ segments }: { segments: string[] }) {
             <Link
               className={clsx(
                 'rounded-md py-2 px-4 font-normal transition-colors hover:bg-blue-900/40',
-                item.pathname.slice(1) === segments[0] && 'bg-blue-900/30'
+                item.pathname.slice(1) === segments[0] && 'bg-blue-900/30',
               )}
               href={item.pathname}
             >
@@ -90,7 +90,7 @@ function MobileMenu({ segments }: { segments: string[] }) {
                       className={clsx(
                         'rounded-md py-2 px-4 text-2xl font-normal',
                         item.pathname.slice(1) === segments[0] &&
-                          'bg-blue-900/30'
+                          'bg-blue-900/30',
                       )}
                       href={item.pathname}
                       onClick={handleMenuClick}

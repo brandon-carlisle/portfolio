@@ -1,17 +1,20 @@
-import Contact from '../components/Contact';
-import Header from '../components/Header';
-import LinkButton from '../components/LinkButton';
-import ProjectCard from '../components/ProjectCard';
-import Section from '../components/Section';
-import { sanityClient } from '../lib/sanity';
-import type { ProjectData } from './projects/page';
 import { groq } from 'next-sanity';
+
+import { sanityClient } from '@lib/sanity';
+
+import Contact from '@components/Contact';
+import Header from '@components/Header';
+import LinkButton from '@components/LinkButton';
+import ProjectCard from '@components/ProjectCard';
+import Section from '@components/Section';
+
+import type { ProjectData } from './projects/page';
 
 export const revalidate = 60;
 
 export default async function Home() {
   const featuredProjects: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == "project" && isFeatured == true]{title, slug{current}, content, isFeatured, description, tech[]->{title}}`
+    groq`*[_type == "project" && isFeatured == true]{title, slug{current}, content, isFeatured, description, tech[]->{title}}`,
   );
 
   return (
