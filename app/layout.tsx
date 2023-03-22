@@ -31,6 +31,18 @@ export const metadata: Metadata = {
     'Next.js',
     'React',
   ],
+  openGraph: {
+    title: 'Brandon Carlisle | Frontend Web Developer',
+    description:
+      'Frontend web developer interested in modern tools, and making cool stuff on the web',
+    images: [
+      {
+        url: 'https://carlisle.dev/api/og',
+        width: 1920,
+        height: 1080,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
