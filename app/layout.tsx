@@ -10,10 +10,12 @@ const heebo = Heebo({ subsets: ['hebrew', 'latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Brandon Carlisle',
+    default: 'Brandon Carlisle | Frontend Web Developer',
     template: '%s | Brandon Carlisle',
   },
-  authors: { name: 'Brandon Carlisle' },
+  applicationName: 'Brandon Carlisle | Frontend Web Developer',
+  authors: { name: 'Brandon Carlisle', url: 'https://www.carlisle.dev/' },
+  publisher: 'Brandon Carlisle',
   description:
     'Frontend web developer interested in modern tools, and making cool stuff on the web.',
   colorScheme: 'dark',
@@ -21,6 +23,14 @@ export const metadata: Metadata = {
   icons: {
     shortcut: '/favicon.ico',
   },
+  keywords: [
+    'brandon',
+    'carlisle',
+    'frontend',
+    'developer',
+    'Next.js',
+    'React',
+  ],
 };
 
 export default function RootLayout({

@@ -25,7 +25,10 @@ export async function generateMetadata({
     groq`*[_type == "project" && slug.current == "${params.slug}"]{title}`,
   );
 
-  return { title: project.title };
+  return {
+    title: project.title,
+    description: `${project.title} is a web development project by Brandon Carlisle`,
+  };
 }
 
 export async function generateStaticParams() {
