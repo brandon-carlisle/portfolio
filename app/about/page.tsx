@@ -35,6 +35,13 @@ export default function About() {
             freelance projects. If you&apos;re interested in collaborating or
             have any questions, please don&apos;t hesitate to get in touch!
           </p>
+
+          <p>
+            You can also view my CV{' '}
+            <a href="https://docs.google.com/document/d/e/2PACX-1vQE_ijBMvo6JKk7n7Hhk0bR9JwmB6xHMxV56dycpD9gRMR_bPu9nWXc8dQ2y0XkU_L5TuVpIUDKf5vA/pub">
+              here.
+            </a>
+          </p>
         </Prose>
       </Section>
 
