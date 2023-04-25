@@ -6,7 +6,7 @@ import Navbar from '@components/Navbar';
 
 import './global.css';
 
-const arimo = Fira_Sans({
+const fira = Fira_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 });
@@ -58,7 +58,7 @@ export default function RootLayout({
       <body
         className={clsx(
           'relative min-h-screen min-w-full overscroll-y-none bg-zinc-900 p-4 text-base text-zinc-50 antialiased md:text-lg lg:text-xl',
-          arimo.className,
+          fira.className,
         )}
       >
         <Navbar />
