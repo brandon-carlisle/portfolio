@@ -1,12 +1,15 @@
 import clsx from 'clsx';
 import { type Metadata } from 'next';
-import { Heebo } from 'next/font/google';
+import { Fira_Sans } from 'next/font/google';
 
 import Navbar from '@components/Navbar';
 
 import './global.css';
 
-const heebo = Heebo({ subsets: ['hebrew', 'latin'] });
+const arimo = Fira_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -54,8 +57,8 @@ export default function RootLayout({
     <html lang="en" className="overflow-y-scroll">
       <body
         className={clsx(
-          'relative min-h-screen min-w-full overscroll-y-none bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-slate-900 via-blue-900 to-black p-4 text-white antialiased',
-          heebo.className,
+          'bg-zinc-950 relative min-h-screen min-w-full overscroll-y-none p-4 font-normal text-zinc-50 antialiased',
+          arimo.className,
         )}
       >
         <Navbar />
