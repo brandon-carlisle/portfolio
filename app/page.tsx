@@ -1,10 +1,11 @@
 import { groq } from 'next-sanity';
+import Link from 'next/link';
 
 import { sanityClient } from '@lib/sanity';
 
+import Button from '@components/Button';
 import Contact from '@components/Contact';
 import Header from '@components/Header';
-import LinkButton from '@components/LinkButton';
 import ProjectCard from '@components/ProjectCard';
 import Section from '@components/Section';
 
@@ -24,17 +25,15 @@ export default async function Home() {
           stuff on the web."
       >
         <div>
-          <p className="mb-7 text-lg">
+          <p className="mb-7">
             Hi, I&apos;m Brandon - a frontend web developer based in the UK with
             experience working on both frontend and backend development
             projects.
           </p>
 
-          <LinkButton path="about" text="Read more about me" style="primary">
-            <span className="inline-block transition-all group-hover:translate-x-1">
-              &rarr;
-            </span>
-          </LinkButton>
+          <Button type="button">
+            <Link href={'/about'}>Read more about me &rarr;</Link>
+          </Button>
         </div>
       </Header>
 
@@ -45,11 +44,10 @@ export default async function Home() {
               <ProjectCard key={project.slug?.current} project={project} />
             ))}
           </div>
-          <LinkButton
-            path="projects"
-            text="View all projects"
-            style="tertiary"
-          />
+
+          <Button type="button">
+            <Link href={'/projects'}>View all projects</Link>
+          </Button>
         </Section>
       )}
 

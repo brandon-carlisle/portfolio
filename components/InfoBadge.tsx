@@ -10,7 +10,7 @@ const styleColors = {
     borderColor: 'border-green-500',
   },
   secondary: {
-    borderColor: 'border-gray-800',
+    borderColor: 'border-zinc-600',
   },
 };
 

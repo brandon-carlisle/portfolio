@@ -57,7 +57,7 @@ export default function RootLayout({
     <html lang="en" className="overflow-y-scroll">
       <body
         className={clsx(
-          'bg-zinc-950 relative min-h-screen min-w-full overscroll-y-none p-4 font-normal text-zinc-50 antialiased',
+          'relative min-h-screen min-w-full overscroll-y-none bg-zinc-900 p-4 text-base text-zinc-50 antialiased md:text-lg lg:text-xl',
           arimo.className,
         )}
       >

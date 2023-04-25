@@ -39,7 +39,7 @@ export default async function Projects() {
         {!projects || !projects.length ? (
           <p className="text-center">No projects yet, come back later.</p>
         ) : (
-          <div className="grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
+          <div className="grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
             {projects.map((project) => (
               <ProjectCard key={project.slug?.current} project={project} />
             ))}
