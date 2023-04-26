@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 interface HeaderProps {
-  title?: ReactNode | string;
+  title: ReactNode | string;
   children?: ReactNode;
 }
 

@@ -57,14 +57,19 @@ export default function RootLayout({
     <html lang="en" className="overflow-y-scroll">
       <body
         className={clsx(
-          'relative min-h-screen min-w-full overflow-scroll overscroll-y-none bg-zinc-900 bg-none p-4 text-base text-zinc-50 antialiased md:text-lg lg:text-xl',
+          'relative min-h-screen min-w-full bg-zinc-900 bg-none text-base text-zinc-50 antialiased md:text-lg lg:text-xl',
           fira.className,
         )}
       >
-        <Navbar />
-        <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
-          {children}
-        </main>
+        <>
+          <div className="fixed top-0 left-0 h-full w-full overflow-hidden bg-grain-texture bg-cover opacity-25 brightness-[0.45] contrast-125" />
+          <div className="absolute top-0 left-0 z-50 w-full overflow-y-scroll p-4">
+            <Navbar />
+            <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
+              {children}
+            </main>
+          </div>
+        </>
       </body>
     </html>
   );
