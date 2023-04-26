@@ -27,19 +27,30 @@ export interface ProjectData {
   site?: string;
 }
 
+async function getProjects() {
+  try {
+    const projects: ProjectData[] = await sanityClient.fetch(
+      groq`*[_type == 'project'] | order(isFeatured desc){title, description, slug{current}, isFeatured,  tech[]->{title}}`,
+    );
+
+    return projects;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export default async function Projects() {
-  const projects: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == 'project'] | order(isFeatured desc){title, description, slug{current}, isFeatured,  tech[]->{title}}`,
-  );
+  const projects = await getProjects();
 
   return (
     <>
-      <Header title="Projects" />
+      <Header title="Projects"></Header>
+
       <Section>
         {!projects || !projects.length ? (
           <p className="text-center">No projects yet, come back later.</p>
         ) : (
-          <div className="grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
+          <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2">
             {projects.map((project) => (
               <ProjectCard key={project.slug?.current} project={project} />
             ))}

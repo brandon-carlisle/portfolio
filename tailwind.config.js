@@ -6,7 +6,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'grain-texture': "url('/grain.jpeg')",
+      },
+    },
   },
   future: {
     hoverOnlyWhenSupported: true,

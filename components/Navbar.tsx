@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <nav className="mx-auto flex max-w-screen-md items-center justify-between">
-      <Link href="/" className="py-2 tracking-wide">
+      <Link href="/" className="py-2">
         Brandon Carlisle
       </Link>
 
@@ -23,8 +23,8 @@ export default function Navbar() {
           <li key={item.pathname}>
             <Link
               className={clsx(
-                'rounded-md py-2 px-2 text-sm font-normal transition-colors hover:bg-blue-900/40 md:px-4 md:text-base',
-                item.pathname.slice(1) === segments[0] && 'bg-blue-900/30',
+                'rounded-md px-2 underline-offset-2 hover:underline',
+                item.pathname.slice(1) === segments[0] && 'underline',
               )}
               href={item.pathname}
             >

@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 
 import { sanityClient } from '@lib/sanity';
 
-import Divider from '@components/Divider';
 import Prose from '@components/Prose';
 import Section from '@components/Section';
 
@@ -75,7 +74,7 @@ export default async function Project({ params }: ProjectParams) {
               href={project.site}
               target="_blank"
               rel="noreferrer"
-              className="text-gray-200 underline underline-offset-1"
+              className="text-gray-200 underline underline-offset-2"
             >
               Live Site
             </a>
@@ -85,7 +84,7 @@ export default async function Project({ params }: ProjectParams) {
               href={project.repo}
               target="_blank"
               rel="noreferrer"
-              className="text-gray-200 underline underline-offset-1"
+              className="text-gray-200 underline underline-offset-2"
             >
               Source Code
             </a>
@@ -95,5 +94,20 @@ export default async function Project({ params }: ProjectParams) {
         <Prose content={project.content} />
       </Section>
     </>
+  );
+}
+
+interface DividerProps {
+  childLeft: React.ReactNode;
+  childRight: React.ReactNode;
+}
+
+export function Divider({ childLeft, childRight }: DividerProps) {
+  return (
+    <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
+      {childLeft}
+      <div className="h-[1px] w-1/4 bg-zinc-500/20 md:w-1/2"></div>
+      {childRight}
+    </div>
   );
 }

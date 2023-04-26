@@ -15,6 +15,11 @@ export default function AnimationWrapper({ children }: AnimationWrapperProps) {
       key={pathname}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{
+        type: 'spring',
+        stiffness: 260,
+        damping: 20,
+      }}
     >
       {children}
     </motion.div>
