@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'grain-texture': "url('/grain.jpeg')",
+        'grain-texture': "url('/grain.webp')",
       },
     },
   },
