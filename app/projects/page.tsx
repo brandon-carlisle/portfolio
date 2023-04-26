@@ -27,10 +27,20 @@ export interface ProjectData {
   site?: string;
 }
 
+async function getProjects() {
+  try {
+    const projects: ProjectData[] = await sanityClient.fetch(
+      groq`*[_type == 'project'] | order(isFeatured desc){title, description, slug{current}, isFeatured,  tech[]->{title}}`,
+    );
+
+    return projects;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export default async function Projects() {
-  const projects: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == 'project'] | order(isFeatured desc){title, description, slug{current}, isFeatured,  tech[]->{title}}`,
-  );
+  const projects = await getProjects();
 
   return (
     <>
