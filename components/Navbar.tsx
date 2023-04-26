@@ -23,7 +23,7 @@ export default function Navbar() {
           <li key={item.pathname}>
             <Link
               className={clsx(
-                'rounded-md px-2 hover:underline',
+                'rounded-md px-2 underline-offset-2 hover:underline',
                 item.pathname.slice(1) === segments[0] && 'underline',
               )}
               href={item.pathname}

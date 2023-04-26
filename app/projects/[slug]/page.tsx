@@ -74,7 +74,7 @@ export default async function Project({ params }: ProjectParams) {
               href={project.site}
               target="_blank"
               rel="noreferrer"
-              className="text-gray-200 underline underline-offset-1"
+              className="text-gray-200 underline underline-offset-2"
             >
               Live Site
             </a>
@@ -84,7 +84,7 @@ export default async function Project({ params }: ProjectParams) {
               href={project.repo}
               target="_blank"
               rel="noreferrer"
-              className="text-gray-200 underline underline-offset-1"
+              className="text-gray-200 underline underline-offset-2"
             >
               Source Code
             </a>
@@ -106,7 +106,7 @@ export function Divider({ childLeft, childRight }: DividerProps) {
   return (
     <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
       {childLeft}
-      <div className="h-[1px] w-1/4 bg-blue-500/20 md:w-1/2"></div>
+      <div className="h-[1px] w-1/4 bg-zinc-500/20 md:w-1/2"></div>
       {childRight}
     </div>
   );

@@ -20,10 +20,11 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
-      <Header title="About Me" />
+      <Header title="About me"></Header>
 
       <Section>
         <Prose>
+          <div className="text-center text-4xl">📝</div>
           <p>
             Hi, I&apos;m Brandon - a frontend web developer based in the UK with
             1+ years experience working on both frontend and backend development
@@ -48,26 +49,26 @@ export default function About() {
         </Prose>
       </Section>
 
-      <Section title="Tech I love to use">
+      <Section title="Tech that I use">
         <ul className="flex flex-col gap-2 text-lg">
           <li>
-            <SiJavascript className="mr-2 inline-block" />
+            <SiJavascript className="mr-2 inline-block text-yellow-300" />
             JavaScript
           </li>
           <li>
-            <SiTypescript className="mr-2 inline-block" />
+            <SiTypescript className="mr-2 inline-block text-blue-300" />
             TypeScript
           </li>
           <li>
-            <SiTailwindcss className="mr-2 inline-block" />
+            <SiTailwindcss className="mr-2 inline-block text-sky-300" />
             Tailwind CSS
           </li>
           <li>
-            <SiReact className="mr-2 inline-block" />
+            <SiReact className="mr-2 inline-block text-sky-400" />
             React
           </li>
           <li>
-            <SiNextdotjs className="mr-2 inline-block" />
+            <SiNextdotjs className="mr-2 inline-block text-white" />
             Next.js
           </li>
         </ul>

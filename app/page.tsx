@@ -21,8 +21,17 @@ export default async function Home() {
   return (
     <>
       <Header
-        title="Frontend web developer interested in modern tools, and making cool
-          stuff on the web."
+        title={
+          <div className="leading-[1.2]">
+            Frontend web developer interested in making{' '}
+            <span className="border-b border-dashed text-green-200">tools</span>{' '}
+            and great looking user{' '}
+            <span className="border-b border-dashed text-blue-300">
+              interfaces
+            </span>{' '}
+            on the web.
+          </div>
+        }
       >
         <div>
           <p className="mb-7">
@@ -32,7 +41,12 @@ export default async function Home() {
           </p>
 
           <Button type="button">
-            <Link href={'/about'}>Read more about me &rarr;</Link>
+            <Link href={'/about'} className="group">
+              Read more about me{' '}
+              <span className="inline-block transition-all group-hover:translate-x-1">
+                &rarr;
+              </span>
+            </Link>
           </Button>
         </div>
       </Header>
@@ -46,7 +60,12 @@ export default async function Home() {
           </div>
 
           <Button type="button">
-            <Link href={'/projects'}>View all projects</Link>
+            <Link href={'/projects'} className="group">
+              View all projects{' '}
+              <span className="inline-block transition-all group-hover:translate-x-1">
+                &rarr;
+              </span>
+            </Link>
           </Button>
         </Section>
       )}

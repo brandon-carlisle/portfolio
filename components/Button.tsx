@@ -9,7 +9,10 @@ interface ButtonProps {
 
 export default function Button(props: ButtonProps) {
   return (
-    <button type={props.type} className={clsx([props.styles, 'underline'])}>
+    <button
+      type={props.type}
+      className={clsx([props.styles, 'underline underline-offset-2'])}
+    >
       {props.children}
     </button>
   );
