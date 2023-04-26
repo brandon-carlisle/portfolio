@@ -102,7 +102,7 @@ interface DividerProps {
   childRight: React.ReactNode;
 }
 
-export function Divider({ childLeft, childRight }: DividerProps) {
+function Divider({ childLeft, childRight }: DividerProps) {
   return (
     <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
       {childLeft}
