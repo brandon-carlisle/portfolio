@@ -63,7 +63,7 @@ export default function RootLayout({
       >
         <>
           <div className="fixed top-0 left-0 h-full w-full overflow-hidden bg-grain-texture bg-cover opacity-25 brightness-[0.45] contrast-125" />
-          <div className="absolute top-0 left-0 z-50 w-full overflow-y-scroll p-4">
+          <div className="absolute top-0 left-0 z-50 w-full p-4">
             <Navbar />
             <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
               {children}
