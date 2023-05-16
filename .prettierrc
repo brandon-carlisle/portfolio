@@ -4,7 +4,12 @@
   "trailingComma": "all",
   "singleQuote": true,
   "semi": true,
-  "importOrder": ["^@core/(.*)$", "^@lib/(.*)$", "^@components/(.*)$", "^[./]"],
+  "importOrder": [
+    "^@core/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/components/(.*)$",
+    "^[./]"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "plugins": [

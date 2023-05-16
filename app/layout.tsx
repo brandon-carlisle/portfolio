@@ -1,10 +1,8 @@
+import Navbar from '@/components/Navbar';
+import '@/styles/globals.css';
 import clsx from 'clsx';
 import { type Metadata } from 'next';
 import { Fira_Sans } from 'next/font/google';
-
-import Navbar from '@components/Navbar';
-
-import './global.css';
 
 const fira = Fira_Sans({
   subsets: ['latin'],

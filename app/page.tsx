@@ -1,23 +1,9 @@
-import { groq } from 'next-sanity';
+import Button from '@/components/Button';
+import Contact from '@/components/Contact';
+import Header from '@/components/Header';
 import Link from 'next/link';
 
-import { sanityClient } from '@lib/sanity';
-
-import Button from '@components/Button';
-import Contact from '@components/Contact';
-import Header from '@components/Header';
-import ProjectCard from '@components/ProjectCard';
-import Section from '@components/Section';
-
-import type { ProjectData } from './projects/page';
-
-export const revalidate = 60;
-
 export default async function Home() {
-  const featuredProjects: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == "project" && isFeatured == true]{title, slug{current}, content, isFeatured, description, tech[]->{title}}`,
-  );
-
   return (
     <>
       <Header
@@ -51,7 +37,7 @@ export default async function Home() {
         </div>
       </Header>
 
-      {featuredProjects && featuredProjects.length > 0 && (
+      {/* {featuredProjects && featuredProjects.length > 0 && (
         <Section title="Featured projects">
           <div className="mb-8 grid auto-rows-fr grid-cols-1 gap-2 md:grid-cols-2">
             {featuredProjects.map((project) => (
@@ -68,7 +54,7 @@ export default async function Home() {
             </Link>
           </Button>
         </Section>
-      )}
+      )} */}
 
       <Contact />
     </>

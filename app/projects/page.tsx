@@ -1,12 +1,6 @@
-import type { PortableTextBlock } from '@portabletext/types';
 import { type Metadata } from 'next';
-import { groq } from 'next-sanity';
 
-import { sanityClient } from '@lib/sanity';
-
-import Header from '@components/Header';
-import ProjectCard from '@components/ProjectCard';
-import Section from '@components/Section';
+import Header from '@/components/Header';
 
 export const revalidate = 60;
 
@@ -15,38 +9,12 @@ export const metadata: Metadata = {
   description: 'View my personal web dev projects I have worked on.',
 };
 
-export interface ProjectData {
-  title?: string;
-  slug?: { current: string };
-  description?: string;
-  content?: PortableTextBlock;
-  date?: string;
-  isFeatured?: boolean;
-  tech?: { link: string; title: string }[];
-  repo?: string;
-  site?: string;
-}
-
-async function getProjects() {
-  try {
-    const projects: ProjectData[] = await sanityClient.fetch(
-      groq`*[_type == 'project'] | order(isFeatured desc){title, description, slug{current}, isFeatured,  tech[]->{title}}`,
-    );
-
-    return projects;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 export default async function Projects() {
-  const projects = await getProjects();
-
   return (
     <>
       <Header title="Projects"></Header>
 
-      <Section>
+      {/* <Section>
         {!projects || !projects.length ? (
           <p className="text-center">No projects yet, come back later.</p>
         ) : (
@@ -56,7 +24,7 @@ export default async function Projects() {
             ))}
           </div>
         )}
-      </Section>
+      </Section> */}
     </>
   );
 }

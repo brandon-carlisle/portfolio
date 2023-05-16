@@ -1,13 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 
-import type { ProjectData } from '../app/projects/page';
-
-interface ProjectCardProps {
-  project: ProjectData;
-}
-
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project }) {
   return (
     <Link
       key={project.slug?.current}
@@ -17,16 +11,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <div className="transition-all ease-in-out group-hover:scale-[1.02]">
         <div>
           <p className="mb-4 text-sm font-semibold uppercase text-zinc-400">
-            {project.title}
+            Project title
           </p>
-          <p className="mb-2">{project.description}</p>
+          <p className="mb-2">Description</p>
         </div>
         <div className="flex flex-wrap gap-x-2">
-          {project.isFeatured && <InfoBadge text="Featured" style="primary" />}
-          {project.tech &&
-            project.tech.map((tech) => (
-              <InfoBadge key={tech.title} text={tech.title} style="secondary" />
-            ))}
+          <InfoBadge text="Featured" style="primary" />
         </div>
       </div>
     </Link>
