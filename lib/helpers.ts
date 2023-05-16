@@ -1,9 +1,3 @@
-import { format, parseISO } from 'date-fns';
-
-export function parseDate(date: string) {
-  return format(parseISO(date), 'LLL d, yyyy');
-}
-
 export function generatePageTitle(title: string) {
   return title
     .replaceAll('-', ' ')

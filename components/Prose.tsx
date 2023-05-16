@@ -1,5 +1,5 @@
 interface ProseProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default function Prose({ children }: ProseProps) {

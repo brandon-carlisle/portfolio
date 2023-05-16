@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard() {
   return (
-    <Link
+    <>
+      {/* <Link
       key={project.slug?.current}
       href={`/projects/${project.slug?.current}`}
       className="group relative flex flex-col justify-between overflow-hidden rounded-md border-2 border-blue-800/50 p-8 transition-all duration-500 hover:border-blue-900"
-    >
+      >
       <div className="transition-all ease-in-out group-hover:scale-[1.02]">
         <div>
           <p className="mb-4 text-sm font-semibold uppercase text-zinc-400">
@@ -19,7 +20,8 @@ export default function ProjectCard({ project }) {
           <InfoBadge text="Featured" style="primary" />
         </div>
       </div>
-    </Link>
+    </Link> */}
+    </>
   );
 }
 
