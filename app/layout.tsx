@@ -11,6 +11,7 @@ const fira = Fira_Sans({
   weight: ['400', '500', '600', '700'],
 });
 
+// TODO: Update metadata title and description (for OpenGraph also)
 export const metadata: Metadata = {
   title: {
     default: 'Brandon Carlisle | Frontend Web Developer',
