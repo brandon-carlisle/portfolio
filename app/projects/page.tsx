@@ -1,4 +1,4 @@
-import { type Project, allProjects } from 'contentlayer/generated';
+import { allProjects } from 'contentlayer/generated';
 import { type Metadata } from 'next';
 
 import Header from '@/components/Header';
