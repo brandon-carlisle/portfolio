@@ -5,8 +5,6 @@ import Header from '@/components/Header';
 import ProjectCard from '@/components/ProjectCard';
 import Section from '@/components/Section';
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   title: 'Projects',
   description: 'View my personal web dev projects I have worked on.',

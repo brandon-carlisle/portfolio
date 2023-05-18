@@ -1,5 +1,11 @@
-// export async function generateMetadata({ params }): Promise<Metadata> {
+import { allProjects } from 'contentlayer/generated';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import { notFound } from 'next/navigation';
 
+import Prose from '@/components/Prose';
+import Section from '@/components/Section';
+
+// export async function generateMetadata({ params }): Promise<Metadata> {
 //   return {
 //     title: project.title,
 //     description: `${project.title} is a web development project by Brandon Carlisle`,
@@ -18,6 +24,33 @@
 //   };
 // }
 
-export default async function Project() {
-  return <>Project</>;
+interface ProjectProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function Project({ params }: ProjectProps) {
+  const project = allProjects.find((project) => project.slug === params.slug);
+  if (!project) notFound();
+
+  return (
+    <Section>
+      <Mdx code={project.body.code} />
+    </Section>
+  );
+}
+
+interface MdxProps {
+  code: string;
+}
+
+function Mdx({ code }: MdxProps) {
+  const Component = useMDXComponent(code);
+
+  return (
+    <Prose>
+      <Component />
+    </Prose>
+  );
 }
