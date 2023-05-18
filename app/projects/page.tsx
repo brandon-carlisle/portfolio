@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'View my personal web dev projects I have worked on.',
 };
 
-export default async function Projects() {
+export default async function ProjectsPage() {
   return (
     <>
       <Header title="Projects"></Header>

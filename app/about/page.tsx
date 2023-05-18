@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: 'Read more about me.',
 };
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
       <Header title="About me"></Header>

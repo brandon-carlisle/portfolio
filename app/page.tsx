@@ -7,7 +7,7 @@ import Header from '@/components/Header';
 import ProjectCard from '@/components/ProjectCard';
 import Section from '@/components/Section';
 
-export default async function Home() {
+export default async function HomePage() {
   const featuredProjects = allProjects.filter((project) => project.featured);
 
   return (

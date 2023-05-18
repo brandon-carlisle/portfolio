@@ -1,8 +1,8 @@
 import { allProjects } from 'contentlayer/generated';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
-import Prose from '@/components/Prose';
+import Button from '@/components/Button';
+import Mdx from '@/components/Mdx';
 import Section from '@/components/Section';
 
 // export async function generateMetadata({ params }): Promise<Metadata> {
@@ -24,33 +24,33 @@ import Section from '@/components/Section';
 //   };
 // }
 
+export async function generateStaticParams() {
+  return allProjects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 interface ProjectProps {
   params: {
     slug: string;
   };
 }
 
-export default async function Project({ params }: ProjectProps) {
+export default async function ProjectPage({ params }: ProjectProps) {
   const project = allProjects.find((project) => project.slug === params.slug);
-  if (!project) notFound();
 
   return (
     <Section>
-      <Mdx code={project.body.code} />
+      {!project && (
+        <div>
+          <p className="mb-3">No project with that name...</p>
+          <Button type="button">
+            <Link href="/projects">Go back</Link>
+          </Button>
+        </div>
+      )}
+
+      {project && <Mdx code={project.body.code} />}
     </Section>
-  );
-}
-
-interface MdxProps {
-  code: string;
-}
-
-function Mdx({ code }: MdxProps) {
-  const Component = useMDXComponent(code);
-
-  return (
-    <Prose>
-      <Component />
-    </Prose>
   );
 }
