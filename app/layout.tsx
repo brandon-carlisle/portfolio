@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     title: 'Brandon Carlisle | Frontend Web Developer',
     description:
       'Frontend web developer interested in modern tools, and making cool stuff on the web',
-    images: [
-      {
-        url: 'https://carlisle.dev/api/og',
-        width: 1920,
-        height: 1080,
-      },
-    ],
+  },
+  metadataBase: new URL('https://localhost:3000'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+    },
   },
 };
 
