@@ -1,17 +1,42 @@
-import type { Metadata } from 'next';
-import { groq } from 'next-sanity';
-import { notFound } from 'next/navigation';
+import { allProjects } from 'contentlayer/generated';
+import { type Metadata } from 'next';
+import Link from 'next/link';
 
-import { sanityClient } from '@lib/sanity';
+import Button from '@/components/Button';
+import Mdx from '@/components/Mdx';
+import Section from '@/components/Section';
 
-import Prose from '@components/Prose';
-import Section from '@components/Section';
+interface ProjectPageProps {
+  params: {
+    slug: string;
+  };
+}
 
-import type { ProjectData } from '../page';
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const project = allProjects.find((project) => project.slug === params.slug);
 
-// TODO: Add dynamic metadata here.
+  return (
+    <Section>
+      {!project && (
+        <div>
+          <p className="mb-3">No project with that name...</p>
+          <Button type="button">
+            <Link href="/projects">Go back</Link>
+          </Button>
+        </div>
+      )}
 
-interface ProjectParams {
+      {project && (
+        <div>
+          <Divider githubLink={project.github} siteLink={project.site} />
+          <Mdx code={project.body.code} />
+        </div>
+      )}
+    </Section>
+  );
+}
+
+interface MetadataProps {
   params: {
     slug: string;
   };
@@ -19,10 +44,13 @@ interface ProjectParams {
 
 export async function generateMetadata({
   params,
-}: ProjectParams): Promise<Metadata> {
-  const [project]: { title: string }[] = await sanityClient.fetch(
-    groq`*[_type == "project" && slug.current == "${params.slug}"]{title}`,
-  );
+}: MetadataProps): Promise<Metadata> {
+  const project = allProjects.find((project) => project.slug === params.slug);
+
+  if (!project)
+    return {
+      title: 'Not found...',
+    };
 
   return {
     title: project.title,
@@ -43,71 +71,36 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const projects: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == 'project']{slug{current}}`,
-  );
-
-  return projects.map((project) => {
-    return { slug: project.slug?.current };
-  });
-}
-
-async function getProject({ slug }: { slug: string }) {
-  const [project]: ProjectData[] = await sanityClient.fetch(
-    groq`*[_type == "project" && slug.current == "${slug}"]{title, content, repo, site}`,
-  );
-
-  return project;
-}
-
-export default async function Project({ params }: ProjectParams) {
-  const project = await getProject({ slug: params.slug });
-
-  if (!project) notFound();
-
-  return (
-    <>
-      <Section>
-        <Divider
-          childLeft={
-            <a
-              href={project.site}
-              target="_blank"
-              rel="noreferrer"
-              className="text-gray-200 underline underline-offset-2"
-            >
-              Live Site
-            </a>
-          }
-          childRight={
-            <a
-              href={project.repo}
-              target="_blank"
-              rel="noreferrer"
-              className="text-gray-200 underline underline-offset-2"
-            >
-              Source Code
-            </a>
-          }
-        />
-
-        <Prose content={project.content} />
-      </Section>
-    </>
-  );
+  return allProjects.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
 interface DividerProps {
-  childLeft: React.ReactNode;
-  childRight: React.ReactNode;
+  githubLink: string;
+  siteLink: string;
 }
 
-function Divider({ childLeft, childRight }: DividerProps) {
+function Divider({ githubLink, siteLink }: DividerProps) {
   return (
     <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
-      {childLeft}
+      <a
+        href={siteLink}
+        target="_blank"
+        rel="noreferrer"
+        className="text-gray-200 underline underline-offset-2"
+      >
+        Live Site
+      </a>
       <div className="h-[1px] w-1/4 bg-zinc-500/20 md:w-1/2"></div>
-      {childRight}
+      <a
+        href={githubLink}
+        target="_blank"
+        rel="noreferrer"
+        className="text-gray-200 underline underline-offset-2"
+      >
+        Source Code
+      </a>
     </div>
   );
 }

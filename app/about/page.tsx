@@ -7,17 +7,17 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 
-import Contact from '@components/Contact';
-import Header from '@components/Header';
-import Prose from '@components/Prose';
-import Section from '@components/Section';
+import Contact from '@/components/Contact';
+import Header from '@/components/Header';
+import Prose from '@/components/Prose';
+import Section from '@/components/Section';
 
 export const metadata: Metadata = {
   title: 'About',
   description: 'Read more about me.',
 };
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
       <Header title="About me"></Header>

@@ -1,35 +1,36 @@
 import clsx from 'clsx';
+import { type Project } from 'contentlayer/generated';
 import Link from 'next/link';
 
-import type { ProjectData } from '../app/projects/page';
-
 interface ProjectCardProps {
-  project: ProjectData;
+  project: Project;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Link
-      key={project.slug?.current}
-      href={`/projects/${project.slug?.current}`}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-md border-2 border-blue-800/50 p-8 transition-all duration-500 hover:border-blue-900"
-    >
-      <div className="transition-all ease-in-out group-hover:scale-[1.02]">
-        <div>
-          <p className="mb-4 text-sm font-semibold uppercase text-zinc-400">
-            {project.title}
-          </p>
-          <p className="mb-2">{project.description}</p>
-        </div>
-        <div className="flex flex-wrap gap-x-2">
-          {project.isFeatured && <InfoBadge text="Featured" style="primary" />}
-          {project.tech &&
-            project.tech.map((tech) => (
-              <InfoBadge key={tech.title} text={tech.title} style="secondary" />
+    <>
+      <Link
+        key={project._id}
+        href={`/projects/${project.slug}`}
+        className="group relative flex flex-col justify-between overflow-hidden rounded-md border-2 border-blue-800/50 p-8 transition-all duration-500 hover:border-blue-900"
+      >
+        <div className="transition-all ease-in-out group-hover:scale-[1.02]">
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase text-zinc-400">
+              {project.title}
+            </p>
+            <p className="mb-2">{project.description}</p>
+          </div>
+
+          <div className="flex flex-wrap gap-x-2">
+            {project.featured && <InfoBadge text="Featured" style="primary" />}
+            {project.tags.map((tag) => (
+              <InfoBadge key={tag} text={tag} style="secondary" />
             ))}
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </>
   );
 }
 
