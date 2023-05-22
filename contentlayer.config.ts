@@ -16,6 +16,8 @@ export const Project = defineDocumentType(() => ({
       },
       required: true,
     },
+    github: { type: 'string', required: true },
+    site: { type: 'string', required: true },
   },
   computedFields: {
     slug: {

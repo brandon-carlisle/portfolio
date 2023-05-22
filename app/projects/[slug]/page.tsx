@@ -26,7 +26,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      {project && <Mdx code={project.body.code} />}
+      {project && (
+        <div>
+          <Divider githubLink={project.github} siteLink={project.site} />
+          <Mdx code={project.body.code} />
+        </div>
+      )}
     </Section>
   );
 }
@@ -69,4 +74,33 @@ export async function generateStaticParams() {
   return allProjects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+interface DividerProps {
+  githubLink: string;
+  siteLink: string;
+}
+
+function Divider({ githubLink, siteLink }: DividerProps) {
+  return (
+    <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
+      <a
+        href={siteLink}
+        target="_blank"
+        rel="noreferrer"
+        className="text-gray-200 underline underline-offset-2"
+      >
+        Live Site
+      </a>
+      <div className="h-[1px] w-1/4 bg-zinc-500/20 md:w-1/2"></div>
+      <a
+        href={githubLink}
+        target="_blank"
+        rel="noreferrer"
+        className="text-gray-200 underline underline-offset-2"
+      >
+        Source Code
+      </a>
+    </div>
+  );
 }
