@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description:
       'Frontend web developer interested in modern tools, and making cool stuff on the web',
   },
-  metadataBase: new URL('https://localhost:3000'),
+  metadataBase: new URL('https://carlisle.dev'),
   alternates: {
     canonical: '/',
     languages: {
