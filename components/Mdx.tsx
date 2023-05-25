@@ -6,10 +6,12 @@ import Prose from './Prose';
 interface MdxImageProps {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
-function MdxImage({ src, alt }: MdxImageProps) {
-  return <Image src={src} alt={alt} priority placeholder="blur" />;
+function MdxImage({ src, alt, width, height }: MdxImageProps) {
+  return <Image src={src} alt={alt} priority width={width} height={height} />;
 }
 
 const components = {
