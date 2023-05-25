@@ -9,24 +9,33 @@ site: https://stadiumguessr.vercel.app/
 
 # StadiumGuessr
 
-StadiumGuessr is a game to test your football stadium knowledge. You will get placed at a random stadium around Europe and you will have to guess various facts about it.
+StadiumGuessr is a game to test your football stadium knowledge where you will get placed at a random football stadium around the UK and you will have to answer 3 questions about that stadium.
 
-You can log into StadiumGuessr using your Discord, and view the scores leaderboard to see where you match up against other users!
+In order to play, users can login using their Discord account (implemented using NextAuth).
 
 <Image
   src="/projects/sg_home.webp"
   alt="Homepage image"
   width={1920}
-  height={961}
+  height={1032}
 />
 
-I was inspired by GeoGuessr, and wanted to create something similar but with more of a quiz vibe to it - hence the questions at each stadium location.
+The map element of the game was implemented using [Leaflet](https://leafletjs.com/) which is an open source JavaScript map library.
 
 <Image
   src="/projects/sg_game.webp"
   alt="game image"
   width={1920}
-  height={961}
+  height={1032}
+/>
+
+There is a leaderboard that displays the top 10 scores and when they were played, and also you can see your last game score highlighted in blue.
+
+<Image
+  src="/projects/sg_leaderboard.webp"
+  alt="Homepage image"
+  width={1920}
+  height={1032}
 />
 
 ## Here is what I used to create it:
