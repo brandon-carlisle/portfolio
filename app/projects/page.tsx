@@ -11,9 +11,12 @@ export const metadata: Metadata = {
 };
 
 export default async function ProjectsPage() {
-  const projectsSortedByFeatured = allProjects.sort(
+  const projectsSortedByFeatured = [...allProjects].sort(
     (a, b) => Number(b.featured) - Number(a.featured),
   );
+
+  console.log(allProjects);
+  console.log(projectsSortedByFeatured);
 
   return (
     <>
