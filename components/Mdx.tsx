@@ -1,17 +1,20 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 
 import Prose from './Prose';
 
-interface MdxImageProps {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-}
+interface MdxImageProps extends ImageProps {}
 
-function MdxImage({ src, alt, width, height }: MdxImageProps) {
-  return <Image src={src} alt={alt} priority width={width} height={height} />;
+function MdxImage(props: MdxImageProps) {
+  return (
+    <Image
+      src={props.src}
+      alt={props.alt}
+      width={props.width}
+      height={props.height}
+      priority={props.priority}
+    />
+  );
 }
 
 const components = {
