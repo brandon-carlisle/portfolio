@@ -15,9 +15,6 @@ export default async function ProjectsPage() {
     (a, b) => Number(b.featured) - Number(a.featured),
   );
 
-  console.log(allProjects);
-  console.log(projectsSortedByFeatured);
-
   return (
     <>
       <Header title="Projects"></Header>
