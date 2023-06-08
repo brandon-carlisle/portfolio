@@ -1,0 +1,2 @@
+- Add dark / lightmode toggle
+- Add guess mode to projects with auth
