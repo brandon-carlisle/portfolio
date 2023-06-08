@@ -1,11 +1,9 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import Image, { ImageProps } from 'next/image';
+import Image, { type ImageProps } from 'next/image';
 
 import Prose from './Prose';
 
-interface MdxImageProps extends ImageProps {}
-
-function MdxImage(props: MdxImageProps) {
+function MdxImage(props: ImageProps) {
   return (
     <Image
       src={props.src}
