@@ -5,6 +5,7 @@ import { Fira_Sans } from 'next/font/google';
 import '@/styles/globals.css';
 
 import Navbar from '@/components/Navbar';
+import Providers from '@/components/providers';
 
 const fira = Fira_Sans({
   subsets: ['latin'],
@@ -49,28 +50,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface Props {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en" className="overflow-y-scroll">
+    <html lang="en" className="overflow-y-scroll" suppressHydrationWarning>
       <body
         className={clsx(
-          'relative min-h-screen min-w-full bg-zinc-900 bg-none text-base text-zinc-50 antialiased md:text-lg lg:text-xl',
+          'relative min-h-screen min-w-full bg-zinc-100 bg-none text-base text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-50 md:text-lg lg:text-xl',
           fira.className,
         )}
       >
-        <>
-          <div className="fixed top-0 left-0 h-full w-full overflow-hidden bg-grain-texture bg-cover opacity-25 brightness-[0.45] contrast-125" />
+        <Providers>
           <div className="absolute top-0 left-0 z-50 w-full p-4">
             <Navbar />
             <main className="mx-auto max-w-screen-md pt-16 md:pt-32">
               {children}
             </main>
           </div>
-        </>
+        </Providers>
       </body>
     </html>
   );

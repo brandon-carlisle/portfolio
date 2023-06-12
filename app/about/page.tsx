@@ -52,23 +52,23 @@ export default function AboutPage() {
       <Section title="Tech that I use">
         <ul className="flex flex-col gap-2 text-lg">
           <li>
-            <SiJavascript className="mr-2 inline-block text-yellow-300" />
+            <SiJavascript className="mr-2 inline-block text-yellow-400 dark:text-yellow-300" />
             JavaScript
           </li>
           <li>
-            <SiTypescript className="mr-2 inline-block text-blue-300" />
+            <SiTypescript className="mr-2 inline-block text-blue-400 dark:text-blue-300" />
             TypeScript
           </li>
           <li>
-            <SiTailwindcss className="mr-2 inline-block text-sky-300" />
+            <SiTailwindcss className="mr-2 inline-block text-sky-400 dark:text-sky-300" />
             Tailwind CSS
           </li>
           <li>
-            <SiReact className="mr-2 inline-block text-sky-400" />
+            <SiReact className="mr-2 inline-block text-sky-500 dark:text-sky-400" />
             React
           </li>
           <li>
-            <SiNextdotjs className="mr-2 inline-block text-white" />
+            <SiNextdotjs className="mr-2 inline-block dark:text-white" />
             Next.js
           </li>
         </ul>

@@ -75,21 +75,21 @@ interface DividerProps {
 
 function Divider({ githubLink, siteLink }: DividerProps) {
   return (
-    <div className="mb-12 flex items-center justify-between gap-2 text-gray-200/50">
+    <div className="mb-12 flex items-center justify-between gap-2 dark:text-gray-200/50">
       <a
         href={siteLink}
         target="_blank"
         rel="noreferrer"
-        className="text-gray-200 underline underline-offset-2"
+        className="underline underline-offset-2 dark:text-gray-200"
       >
         Live Site
       </a>
-      <div className="h-[1px] w-1/4 bg-zinc-500/20 md:w-1/2"></div>
+      <div className="h-[1px] w-1/4 bg-zinc-800/20 dark:bg-zinc-500/20 md:w-1/2"></div>
       <a
         href={githubLink}
         target="_blank"
         rel="noreferrer"
-        className="text-gray-200 underline underline-offset-2"
+        className="underline underline-offset-2 dark:text-gray-200"
       >
         Source Code
       </a>
