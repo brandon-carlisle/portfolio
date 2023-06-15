@@ -16,11 +16,11 @@ export default async function HomePage() {
         title={
           <div className="leading-[1.2]">
             Frontend web developer interested in making{' '}
-            <span className="border-b border-dashed border-current text-green-500 dark:text-green-200">
+            <span className="border-b border-dashed border-current text-green-500/90 dark:text-green-200">
               tools
             </span>{' '}
             and great looking user{' '}
-            <span className="border-b border-dashed border-current text-blue-500 dark:text-blue-300">
+            <span className="border-b border-dashed border-current text-blue-500/90 dark:text-blue-300">
               interfaces
             </span>{' '}
             on the web.

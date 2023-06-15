@@ -2,7 +2,7 @@ import Section from './Section';
 
 export default function Contact() {
   return (
-    <Section>
+    <section>
       <p className="mb-4 text-xl font-semibold leading-tight sm:text-4xl">
         Get in touch
       </p>
@@ -27,6 +27,6 @@ export default function Contact() {
           to reach out there.
         </p>
       </div>
-    </Section>
+    </section>
   );
 }
