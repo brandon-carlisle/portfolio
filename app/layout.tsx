@@ -5,8 +5,8 @@ import { Fira_Sans } from 'next/font/google';
 import '@/styles/globals.css';
 
 import Navbar from '@/components/Navbar';
+import Providers from '@/components/Providers';
 import Svg from '@/components/Svg';
-import Providers from '@/components/providers';
 
 const fira = Fira_Sans({
   subsets: ['latin'],
@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     title: 'Brandon Carlisle | Frontend Web Developer',
     description:
       'Frontend web developer interested in modern tools, and making cool stuff on the web',
+    url: new URL('https://carlisle.dev'),
   },
   metadataBase: new URL('https://carlisle.dev'),
   alternates: {
@@ -65,9 +66,9 @@ export default function RootLayout({ children }: Props) {
         )}
       >
         <Providers>
-          <div className="absolute top-0 left-0 z-50 w-full p-4 px-4">
+          <div className="absolute top-0 left-0 z-50 w-full p-2 md:p-4">
             <Navbar />
-            <main className="mx-auto max-w-screen-md px-4 py-16 backdrop-blur md:py-32">
+            <main className="mx-auto max-w-screen-md px-4 pt-16 pb-4 backdrop-blur md:pt-32">
               {children}
             </main>
           </div>
