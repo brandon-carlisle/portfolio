@@ -8,7 +8,7 @@ interface Props {
 
 export default function Providers({ children }: Props) {
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
+    <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
       {children}
     </ThemeProvider>
   );
