@@ -3,7 +3,7 @@ export default function LoadingSpinner() {
     <div className="flex min-h-screen items-center justify-center">
       <div
         style={{ borderTopColor: 'transparent' }}
-        className="h-8 w-8 animate-spin rounded-full border-4 border-blue-200"
+        className="h-8 w-8 animate-spin rounded-full border-2 border-blue-800 dark:border-blue-300"
       ></div>
       <p className="ml-2">Loading...</p>
     </div>

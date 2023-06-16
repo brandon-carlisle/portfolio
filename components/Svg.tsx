@@ -17,15 +17,15 @@ export default function Svg() {
             y2="100%"
             id="oooscillate-grad"
           >
-            <stop stop-color="#2563eb" stop-opacity="1" offset="0%"></stop>
-            <stop stop-color="#22c55e" stop-opacity="1" offset="100%"></stop>
+            <stop stopColor="#2563eb" stopOpacity="1" offset="0%"></stop>
+            <stop stopColor="#22c55e" stopOpacity="1" offset="100%"></stop>
           </linearGradient>
         </defs>
         <g
-          stroke-width="1"
+          strokeWidth="1"
           stroke="url(#oooscillate-grad)"
           fill="none"
-          stroke-linecap="round"
+          strokeLinecap="round"
         >
           <path
             d="M 0 425 Q 355.5 -10 711 400 Q 1066.5 810 1422 425"
