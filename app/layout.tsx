@@ -13,7 +13,6 @@ const fira = Fira_Sans({
   weight: ['400', '500', '600', '700'],
 });
 
-// TODO: Update metadata title and description (for OpenGraph also)
 export const metadata: Metadata = {
   title: {
     default: 'Brandon Carlisle | Frontend Web Developer',
@@ -52,11 +51,11 @@ export const metadata: Metadata = {
   },
 };
 
-interface Props {
+interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="overflow-y-scroll" suppressHydrationWarning>
       <body

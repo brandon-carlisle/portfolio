@@ -1,8 +1,7 @@
 import { allProjects } from 'contentlayer/generated';
 import { type Metadata } from 'next';
-import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-import Button from '@/components/Button';
 import Mdx from '@/components/Mdx';
 import Section from '@/components/Section';
 
@@ -15,17 +14,10 @@ interface ProjectPageProps {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = allProjects.find((project) => project.slug === params.slug);
 
+  if (!project) notFound();
+
   return (
     <Section>
-      {!project && (
-        <div>
-          <p className="mb-3">No project with that name...</p>
-          <Button type="button">
-            <Link href="/projects">Go back</Link>
-          </Button>
-        </div>
-      )}
-
       {project && (
         <div>
           <Divider githubLink={project.github} siteLink={project.site} />
@@ -49,7 +41,7 @@ export async function generateMetadata({
 
   if (!project)
     return {
-      title: 'Not found...',
+      title: '404',
     };
 
   return {

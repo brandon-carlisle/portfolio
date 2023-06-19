@@ -1,7 +1,5 @@
-import type { ReactNode } from 'react';
-
 interface SectionProps {
-  children: ReactNode;
+  children: React.ReactNode;
   title?: string;
 }
 

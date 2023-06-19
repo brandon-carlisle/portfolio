@@ -7,7 +7,7 @@ import { useSelectedLayoutSegments } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { TbMoonStars, TbSunLow } from 'react-icons/tb';
 
-const menu = [
+const menuItems = [
   { title: 'About', pathname: '/about' },
   { title: 'Projects', pathname: '/projects' },
 ];
@@ -23,7 +23,7 @@ export default function Navbar() {
 
       <div className="flex items-center justify-center gap-1">
         <ul className="flex gap-[2px]">
-          {menu.map((item) => (
+          {menuItems.map((item) => (
             <li key={item.pathname}>
               <Link
                 className={clsx(

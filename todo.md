@@ -1,2 +1,4 @@
-- Add dark / lightmode toggle
-- Add guess mode to projects with auth
+todo:
+
+Shared layout animation on nav
+Contact

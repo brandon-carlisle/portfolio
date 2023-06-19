@@ -13,7 +13,7 @@
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.2",
     "framer-motion": "^10.0.1",
-    "next": "^13.4.2",
+    "next": "^13.4.6",
     "next-contentlayer": "^0.3.2",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",

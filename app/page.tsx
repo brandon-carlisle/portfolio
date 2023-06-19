@@ -1,11 +1,10 @@
 import { allProjects } from 'contentlayer/generated';
-import Link from 'next/link';
 
-import Button from '@/components/Button';
 import Contact from '@/components/Contact';
 import Header from '@/components/Header';
 import ProjectCard from '@/components/ProjectCard';
 import Section from '@/components/Section';
+import UnderlineLink from '@/components/UnderlineLink';
 
 export default async function HomePage() {
   const featuredProjects = allProjects.filter((project) => project.featured);
@@ -34,14 +33,12 @@ export default async function HomePage() {
             projects.
           </p>
 
-          <Button type="button">
-            <Link href="/about" className="group">
-              Read more about me{' '}
-              <span className="inline-block transition-all group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </Link>
-          </Button>
+          <UnderlineLink href="/about">
+            Read more about me{' '}
+            <span className="inline-block transition-all group-hover:translate-x-1">
+              &rarr;
+            </span>
+          </UnderlineLink>
         </div>
       </Header>
 
@@ -57,14 +54,12 @@ export default async function HomePage() {
         )}
 
         <div className="mt-7">
-          <Button type="button">
-            <Link href="/projects" className="group">
-              View all{' '}
-              <span className="inline-block transition-all group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </Link>
-          </Button>
+          <UnderlineLink href="/projects">
+            View all{' '}
+            <span className="inline-block transition-all group-hover:translate-x-1">
+              &rarr;
+            </span>
+          </UnderlineLink>
         </div>
       </Section>
 

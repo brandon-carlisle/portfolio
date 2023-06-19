@@ -1,8 +1,6 @@
-import Section from './Section';
-
 export default function Contact() {
   return (
-    <section>
+    <section className="pb-12">
       <p className="mb-4 text-xl font-semibold leading-tight sm:text-4xl">
         Get in touch
       </p>
