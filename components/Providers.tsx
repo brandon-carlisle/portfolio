@@ -8,7 +8,11 @@ interface Props {
 
 export default function Providers({ children }: Props) {
   return (
-    <ThemeProvider defaultTheme="dark" attribute="class">
+    <ThemeProvider
+      defaultTheme="dark"
+      attribute="class"
+      themes={['light', 'dark']}
+    >
       {children}
     </ThemeProvider>
   );
