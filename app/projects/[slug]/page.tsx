@@ -1,6 +1,8 @@
 import { allProjects } from 'contentlayer/generated';
 import { type Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { TbArrowBackUp } from 'react-icons/tb';
 
 import Mdx from '@/components/Mdx';
 import Section from '@/components/Section';
@@ -17,14 +19,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) notFound();
 
   return (
-    <Section>
-      {project && (
-        <div>
-          <Divider githubLink={project.github} siteLink={project.site} />
-          <Mdx code={project.body.code} />
+    <>
+      <Section>
+        <div className="flex translate-y-10 justify-end">
+          <div className="group h-8 w-8 rounded-md bg-zinc-200 dark:bg-zinc-800">
+            <BackButtonLink href="/projects" />
+          </div>
         </div>
-      )}
-    </Section>
+        {project && (
+          <div>
+            <Mdx code={project.body.code} />
+          </div>
+        )}
+      </Section>
+    </>
   );
 }
 
@@ -60,31 +68,13 @@ export async function generateStaticParams() {
   }));
 }
 
-interface DividerProps {
-  githubLink: string;
-  siteLink: string;
-}
-
-function Divider({ githubLink, siteLink }: DividerProps) {
+function BackButtonLink({ href }: { href: string }) {
   return (
-    <div className="mb-12 flex items-center justify-between gap-2 dark:text-gray-200/50">
-      <a
-        href={siteLink}
-        target="_blank"
-        rel="noreferrer"
-        className="underline underline-offset-2 dark:text-gray-200"
-      >
-        Live Site
-      </a>
-      <div className="h-[1px] w-1/4 bg-zinc-800/20 dark:bg-zinc-500/20 md:w-1/2"></div>
-      <a
-        href={githubLink}
-        target="_blank"
-        rel="noreferrer"
-        className="underline underline-offset-2 dark:text-gray-200"
-      >
-        Source Code
-      </a>
-    </div>
+    <Link
+      className="flex h-full w-full items-center justify-center p-1"
+      href={href}
+    >
+      <TbArrowBackUp className="h-[90%] w-[90%] text-zinc-800 transition-all group-hover:scale-105 group-active:scale-100 dark:text-zinc-100" />
+    </Link>
   );
 }

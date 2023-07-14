@@ -12,7 +12,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <Link
         key={project._id}
         href={`/projects/${project.slug}`}
-        className="group relative flex flex-col justify-between overflow-hidden rounded-md border-2 border-blue-400/90 p-8 transition-all duration-500 hover:border-blue-700 dark:border-blue-800/50 dark:hover:border-blue-900"
+        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-blue-400/50 p-8 transition-all duration-500 hover:border-blue-500/80 dark:border-blue-900/30 dark:hover:border-blue-900"
       >
         <div className="transition-all ease-in-out group-hover:scale-[1.02]">
           <div>
@@ -52,7 +52,7 @@ export function InfoBadge({ text, style }: InfoBadgeProps) {
   return (
     <span
       className={clsx(
-        'align-center my-1 flex w-max rounded-full border-2 px-4 py-2 text-sm font-semibold text-gray-600 dark:text-gray-400',
+        'align-center my-1 flex w-max rounded-full border-2 px-4 py-2 text-xs font-semibold text-gray-600 dark:text-gray-400',
         styleColors[style].borderColor,
       )}
     >

@@ -8,6 +8,9 @@ import UnderlineLink from '@/components/UnderlineLink';
 
 export default async function HomePage() {
   const featuredProjects = allProjects.filter((project) => project.featured);
+  const projectsSortedByOrder = [...featuredProjects].sort(
+    (a, b) => a.position - b.position,
+  );
 
   return (
     <>
@@ -15,11 +18,11 @@ export default async function HomePage() {
         title={
           <div className="leading-[1.2]">
             Frontend web developer interested in making{' '}
-            <span className="border-b border-dashed border-current text-green-500/90 dark:text-green-200">
+            <span className="border-b border-dashed border-current text-green-500 dark:text-green-200">
               tools
             </span>{' '}
             and great looking user{' '}
-            <span className="border-b border-dashed border-current text-blue-500/90 dark:text-blue-300">
+            <span className="border-b border-dashed border-current text-blue-600/90 dark:text-blue-300">
               interfaces
             </span>{' '}
             on the web.
@@ -43,11 +46,11 @@ export default async function HomePage() {
       </Header>
 
       <Section title="Featured projects">
-        {!featuredProjects.length ? (
+        {!projectsSortedByOrder.length ? (
           <p className="text-center">No projects yet, come back later.</p>
         ) : (
-          <div className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2">
-            {featuredProjects.map((project) => (
+          <div className="grid auto-rows-fr grid-cols-1 gap-4">
+            {projectsSortedByOrder.map((project) => (
               <ProjectCard key={project._id} project={project} />
             ))}
           </div>

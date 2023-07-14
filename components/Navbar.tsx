@@ -16,7 +16,7 @@ export default function Navbar() {
   const segments = useSelectedLayoutSegments();
 
   return (
-    <nav className="mx-auto flex max-w-screen-md items-center justify-between px-4">
+    <nav className="mx-auto flex max-w-screen-md items-center justify-between px-4 pt-4 md:px-8">
       <Link href="/" className="py-2">
         Brandon Carlisle
       </Link>

@@ -1,42 +1,52 @@
 ---
+position: 1
 title: StadiumGuessr
 description: StadiumGuessr is a game to test your football stadium knowledge.
 featured: true
-tags: [Tailwind, TypeScript, React, Next.js]
-github: https://github.com/brandon-carlisle/StadiumGuessr
-site: https://stadiumguessr.vercel.app/
+tags:
+  - React
+  - Next.js
+  - TypeScript
+  - Tailwind
 ---
 
 # StadiumGuessr
 
-StadiumGuessr is a game to test your football stadium knowledge where you will get placed at a random football stadium around the UK and you will have to answer 3 questions about that stadium.
+<Links
+  github="https://github.com/brandon-carlisle/StadiumGuessr"
+  site="https://www.stadiumguessr.app/"
+/>
 
-In order to play, users can login using their Discord account (implemented using NextAuth).
+StadiumGuessr is a game to test your football stadium knowledge where you will get placed at a random football stadium around the UK and you will have to answer guess the name of the stadium you are at.
+
+Users can either play in guest mode, or log in with either Google or Discord and be able to view a full match after each game.
 
 <Image
-  src="/projects/sg_home.webp"
+  src="/projects/stadiumguessr/homepage.webp"
   alt="Homepage image"
   width={1920}
-  height={1032}
+  height={961}
   priority
 />
 
 The map element of the game was implemented using [Leaflet](https://leafletjs.com/) which is an open source JavaScript map library.
 
 <Image
-  src="/projects/sg_game.webp"
-  alt="game image"
-  width={1920}
-  height={1032}
-/>
-
-Keep an eye on the leaderboard, where the top 10 scores are displayed alongside the respective dates they were achieved. Your last game score will be highlighted in blue for easy reference.
-
-<Image
-  src="/projects/sg_leaderboard.webp"
+  src="/projects/stadiumguessr/game.webp"
   alt="Homepage image"
   width={1920}
-  height={1032}
+  height={961}
+  priority
+/>
+
+When you finish a game, if you are logged in - you can view a match summary that shows your game stats along with the answers you got correct or skipped.
+
+<Image
+  src="/projects/stadiumguessr/summary.webp"
+  alt="Homepage image"
+  width={1903}
+  height={963}
+  priority
 />
 
 ## Technologies Used
@@ -44,8 +54,8 @@ Keep an eye on the leaderboard, where the top 10 scores are displayed alongside 
 StadiumGuessr was created using the following:
 
 - Framework: [React](https://react.dev/) and [Next.js](https://nextjs.org/)
-- Authentication: [NextAuth](https://next-auth.js.org/)
-- Database and ORM: [Planetscale](https://planetscale.com/) and [Prisma](https://www.prisma.io/)
 - Styling: [Tailwind](https://tailwindcss.com/) and [DaisyUI](https://daisyui.com/)
+- Authentication: [NextAuth](https://next-auth.js.org/)
+- Fully typesafe API: [TRPC](https://trpc.io/)
+- Database and ORM: [Railway](https://railway.app/) and [Prisma](https://www.prisma.io/)
 - State management: [Redux Toolkit](https://redux-toolkit.js.org/)
-- Interactive map: [Leaflet](https://leafletjs.com/)

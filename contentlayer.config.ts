@@ -5,6 +5,7 @@ export const Project = defineDocumentType(() => ({
   filePathPattern: `**/*.mdx`,
   contentType: 'mdx',
   fields: {
+    position: { type: 'number', required: true },
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
     featured: { type: 'boolean', required: true },
@@ -16,8 +17,6 @@ export const Project = defineDocumentType(() => ({
       },
       required: true,
     },
-    github: { type: 'string', required: true },
-    site: { type: 'string', required: true },
   },
   computedFields: {
     slug: {

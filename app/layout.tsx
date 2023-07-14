@@ -60,18 +60,21 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className="overflow-y-scroll" suppressHydrationWarning>
       <body
         className={clsx(
-          'relative min-h-screen min-w-full bg-zinc-100 bg-none text-base text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-50 md:text-lg lg:text-xl',
+          'relative min-h-screen min-w-full bg-zinc-100 bg-none text-base text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-200 md:text-lg lg:text-xl',
           fira.className,
         )}
       >
         <Providers>
           <div className="absolute top-0 left-0 z-50 w-full p-2 md:p-4">
-            <Navbar />
-            <main className="mx-auto max-w-screen-md px-4 pt-16 pb-4 backdrop-blur md:pt-32">
-              {children}
-            </main>
+            <div className="mx-auto rounded-3xl bg-zinc-100/5 bg-opacity-5 dark:bg-zinc-900/5">
+              <Navbar />
+              <main className="mx-auto max-w-screen-md px-4 py-16 pb-4 md:py-20 md:px-8">
+                {children}
+              </main>
+            </div>
           </div>
           <Svg />
+          <div className="fixed h-screen w-full bg-grain opacity-60 dark:bg-black dark:opacity-30"></div>
         </Providers>
       </body>
     </html>

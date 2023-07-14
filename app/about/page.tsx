@@ -24,7 +24,6 @@ export default function AboutPage() {
 
       <Section>
         <Prose>
-          <div className="text-center text-4xl">📝</div>
           <p>
             Hi, I&apos;m Brandon - a frontend web developer based in the UK with
             1+ years experience working on both frontend and backend development
@@ -50,7 +49,7 @@ export default function AboutPage() {
       </Section>
 
       <Section title="Tech that I use">
-        <ul className="flex flex-col gap-2 text-lg">
+        <ul className="flex flex-col gap-4 text-lg md:flex-row md:gap-6">
           <li>
             <SiJavascript className="mr-2 inline-block text-yellow-400 dark:text-yellow-300" />
             JavaScript
