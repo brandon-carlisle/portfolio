@@ -65,14 +65,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <div className="absolute top-0 left-0 z-50 w-full p-2 md:p-4">
-          <div className="mx-auto rounded-3xl bg-zinc-100/5 bg-opacity-5 dark:bg-zinc-900/5">
+          <div className="mx-auto">
             <Navbar />
             <main className="mx-auto max-w-screen-sm py-16 pb-4 md:py-20">
               {children}
             </main>
           </div>
         </div>
-        <div className="fixed h-screen w-full bg-grain opacity-60 dark:bg-black dark:opacity-30"></div>
+        <div className="fixed h-screen w-full bg-black/70 bg-grain opacity-40 contrast-[1.2]">
+          <div className="blobs h-full w-full opacity-[0.05]"></div>
+        </div>
       </body>
     </html>
   );

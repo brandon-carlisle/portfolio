@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.blobs {
+  background-color: rgb(23, 23, 23);
+  background-image: radial-gradient(
+      at 26% 93%,
+      rgb(88, 28, 135) 0,
+      transparent 13%
+    ),
+    radial-gradient(at 83% 63%, rgb(6, 95, 70) 0, transparent 10%),
+    radial-gradient(at 48% 49%, rgb(124, 45, 18) 0, transparent 10%),
+    radial-gradient(at 23% 11%, rgb(19, 78, 74) 0, transparent 10%);
+}

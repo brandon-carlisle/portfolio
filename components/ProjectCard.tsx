@@ -12,7 +12,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <Link
         key={project._id}
         href={`/projects/${project.slug}`}
-        className="flex flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900/90 p-8 shadow transition-all duration-300 hover:border-neutral-600 hover:shadow-lg"
+        className="flex flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900/80 p-8 shadow transition-all duration-300 hover:border-neutral-600 hover:shadow-lg"
       >
         <div>
           <p className="mb-4 text-sm font-semibold uppercase text-neutral-500">

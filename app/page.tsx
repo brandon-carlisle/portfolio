@@ -21,7 +21,7 @@ export default function HomePage() {
             <span className="border-b border-dashed border-current text-green-500 dark:text-sky-200">
               websites
             </span>{' '}
-            with up-to-date looking user{' '}
+            with up-to-date user{' '}
             <span className="border-b border-dashed border-current text-blue-600/90 dark:text-green-200">
               interfaces
             </span>{' '}
