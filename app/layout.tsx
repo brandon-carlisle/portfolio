@@ -59,7 +59,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className="dark overflow-y-scroll">
       <body
         className={clsx(
-          'relative min-h-screen min-w-full bg-neutral-100 text-base text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 md:text-lg',
+          'relative min-h-screen min-w-full bg-neutral-100 text-base text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 md:text-lg',
           fira.className,
         )}
       >

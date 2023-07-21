@@ -12,7 +12,7 @@ const menuItems = [
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-8 mx-auto mt-8 max-w-screen-sm rounded-xl border border-neutral-800 bg-neutral-900/90 py-3 shadow-sm">
+    <nav className="sticky top-8 mx-auto mt-8 max-w-screen-sm rounded-xl border border-neutral-800 bg-neutral-900 py-3 shadow">
       <ul className="flex w-full justify-evenly gap-[2px] text-sm text-neutral-400">
         {menuItems.map((item) => (
           <li key={item.pathname}>

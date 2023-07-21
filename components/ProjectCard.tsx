@@ -12,22 +12,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <Link
         key={project._id}
         href={`/projects/${project.slug}`}
-        className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-800 p-8 transition-all hover:rounded-2xl hover:border-neutral-600"
+        className="flex flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900/90 p-8 shadow transition-all duration-300 hover:border-neutral-600 hover:shadow-lg"
       >
-        <div className="">
-          <div>
-            <p className="mb-4 text-sm font-semibold uppercase text-neutral-500">
-              {project.title}
-            </p>
-            <p className="mb-2">{project.description}</p>
-          </div>
+        <div>
+          <p className="mb-4 text-sm font-semibold uppercase text-neutral-500">
+            {project.title}
+          </p>
+          <p className="mb-4">{project.description}</p>
+        </div>
 
-          <div className="flex flex-wrap gap-x-2">
-            {project.featured && <InfoBadge text="Featured" style="primary" />}
-            {project.tags.map((tag) => (
-              <InfoBadge key={tag} text={tag} style="secondary" />
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-x-2">
+          {project.featured && <InfoBadge text="Featured" style="primary" />}
+          {project.tags.map((tag) => (
+            <InfoBadge key={tag} text={tag} style="secondary" />
+          ))}
         </div>
       </Link>
     </>

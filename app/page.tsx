@@ -49,7 +49,7 @@ export default function HomePage() {
         {!projectsSortedByOrder.length ? (
           <p className="text-center">No projects yet, come back later.</p>
         ) : (
-          <div className="grid auto-rows-fr grid-cols-1 gap-4">
+          <div className="grid auto-rows-fr grid-cols-1 gap-6">
             {projectsSortedByOrder.map((project) => (
               <ProjectCard key={project._id} project={project} />
             ))}

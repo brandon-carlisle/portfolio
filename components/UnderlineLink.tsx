@@ -6,7 +6,10 @@ interface UnderlineLinkProps extends LinkProps {
 
 export default function UnderlineLink(props: UnderlineLinkProps) {
   return (
-    <Link {...props} className="group underline underline-offset-2">
+    <Link
+      {...props}
+      className="group text-neutral-200 underline underline-offset-2"
+    >
       {props.children}
     </Link>
   );
