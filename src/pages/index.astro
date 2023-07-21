@@ -1,8 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Brandon Carlisle">
-	<div>hello</div>
+  <Header>
+    A developer crafting performant{" "}
+    <span
+      class="border-b border-dashed border-current text-green-500 dark:text-sky-200"
+    >
+      websites
+    </span>{" "}
+    with up-to-date user{" "}
+    <span
+      class="border-b border-dashed border-current text-blue-600/90 dark:text-green-200"
+    >
+      interfaces
+    </span>{" "}
+    on the web.
+  </Header>
 </Layout>
-
