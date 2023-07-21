@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'View my personal web dev projects I have worked on.',
 };
 
-export default async function ProjectsPage() {
+export default function ProjectsPage() {
   const projectsSortedByOrder = [...allProjects].sort(
     (a, b) => a.position - b.position,
   );

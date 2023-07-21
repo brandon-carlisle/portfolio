@@ -18,7 +18,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <p className="mb-4 text-sm font-semibold uppercase text-neutral-500">
             {project.title}
           </p>
-          <p className="mb-4">{project.description}</p>
+          <p className="mb-4 text-neutral-200">{project.description}</p>
         </div>
 
         <div className="flex flex-wrap gap-x-2">

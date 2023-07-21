@@ -5,7 +5,7 @@ export default function Contact() {
         Contact me
       </h2>
       <div className="flex flex-col gap-2">
-        <p className="text-lg font-light">
+        <p>
           You can email me at{' '}
           <a
             className="font-semibold text-neutral-200 underline"
@@ -20,7 +20,7 @@ export default function Contact() {
             target="_blank"
             rel="noreferrer"
           >
-            GitHub
+            Github
           </a>{' '}
           to reach out there.
         </p>

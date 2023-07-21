@@ -13,7 +13,7 @@ interface ProjectPageProps {
   };
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default function ProjectPage({ params }: ProjectPageProps) {
   const project = allProjects.find((project) => project.slug === params.slug);
 
   if (!project) notFound();
@@ -62,7 +62,7 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return allProjects.map((project) => ({
     slug: project.slug,
   }));

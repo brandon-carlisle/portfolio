@@ -5,7 +5,6 @@ import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 
 import Navbar from '@/components/Navbar';
-import Providers from '@/components/Providers';
 
 const fira = Inter({
   subsets: ['latin'],
@@ -14,14 +13,14 @@ const fira = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Brandon Carlisle | Frontend Web Developer',
+    default: 'Brandon Carlisle | Web Developer',
     template: '%s | Brandon Carlisle',
   },
-  applicationName: 'Brandon Carlisle | Frontend Web Developer',
+  applicationName: 'Brandon Carlisle | Web Developer',
   authors: { name: 'Brandon Carlisle', url: 'https://www.carlisle.dev/' },
   publisher: 'Brandon Carlisle',
   description:
-    'Frontend web developer interested in modern tools, and making cool stuff on the web.',
+    'A developer crafting performant websites with up-to-date looking user interfaces on the web.',
   colorScheme: 'dark',
   viewport: { width: 'device-width', initialScale: 1 },
   icons: {
@@ -31,14 +30,16 @@ export const metadata: Metadata = {
     'brandon',
     'carlisle',
     'frontend',
+    'fullstack',
     'developer',
     'Next.js',
     'React',
+    'TypeScript',
   ],
   openGraph: {
-    title: 'Brandon Carlisle | Frontend Web Developer',
+    title: 'Brandon Carlisle | Web Developer',
     description:
-      'Frontend web developer interested in modern tools, and making cool stuff on the web',
+      'A developer crafting performant websites with up-to-date looking user interfaces on the web.',
     url: new URL('https://carlisle.dev'),
   },
   metadataBase: new URL('https://carlisle.dev'),

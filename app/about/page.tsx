@@ -9,7 +9,6 @@ import {
 
 import Contact from '@/components/Contact';
 import Header from '@/components/Header';
-import Prose from '@/components/Prose';
 import Section from '@/components/Section';
 
 export const metadata: Metadata = {
@@ -37,10 +36,10 @@ export default function AboutPage() {
           </p>
 
           <div>
-            <p className="mb-6 text-neutral-200">
+            <h3 className="mb-6 mt-4 text-xl text-neutral-200">
               I love working with these technologies:
-            </p>
-            <ul className="flex flex-col gap-4 text-lg md:flex-row md:gap-6">
+            </h3>
+            <ul className="flex flex-col gap-4 md:flex-row md:gap-6">
               <li>
                 <SiJavascript className="mr-2 inline-block text-yellow-400 dark:text-yellow-300" />
                 JavaScript
