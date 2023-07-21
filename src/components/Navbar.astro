@@ -1,22 +1,23 @@
 ---
 const menuItems = [
-  { title: 'Home', pathname: '/' },
-  { title: 'About', pathname: '/about' },
-  { title: 'Projects', pathname: '/projects' },
-]
+  { title: "Home", pathname: "/" },
+  { title: "About", pathname: "/about" },
+  { title: "Projects", pathname: "/projects" },
+];
 ---
 
-<nav class="sticky top-8 mx-auto mt-8 max-w-screen-sm rounded-xl border border-neutral-800 bg-neutral-900 py-3 shadow">
+<nav
+  class="sticky top-8 mx-auto mt-8 max-w-screen-sm rounded-xl border border-neutral-800 bg-neutral-900 py-3 shadow mb-10 md:mb-20"
+>
   <ul class="flex w-full justify-evenly gap-[2px] text-sm text-neutral-400">
-    {menuItems.map((item) => (
-      <li>
-        <a
-          class="transition-all hover:text-neutral-300"
-          href={item.pathname}
-        >
-          {item.title}
-        </a>
-      </li>
-    ))}
+    {
+      menuItems.map((item) => (
+        <li>
+          <a class="transition-all hover:text-neutral-300" href={item.pathname}>
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
