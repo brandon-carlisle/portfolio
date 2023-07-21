@@ -23,29 +23,27 @@ export default function AboutPage() {
       <Header title="About me"></Header>
 
       <Section>
-        <Prose>
-          <p>
-            Hi, I&apos;m Brandon - a frontend web developer based in the UK with
-            1+ years experience working on both frontend and backend development
-            projects. I&apos;m passionate about creating modern and engaging web
-            applications that provide great user experiences.
-          </p>
-          <p>
-            I&apos;m actively seeking frontend web developer roles and open to
-            freelance projects. If you&apos;re interested in collaborating or
-            have any questions, please don&apos;t hesitate to get in touch!
-          </p>
+        <p>
+          Hi, I&apos;m Brandon - a frontend web developer based in the UK with
+          1+ years experience working on both frontend and backend development
+          projects. I&apos;m passionate about creating modern and engaging web
+          applications that provide great user experiences.
+        </p>
+        <p>
+          I&apos;m actively seeking frontend web developer roles and open to
+          freelance projects. If you&apos;re interested in collaborating or have
+          any questions, please don&apos;t hesitate to get in touch!
+        </p>
 
-          <p>
-            You can also view my CV{' '}
-            <a
-              target="_blank"
-              href="https://docs.google.com/document/d/e/2PACX-1vQE_ijBMvo6JKk7n7Hhk0bR9JwmB6xHMxV56dycpD9gRMR_bPu9nWXc8dQ2y0XkU_L5TuVpIUDKf5vA/pub"
-            >
-              here.
-            </a>
-          </p>
-        </Prose>
+        <p>
+          You can also view my CV{' '}
+          <a
+            target="_blank"
+            href="https://docs.google.com/document/d/e/2PACX-1vQE_ijBMvo6JKk7n7Hhk0bR9JwmB6xHMxV56dycpD9gRMR_bPu9nWXc8dQ2y0XkU_L5TuVpIUDKf5vA/pub"
+          >
+            here.
+          </a>
+        </p>
       </Section>
 
       <Section title="Tech that I use">

@@ -6,7 +6,6 @@ import '@/styles/globals.css';
 
 import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
-import Svg from '@/components/Svg';
 
 const fira = Inter({
   subsets: ['latin'],
@@ -57,25 +56,22 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className="overflow-y-scroll" suppressHydrationWarning>
+    <html lang="en" className="dark overflow-y-scroll">
       <body
         className={clsx(
-          'relative min-h-screen min-w-full bg-neutral-100 bg-none text-base text-neutral-900 antialiased dark:bg-neutral-900 dark:text-neutral-200 md:text-lg lg:text-xl',
+          'relative min-h-screen min-w-full bg-neutral-100 text-base text-neutral-900 dark:bg-neutral-900 dark:text-neutral-200 md:text-lg',
           fira.className,
         )}
       >
-        <Providers>
-          <div className="absolute top-0 left-0 z-50 w-full p-2 md:p-4">
-            <div className="mx-auto rounded-3xl bg-zinc-100/5 bg-opacity-5 dark:bg-zinc-900/5">
-              <Navbar />
-              <main className="mx-auto max-w-screen-md px-4 py-16 pb-4 md:py-20 md:px-8">
-                {children}
-              </main>
-            </div>
+        <div className="absolute top-0 left-0 z-50 w-full p-2 md:p-4">
+          <div className="mx-auto rounded-3xl bg-zinc-100/5 bg-opacity-5 dark:bg-zinc-900/5">
+            <Navbar />
+            <main className="mx-auto max-w-screen-sm py-16 pb-4 md:py-20">
+              {children}
+            </main>
           </div>
-          {/* <Svg /> */}
-          <div className="fixed h-screen w-full bg-grain opacity-60 dark:bg-black dark:opacity-30"></div>
-        </Providers>
+        </div>
+        <div className="fixed h-screen w-full bg-grain opacity-60 dark:bg-black dark:opacity-30"></div>
       </body>
     </html>
   );

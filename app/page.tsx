@@ -6,7 +6,7 @@ import ProjectCard from '@/components/ProjectCard';
 import Section from '@/components/Section';
 import UnderlineLink from '@/components/UnderlineLink';
 
-export default async function HomePage() {
+export default function HomePage() {
   const featuredProjects = allProjects.filter((project) => project.featured);
   const projectsSortedByOrder = [...featuredProjects].sort(
     (a, b) => a.position - b.position,
@@ -17,23 +17,23 @@ export default async function HomePage() {
       <Header
         title={
           <div className="leading-[1.2]">
-            Frontend web developer interested in making{' '}
-            <span className="border-b border-dashed border-current text-green-500 dark:text-green-200">
-              tools
+            A developer crafting performant{' '}
+            <span className="border-b border-dashed border-current text-green-500 dark:text-sky-200">
+              websites
             </span>{' '}
-            and great looking user{' '}
-            <span className="border-b border-dashed border-current text-blue-600/90 dark:text-blue-300">
+            with up-to-date looking user{' '}
+            <span className="border-b border-dashed border-current text-blue-600/90 dark:text-green-200">
               interfaces
             </span>{' '}
             on the web.
           </div>
         }
       >
-        <div>
-          <p className="mb-7">
-            Hi, I&apos;m Brandon - a frontend web developer based in the UK with
-            experience working on both frontend and backend development
-            projects.
+        <div className="mt-8">
+          <p className="mb-7 text-neutral-400">
+            Hi, I&apos;m Brandon - a web developer based in the UK with over 1
+            years experience working on both frontend and backend development
+            projects using TypeScript, React and Next.js.
           </p>
 
           <UnderlineLink href="/about">

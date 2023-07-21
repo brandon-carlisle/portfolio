@@ -12,11 +12,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <Link
         key={project._id}
         href={`/projects/${project.slug}`}
-        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-blue-400/50 p-8 transition-all duration-500 hover:border-blue-500/80 dark:border-blue-900/30 dark:hover:border-blue-900"
+        className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-neutral-800 p-8 transition-all hover:rounded-2xl hover:border-neutral-600"
       >
-        <div className="transition-all ease-in-out group-hover:scale-[1.02]">
+        <div className="">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase text-zinc-600 dark:text-zinc-400">
+            <p className="mb-4 text-sm font-semibold uppercase text-neutral-500">
               {project.title}
             </p>
             <p className="mb-2">{project.description}</p>

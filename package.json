@@ -9,17 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/og": "^0.4.0",
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.4",
-    "framer-motion": "^10.0.1",
     "next": "^13.4.8",
     "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
-    "sharp": "^0.32.1"
+    "react-icons": "^4.7.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
