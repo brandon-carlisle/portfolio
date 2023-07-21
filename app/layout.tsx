@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { type Metadata } from 'next';
-import { Fira_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
 import '@/styles/globals.css';
 
@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
 import Svg from '@/components/Svg';
 
-const fira = Fira_Sans({
+const fira = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 });
@@ -60,7 +60,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className="overflow-y-scroll" suppressHydrationWarning>
       <body
         className={clsx(
-          'relative min-h-screen min-w-full bg-zinc-100 bg-none text-base text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-200 md:text-lg lg:text-xl',
+          'relative min-h-screen min-w-full bg-neutral-100 bg-none text-base text-neutral-900 antialiased dark:bg-neutral-900 dark:text-neutral-200 md:text-lg lg:text-xl',
           fira.className,
         )}
       >
@@ -73,7 +73,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </main>
             </div>
           </div>
-          <Svg />
+          {/* <Svg /> */}
           <div className="fixed h-screen w-full bg-grain opacity-60 dark:bg-black dark:opacity-30"></div>
         </Providers>
       </body>
