@@ -5,7 +5,9 @@ const projectsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    tags: z.enum(["Salmon", "Tuna", "Trout"]).array(),
+    tags: z
+      .enum(["Next.js", "TypeScript", "React", "Tailwind", "Astro"])
+      .array(),
     order: z.number(),
     featured: z.boolean(),
   }),

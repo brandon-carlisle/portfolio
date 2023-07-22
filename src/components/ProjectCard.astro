@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<a
+  href={`/projects/${project.slug}`}
+  class="flex flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900/80 p-8 shadow transition-all duration-300 hover:border-neutral-600 hover:shadow-lg"
+>
+  <div>
+    <p class="mb-4 text-sm font-semibold uppercase text-neutral-500">
+      {project.data.title}
+    </p>
+    <p class="mb-4 text-neutral-200">{project.data.description}</p>
+  </div>
+
+  <!-- <div class="flex flex-wrap gap-x-2">
+    {project.featured && <InfoBadge text="Featured" style="primary" />}
+    {
+      project.tags.map((tag) => (
+        <InfoBadge key={tag} text={tag} style="secondary" />
+      ))
+    }
+  </div> -->
+</a>
