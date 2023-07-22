@@ -1,0 +1,21 @@
+---
+import ProjectCard from "../../components/ProjectCard.astro";
+import Section from "../../components/Section.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+
+const orderedProjects = [...projects].sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Layout title="Projects">
+  <Section title="All projects">
+    <div class="flex flex-col gap-5">
+      {orderedProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </Section>
+</Layout>
