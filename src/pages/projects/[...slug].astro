@@ -1,8 +1,7 @@
 ---
 import { getCollection, CollectionEntry } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 
-// 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
@@ -15,7 +14,6 @@ interface Props {
   project: CollectionEntry<"projects">;
 }
 
-// 2. When it's time to render, you can get the entry directly from the prop
 const { project } = Astro.props;
 const { Content } = await project.render();
 ---
