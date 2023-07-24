@@ -21,7 +21,9 @@ const { Content } = await project.render();
 ---
 
 <Layout title={project.data.title}>
-  <div class="prose prose-invert">
+  <div
+    class="prose prose-img:rounded-xl prose-neutral dark:prose-invert prose-headings:text-neutral-300"
+  >
     <Content />
   </div>
 </Layout>
