@@ -1,19 +1,19 @@
-import { type Metadata } from 'next';
+import { type Metadata } from "next";
 import {
   SiJavascript,
   SiNextdotjs,
   SiReact,
   SiTailwindcss,
   SiTypescript,
-} from 'react-icons/si';
+} from "react-icons/si";
 
-import Contact from '@/components/Contact';
-import Header from '@/components/Header';
-import Section from '@/components/Section';
+import Contact from "@/components/Contact";
+import Header from "@/components/Header";
+import Section from "@/components/Section";
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'Read more about me.',
+  title: "About",
+  description: "Read more about me.",
 };
 
 export default function AboutPage() {
