@@ -1,6 +1,6 @@
 ---
 import "@fontsource/inter";
-import Navbar from "../components/Navbar.astro";
+import Navbar from "@components/Navbar.astro";
 
 interface Props {
   title: string;
@@ -8,6 +8,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const socialImageURL = new URL("/opengraph-image.jpg", Astro.url);
 ---
 
 <!DOCTYPE html>
@@ -18,9 +20,10 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/opengraph-image.jpg" />
+    <meta property="og:image" content={socialImageURL} />
     <title>{title}</title>
   </head>
   <body
