@@ -1,0 +1,42 @@
+---
+import "@fontsource/inter";
+import Navbar from "../components/Navbar.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="overscroll-y-none overflow-y-scroll">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/opengraph-image.jpg" />
+    <title>{title}</title>
+  </head>
+  <body
+    class="relative min-h-screen min-w-full bg-neutral-100 text-base text-neutral-900 dark:bg-neutral-900 dark:text-neutral-300 md:text-lg"
+  >
+    <div class="absolute top-0 left-0 z-50 w-full px-4 py-2 md:py-8">
+      <div class="mx-auto">
+        <Navbar />
+        <main class="mx-auto max-w-screen-sm">
+          <slot />
+        </main>
+      </div>
+    </div>
+    <div
+      class="fixed h-screen w-full bg-black/90 bg-grain opacity-50 contrast-[1.2]"
+    >
+    </div>
+  </body>
+</html>

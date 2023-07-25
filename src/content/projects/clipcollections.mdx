@@ -1,0 +1,59 @@
+---
+order: 2
+title: ClipCollections
+description: Organize Twitch clips into collections for easy sharing
+featured: true
+tags:
+  - React
+  - Next.js
+  - TypeScript
+  - Tailwind
+---
+
+# ClipCollections
+
+Organize Twitch clips into collections for easy sharing.
+
+![ClipCollections home page](@assets/images/clipcollections/home.webp)
+
+## The issue
+
+On Twitch, streamers often have chat commands that will respond with links to Twitch clips to provide info, for example - a FPS streamer might have commands like
+
+- !valorantsettings
+- !csgosettings
+- !warzonesettings
+- !warzoneloadouts
+
+This leads to Twitch chats full of multiple commands which all do a similar thing, this then blocks up the chat full of command spam and replies.
+
+## A simple solution
+
+The best way to solve this is to just centralize all the clips into one place. This could be a command like !clips or !settings.
+
+ClipCollections is a simple way to solve this, streamers just need to log into the site with Twitch, create a 'collection' and add some Twitch clip links.
+
+## The app
+
+I wanted to use a Tailwind components library and ended up landing with [Shadcn/ui](https://ui.shadcn.com/) - A tailwind UI library built ontop of Radix UI, this allows you to just copy and paste the components you need, rather than installing the whole library as a dependancy.
+
+Creating a collection is easy, just give it a name and add the clips. This form was creating using [React Hook Form](https://react-hook-form.com/) and [Zod](https://zod.dev/) for client side form validation (form data also gets validated on the backend).
+
+![ClipCollections form page](@assets/images/clipcollections/form.webp)
+
+Once you have created a collection, you can then either share your profile -
+
+![ClipCollections profile page](@assets/images/clipcollections/profile.webp)
+
+Or you can share an individual collection -
+
+![ClipCollections collection page](@assets/images/clipcollections/collection.webp)
+
+### Note on how this was made
+
+This app itself it pretty simple but here is how I made it:
+
+- UI components: [Shadcn/ui](https://ui.shadcn.com/)
+- Form validation: [React Hook Form](https://react-hook-form.com/) and [Zod](https://zod.dev/)
+- End-to-end typesafe API: [TRPC](https://trpc.io/)
+- Database and ORM: [Planetscale](https://planetscale.com/) and [Prisma](https://www.prisma.io/)

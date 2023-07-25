@@ -1,0 +1,27 @@
+---
+const menuItems = [
+  { title: "Home", pathname: "/" },
+  { title: "About", pathname: "/about" },
+  { title: "Projects", pathname: "/projects" },
+];
+---
+
+<nav
+  class="sticky top-8 mx-auto mt-8 max-w-screen-sm rounded-2xl border border-neutral-800 bg-neutral-900 py-4 shadow mb-10 md:mb-20 hover:border-neutral-700/50 transition-all duration-500"
+>
+  <ul class="flex w-full justify-evenly gap-[2px] text-sm text-neutral-400">
+    {
+      menuItems.map((item) => (
+        <li>
+          <a
+            class="transition-all hover:text-neutral-300 px-4 py-2"
+            href={item.pathname}
+            rel="prefetch"
+          >
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
