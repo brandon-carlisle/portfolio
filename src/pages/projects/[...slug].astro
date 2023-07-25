@@ -18,7 +18,7 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 ---
 
-<Layout title={project.data.title}>
+<Layout title={project.data.title} description={project.data.description}>
   <div
     class="prose prose-img:rounded-xl prose-neutral dark:prose-invert prose-headings:text-neutral-300 md:prose-lg sm:prose-headings:text-4xl"
   >
