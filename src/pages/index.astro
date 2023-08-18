@@ -8,7 +8,7 @@ import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const featuredProjects = await getCollection("projects", ({ data }) => {
-  return data.featured === true;
+  return data.published && data.featured;
 });
 
 const orderedProjects = [...featuredProjects].sort(

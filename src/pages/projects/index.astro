@@ -5,7 +5,9 @@ import Layout from "@layouts/Layout.astro";
 
 import { getCollection } from "astro:content";
 
-const projects = await getCollection("projects");
+const projects = await getCollection("projects", ({ data }) => {
+  return data.published;
+});
 
 const orderedProjects = [...projects].sort(
   (a, b) => a.data.order - b.data.order
