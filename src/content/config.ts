@@ -7,7 +7,7 @@ const projectsCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     tags: z
-      .enum(["Next.js", "TypeScript", "React", "Tailwind", "Astro"])
+      .enum(["Next", "Typescript", "React", "Tailwind", "Javascript"])
       .array(),
     order: z.number(),
     featured: z.boolean(),

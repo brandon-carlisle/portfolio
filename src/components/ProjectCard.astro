@@ -1,11 +1,25 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
+import Javascript from "@icons/Javascript.astro";
+import Typescript from "@icons/Typescript.astro";
+import Next from "@icons/Next.astro";
+import React from "@icons/React.astro";
+import Tailwind from "@icons/Tailwind.astro";
+
 interface Props {
   project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
+
+const icons = {
+  Next,
+  Typescript,
+  React,
+  Tailwind,
+  Javascript,
+};
 ---
 
 <a
@@ -13,19 +27,20 @@ const { project } = Astro.props;
   class="flex flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900/80 p-8 shadow transition-all duration-300 hover:border-neutral-600 hover:shadow-lg"
   rel="prefetch"
 >
-  <div>
+  <div class="mb-6">
     <p class="mb-4 text-sm font-semibold uppercase text-neutral-500">
       {project.data.title}
     </p>
-    <p class="mb-4 text-neutral-200">{project.data.description}</p>
+    <p class="text-neutral-200">{project.data.description}</p>
   </div>
 
-  <!-- <div class="flex flex-wrap gap-x-2">
-    {project.featured && <InfoBadge text="Featured" style="primary" />}
+  <div class="flex flex-col gap-4 md:flex-row">
     {
-      project.tags.map((tag) => (
-        <InfoBadge key={tag} text={tag} style="secondary" />
-      ))
+      project.data.tags.map((tag) => {
+        const Component = icons[tag];
+
+        return <Component className="w-4 h-4" />;
+      })
     }
-  </div> -->
+  </div>
 </a>
