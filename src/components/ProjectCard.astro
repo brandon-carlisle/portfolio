@@ -34,7 +34,7 @@ const icons = {
     <p class="text-neutral-200">{project.data.description}</p>
   </div>
 
-  <div class="flex flex-col gap-4 md:flex-row">
+  <div class="flex gap-4 flex-row">
     {
       project.data.tags.map((tag) => {
         const Component = icons[tag];
