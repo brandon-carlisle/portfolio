@@ -8,6 +8,7 @@ import prefetch from "@astrojs/prefetch";
 export default defineConfig({
   integrations: [tailwind(), mdx(), prefetch()],
   experimental: {
-    assets: true
-  }
+    assets: true,
+    viewTransitions: true,
+  },
 });

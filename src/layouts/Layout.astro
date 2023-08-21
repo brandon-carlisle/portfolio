@@ -1,6 +1,7 @@
 ---
 import "@fontsource/inter";
 import Navbar from "@components/Navbar.astro";
+import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 interface Props {
   title: string;
@@ -25,6 +26,8 @@ const socialImageURL = new URL("https://www.carlisle.dev/opengraph-image.jpg");
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
     <title>{title}</title>
+
+    <ViewTransitions />
   </head>
   <body
     class="relative min-h-screen min-w-full text-base bg-neutral-900 text-neutral-300 md:text-lg"
