@@ -1,6 +1,6 @@
 ---
 import "@fontsource/inter";
-import Navbar from "@components/Navbar.astro";
+import Navbar from "@/components/Navbar.astro";
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 interface Props {
@@ -39,10 +39,6 @@ const socialImageURL = new URL("https://www.carlisle.dev/opengraph-image.jpg");
           <slot />
         </main>
       </div>
-    </div>
-    <div
-      class="fixed h-screen w-full bg-black/90 bg-grain opacity-50 contrast-[1.2]"
-    >
     </div>
   </body>
 </html>
