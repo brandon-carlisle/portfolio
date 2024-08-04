@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(30).fill(1);
+  const rows = new Array(26).fill(1);
   const cols = new Array(20).fill(1);
   let colors = [
     "--sky-300",
@@ -40,6 +40,10 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
           {cols.map((_, j) => (
             <motion.div
               whileHover={{
+                backgroundColor: `var(${getRandomColor()})`,
+                transition: { duration: 0 },
+              }}
+              whileTap={{
                 backgroundColor: `var(${getRandomColor()})`,
                 transition: { duration: 0 },
               }}
