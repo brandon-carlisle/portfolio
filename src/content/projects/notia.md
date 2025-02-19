@@ -1,6 +1,7 @@
 ---
 published: true
 title: Notia
+slug: notia
 order: 2
 description: Notia is a markdown note taking app.
 featured: false
@@ -21,7 +22,7 @@ Users can write their notes using markdown, which will be automatically styled w
 
 ![Notia note page](@/assets/images/notia/app.webp)
 
-## Features:
+## Features
 
 - Write notes in Markdown (CommonMark)
 - Sort your notes by date and search

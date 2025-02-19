@@ -1,6 +1,7 @@
 ---
 published: true
 title: StadiumGuessr
+slug: stadiumguessr
 order: 1
 description: Game to test your football stadium knowledge
 featured: true

@@ -8,8 +8,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-
-const socialImageURL = new URL("https://www.carlisle.dev/opengraph-image.jpg");
 ---
 
 <!doctype html>
@@ -20,10 +18,8 @@ const socialImageURL = new URL("https://www.carlisle.dev/opengraph-image.jpg");
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={socialImageURL} />
     <title>{title}</title>
   </head>
   <body
