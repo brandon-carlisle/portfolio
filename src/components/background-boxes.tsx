@@ -28,7 +28,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       }}
       className={cn(
         "absolute -left-1/4 p-4 -top-1/2 flex w-full h-full z-0",
-        className
+        className,
       )}
       {...rest}
     >
