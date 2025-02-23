@@ -9,6 +9,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 ---
+
 <html lang="en" class="overscroll-y-none overflow-y-scroll">
   <head>
     <meta charset="UTF-8" />
@@ -20,14 +21,10 @@ const { title, description } = Astro.props;
     <meta property="og:description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="text-base bg-gray-800 text-neutral-300">
-      <div class="mx-auto">
-
-
-        <Navbar />
-        <main class="max-w-screen-sm">
-          <slot />
-        </main>
-    </div>
+  <body class="bg-base-dark text-neutral-100 pt-8">
+    <Navbar />
+    <main class="max-w-screen-lg mx-auto">
+      <slot />
+    </main>
   </body>
 </html>

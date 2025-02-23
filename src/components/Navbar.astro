@@ -1,25 +1,21 @@
 ---
-const menuItems = [
-  { title: "Home", pathname: "/" },
-  { title: "About", pathname: "/about" },
-  { title: "Projects", pathname: "/projects" },
+const items = [
+  { name: "Home", pathname: "/" },
+  { name: "About", pathname: "/about" },
+  { name: "Projects", pathname: "/projects" },
 ];
 ---
 
-<nav
-  class="sticky top-8 mx-auto mt-8 max-w-screen-sm py-4 shadow mb-10 md:mb-20 hover:border-neutral-700/50 transition-all duration-500 z-50"
->
-  <ul class="flex w-full justify-evenly gap-[2px] text-sm text-neutral-400">
+<nav class="border border-amber-100">
+  <h2>
+    <a href="/">Brandon Carlisle</a>
+  </h2>
+
+  <ul>
     {
-      menuItems.map((item) => (
+      items.map((item) => (
         <li>
-          <a
-            class="transition-all hover:text-neutral-300 px-4 py-2"
-            href={item.pathname}
-            rel="prefetch"
-          >
-            {item.title}
-          </a>
+          <a href={item.pathname}>{item.name}</a>
         </li>
       ))
     }

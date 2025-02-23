@@ -1,5 +1,5 @@
 ---
-import "../global.css"
+import "../global.css";
 import Contact from "@/components/Contact.astro";
 import Header from "@/components/Header.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
@@ -13,7 +13,7 @@ const featuredProjects = await getCollection("projects", ({ data }) => {
 });
 
 const orderedProjects = [...featuredProjects].sort(
-  (a, b) => a.data.order - b.data.order
+  (a, b) => a.data.order - b.data.order,
 );
 ---
 
@@ -21,29 +21,29 @@ const orderedProjects = [...featuredProjects].sort(
   title="Brandon Carlisle"
   description="Brandon Carlisle - A web developer based in the UK, crafting performant websites with up-to-date user interfaces on the web. Check out his featured work and read more about his experience in frontend and backend development."
 >
+  <div
+    class="h-96 relative w-full overflow-hidden flex flex-col items-center justify-center rounded-lg"
+  >
+    <div
+      class="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none"
+    >
+    </div>
 
-
-  <div class="h-96 relative w-full overflow-hidden flex flex-col items-center justify-center rounded-lg">
-    <div class="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-
-    <!-- <Boxes client:load /> -->
-    <div class="z-20 relative px-4">
-      <Header>
-        A developer crafting performant{" "}
-        <span
+    <Header>
+      A developer crafting performant{" "}
+      <span
         class="border-b border-dashed border-current text-sky-200 inline-block"
-        >
+      >
         websites
       </span>{" "}
       with up-to-date user{" "}
       <span
-      class="border-b border-dashed border-current text-green-200 inline-block"
+        class="border-b border-dashed border-current text-green-200 inline-block"
       >
-      interfaces
-    </span>{" "}
-    on the web.
-  </Header>
-</div>
+        interfaces
+      </span>{" "}
+      on the web.
+    </Header>
   </div>
 
   <div class="mt-10 mb-16">
