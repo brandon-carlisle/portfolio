@@ -1,0 +1,26 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import Section from "./Section.astro";
+
+import { getCollection } from "astro:content";
+
+const featuredProjects = await getCollection("projects", ({ data }) => {
+  return data.published && data.featured;
+});
+
+const orderedProjects = [...featuredProjects].sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Section title="Featured work">
+  <div class="flex flex-col gap-5 mb-5">
+    {orderedProjects.map((project) => <ProjectCard project={project} />)}
+  </div>
+
+  <a href="/projects" class="underline group" rel="prefetch"
+    >View all <span
+      class="group-hover:translate-x-1 inline-block transition-all">&rarr;</span
+    ></a
+  >
+</Section>

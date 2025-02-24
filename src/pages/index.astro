@@ -1,78 +1,15 @@
 ---
 import "../global.css";
 import Contact from "@/components/Contact.astro";
-import Header from "@/components/Header.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
-import Section from "@/components/Section.astro";
+import Hero from "@/components/Hero.astro";
 import Layout from "@/layouts/Layout.astro";
 
-import { getCollection } from "astro:content";
-
-const featuredProjects = await getCollection("projects", ({ data }) => {
-  return data.published && data.featured;
-});
-
-const orderedProjects = [...featuredProjects].sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const title = "Brandon Carlisle";
+const desc =
+  "Brandon Carlisle - A web developer based in the UK, crafting performant websites with up-to-date user interfaces on the web. Check out his featured work and read more about his experience in frontend and backend development.";
 ---
 
-<Layout
-  title="Brandon Carlisle"
-  description="Brandon Carlisle - A web developer based in the UK, crafting performant websites with up-to-date user interfaces on the web. Check out his featured work and read more about his experience in frontend and backend development."
->
-  <div
-    class="h-96 relative w-full overflow-hidden flex flex-col items-center justify-center rounded-lg"
-  >
-    <div
-      class="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none"
-    >
-    </div>
-
-    <Header>
-      A developer crafting performant{" "}
-      <span
-        class="border-b border-dashed border-current text-sky-200 inline-block"
-      >
-        websites
-      </span>{" "}
-      with up-to-date user{" "}
-      <span
-        class="border-b border-dashed border-current text-green-200 inline-block"
-      >
-        interfaces
-      </span>{" "}
-      on the web.
-    </Header>
-  </div>
-
-  <div class="mt-10 mb-16">
-    <p class="mb-5">
-      Hi, I&apos;m Brandon - a web developer based in the UK with over 1 years
-      experience working on both frontend and backend development projects using
-      TypeScript, React and Next.js.
-    </p>
-
-    <a href="/about" class="underline group" rel="prefetch"
-      >Read more <span
-        class="group-hover:translate-x-1 inline-block transition-all"
-        >&rarr;</span
-      ></a
-    >
-  </div>
-
-  <Section title="Featured work">
-    <div class="flex flex-col gap-5 mb-5">
-      {orderedProjects.map((project) => <ProjectCard project={project} />)}
-    </div>
-
-    <a href="/projects" class="underline group" rel="prefetch"
-      >View all <span
-        class="group-hover:translate-x-1 inline-block transition-all"
-        >&rarr;</span
-      ></a
-    >
-  </Section>
-
+<Layout title={title} description={desc}>
+  <Hero />
   <Contact />
 </Layout>

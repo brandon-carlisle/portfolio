@@ -2,9 +2,8 @@ import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
 
 const schema = z.object({
-  published: z.boolean(),
   title: z.string().min(1),
-  slug: z.string().min(1),
+  published: z.boolean(),
   description: z.string().min(1),
   tags: z
     .enum(["Next", "Typescript", "React", "Tailwind", "Javascript"])

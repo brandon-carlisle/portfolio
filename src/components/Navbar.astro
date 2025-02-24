@@ -6,16 +6,21 @@ const items = [
 ];
 ---
 
-<nav class="border border-amber-100">
-  <h2>
+<nav class="py-2 flex justify-between items-center">
+  <h2 class="uppercase text-xl font-bold text-oxford-blue-100">
     <a href="/">Brandon Carlisle</a>
   </h2>
 
-  <ul>
+  <ul class="flex gap-4">
     {
       items.map((item) => (
         <li>
-          <a href={item.pathname}>{item.name}</a>
+          <a
+            class="hover:underline underline-offset-2 text-xl"
+            href={item.pathname}
+          >
+            {item.name}
+          </a>
         </li>
       ))
     }
