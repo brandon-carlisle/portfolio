@@ -1,34 +1,36 @@
 <footer class="py-10 px-6">
   <div class="mx-auto">
     <h2 class="text-2xl font-semibold mb-4">Get in Touch</h2>
-    <p class="text-neutral-400 mb-6">
+    <p class="text-neutral-500 mb-6">
       Have a question or a project in mind? Drop me a message.
     </p>
 
     <form class="space-y-4" method="POST" action="/api/contact">
       <div>
-        <label for="email" class="block text-sm font-medium text-neutral-300"
-          >Email</label
+        <label for="email" class="block text-sm font-medium text-neutral-600"
+          >Your Email</label
         >
         <input
           id="email"
           type="email"
           name="email"
+          placeholder="sjobs@apple.com"
           required
-          class="w-full mt-1 p-2 bg-neutral-800 border border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
+          class="w-full mt-1 p-2 bg-neutral-800 text-white border border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
         />
       </div>
 
       <div>
-        <label for="message" class="block text-sm font-medium text-neutral-300"
+        <label for="message" class="block text-sm font-medium text-neutral-600"
           >Message</label
         >
         <textarea
           id="message"
           name="message"
           rows="4"
+          placeholder="Let's work together!"
           required
-          class="w-full mt-1 p-2 bg-neutral-800 border border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          class="w-full mt-1 p-2 bg-neutral-800 text-white border border-neutral-700 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"
         ></textarea>
       </div>
 
