@@ -10,6 +10,6 @@ export default defineConfig({
   },
 
   devToolbar: {
-    enabled: false,
+    enabled: true,
   },
 });
