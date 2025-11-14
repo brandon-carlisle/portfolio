@@ -14,13 +14,14 @@ const orderedProjects = [...featuredProjects].sort(
 ---
 
 <Section title="Featured work">
-  <div class="flex flex-col gap-5 mb-5">
+  <div class="flex flex-col gap-6 mb-8">
     {orderedProjects.map((project) => <ProjectCard project={project} />)}
   </div>
 
-  <a href="/projects" class="underline group" rel="prefetch"
-    >View all <span
-      class="group-hover:translate-x-1 inline-block transition-all">&rarr;</span
+  <a href="/projects" class="group inline-flex items-center gap-2 text-lg hover:text-emerald-400 transition-colors" rel="prefetch"
+    >View all projects
+    <span
+      class="group-hover:translate-x-1 inline-block transition-transform duration-300">&rarr;</span
     ></a
   >
 </Section>

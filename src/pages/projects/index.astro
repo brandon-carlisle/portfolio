@@ -14,10 +14,19 @@ const orderedProjects = [...projects].sort(
 ---
 
 <Layout
-  title="Projects"
+  title="Projects - Brandon Carlisle"
   description="Explore the collection of projects by Brandon Carlisle. From frontend to backend, showcasing technologies like JavaScript, TypeScript, Tailwind, React, and Next.js."
 >
-  <div class="flex flex-col gap-5">
-    {orderedProjects.map((project) => <ProjectCard project={project} />)}
+  <div class="animate-fade-in">
+    <div class="mb-12">
+      <h1 class="text-4xl font-semibold mb-4 text-neutral-100">Projects</h1>
+      <p class="text-lg text-neutral-300 leading-relaxed">
+        A collection of projects I've built, showcasing my work with modern web technologies.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-6">
+      {orderedProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
   </div>
 </Layout>

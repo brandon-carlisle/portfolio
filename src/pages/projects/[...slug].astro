@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -7,8 +7,11 @@ export async function getStaticPaths() {
     return data.published;
   });
 
-  return projects.map((project) => ({
-    params: { slug: project.slug },
+  const orderedProjects = [...projects].sort(
+    (a, b) => a.data.order - b.data.order,
+  );
+  return orderedProjects.map((project) => ({
+    params: { slug: project.data.slug },
     props: { project },
   }));
 }
@@ -18,13 +21,29 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { Content } = await project.render();
+const { Content } = await render(project);
 ---
 
 <Layout title={project.data.title} description={project.data.description}>
-  <div
-    class="prose prose-img:rounded-xl prose-img:w-full prose-invert prose-headings:text-neutral-300 md:prose-lg sm:prose-headings:text-4xl"
-  >
-    <Content />
-  </div>
+  <article class="animate-fade-in">
+    <div class="mb-8">
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 text-neutral-400 hover:text-emerald-400 transition-colors duration-300 mb-6"
+        rel="prefetch"
+      >
+        <span
+          class="group-hover:-translate-x-1 transition-transform duration-300"
+          >&larr;</span
+        >
+        Back to projects
+      </a>
+    </div>
+
+    <div
+      class="prose prose-img:rounded-xl prose-img:w-full prose-img:shadow-2xl prose-invert prose-headings:text-neutral-200 prose-headings:font-semibold prose-p:text-neutral-300 prose-p:leading-relaxed prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:text-emerald-300 prose-a:transition-colors prose-strong:text-neutral-200 prose-code:text-emerald-400 prose-code:bg-neutral-900/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded md:prose-lg prose-headings:tracking-tight max-w-none"
+    >
+      <Content />
+    </div>
+  </article>
 </Layout>

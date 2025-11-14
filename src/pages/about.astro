@@ -7,57 +7,54 @@ import Tailwind from "@/components/icons/Tailwind.astro";
 import Typescript from "@/components/icons/Typescript.astro";
 import Javascript from "@/components/icons/Javascript.astro";
 
-const title = "Brandon Carlisle";
+const title = "Brandon Carlisle - About";
 const desc =
   "Brandon Carlisle - A web developer based in the UK, crafting performant websites with up-to-date user interfaces on the web. Check out his featured work and read more about his experience in frontend and backend development.";
+
+const technologies = [
+  { name: "JavaScript", Icon: Javascript },
+  { name: "TypeScript", Icon: Typescript },
+  { name: "Tailwind", Icon: Tailwind },
+  { name: "React", Icon: React },
+  { name: "Next.js", Icon: Next },
+];
 ---
 
 <Layout title={title} description={desc}>
-  <div class="flex flex-col gap-10">
-    <p>
-      Hi, I&apos;m Brandon - a web developer based in the UK with over 1 years
-      experience working on both frontend and backend development projects.
-      I&apos;m passionate about creating modern and engaging web applications
-      that provide great user experiences.
-    </p>
-    <p>
-      I&apos;m actively seeking web developer roles and open to freelance
-      projects. If you&apos;re interested in collaborating or have any
-      questions, please don&apos;t hesitate to get in touch!
-    </p>
+  <div class="flex flex-col gap-12 animate-fade-in">
+    <section>
+      <h1 class="text-4xl font-semibold mb-6 text-neutral-100">About Me</h1>
+      <div class="space-y-4 text-lg text-neutral-300 leading-relaxed">
+        <p>
+          Hi, I&apos;m Brandon - a web developer based in the UK with over 1
+          year of experience working on both frontend and backend development
+          projects. I&apos;m passionate about creating modern and engaging web
+          applications that provide great user experiences.
+        </p>
+        <p>
+          I&apos;m actively seeking web developer roles and open to freelance
+          projects. If you&apos;re interested in collaborating or have any
+          questions, please don&apos;t hesitate to get in touch!
+        </p>
+      </div>
+    </section>
 
-    <a
-      href="https://docs.google.com/document/d/e/2PACX-1vQE_ijBMvo6JKk7n7Hhk0bR9JwmB6xHMxV56dycpD9gRMR_bPu9nWXc8dQ2y0XkU_L5TuVpIUDKf5vA/pub"
-      class="underline font-semibold text-base"
-      target="_blank">View my CV</a
-    >
-
-    <div>
-      <h3 class="mb-6 mt-4 text-neutral-400 text-base">
-        I like to work with these technologies:
-      </h3>
-      <ul class="flex flex-col gap-4 md:flex-row md:gap-6">
-        <li>
-          <Javascript className="mr-2 inline w-4 h-4" />
-          JavaScript
-        </li>
-        <li>
-          <Typescript className="mr-2 inline w-4 h-4" />
-          TypeScript
-        </li>
-        <li>
-          <Tailwind className="mr-2 inline w-4 h-4" />
-          Tailwind
-        </li>
-        <li>
-          <React className="mr-2 inline w-4 h-4" />
-          React
-        </li>
-        <li>
-          <Next className="mr-2 inline w-4 h-4" />
-          Next.js
-        </li>
+    <section class="animate-fade-in-delay">
+      <h2 class="text-2xl font-semibold mb-6 text-neutral-200">
+        Technologies I work with
+      </h2>
+      <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {
+          technologies.map(({ name, Icon }) => (
+            <li class="group flex items-center gap-3 px-4 py-3 bg-neutral-900/50 border border-neutral-800 rounded-lg hover:border-emerald-500/50 hover:bg-neutral-900/70 transition-all duration-300 hover:shadow-md hover:shadow-emerald-500/5">
+              <Icon className="w-5 h-5 text-neutral-500 group-hover:text-emerald-400 transition-colors duration-300" />
+              <span class="text-neutral-300 group-hover:text-neutral-100 transition-colors duration-300">
+                {name}
+              </span>
+            </li>
+          ))
+        }
       </ul>
-    </div>
+    </section>
   </div>
 </Layout>

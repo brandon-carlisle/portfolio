@@ -4,25 +4,42 @@ const items = [
   { name: "About", pathname: "/about" },
   { name: "Projects", pathname: "/projects" },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
-<nav class="py-2 flex justify-between items-center">
-  <h2 class="uppercase text-xl font-bold text-oxford-blue-100">
-    <a href="/">Brandon Carlisle</a>
+<nav class="py-6 flex justify-between items-center mb-8">
+  <h2 class="text-xl font-bold tracking-tight">
+    <a 
+      href="/" 
+      class="hover:text-emerald-400 transition-colors duration-300"
+    >
+      Brandon Carlisle
+    </a>
   </h2>
 
-  <ul class="flex gap-4">
+  <ul class="flex gap-6">
     {
-      items.map((item) => (
-        <li>
-          <a
-            class="hover:underline underline-offset-2 text-xl"
-            href={item.pathname}
-          >
-            {item.name}
-          </a>
-        </li>
-      ))
+      items.map((item) => {
+        const isActive = currentPath === item.pathname || 
+          (item.pathname !== "/" && currentPath.startsWith(item.pathname));
+        
+        return (
+          <li>
+            <a
+              class={`text-lg hover:text-emerald-400 transition-all duration-300 relative group ${
+                isActive ? "text-emerald-400" : "text-neutral-300"
+              }`}
+              href={item.pathname}
+            >
+              {item.name}
+              <span class={`absolute -bottom-1 left-0 h-0.5 bg-emerald-400 transition-all duration-300 ${
+                isActive ? "w-full" : "w-0 group-hover:w-full"
+              }`} />
+            </a>
+          </li>
+        );
+      })
     }
   </ul>
 </nav>

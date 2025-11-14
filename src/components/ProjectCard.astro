@@ -24,14 +24,16 @@ const icons = {
 
 <a
   href={`/projects/${project.slug}`}
-  class="flex flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900/80 p-8 shadow transition-all duration-300 hover:border-neutral-600 hover:shadow-lg"
+  class="group flex flex-col justify-between rounded-xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm p-8 shadow-md transition-all duration-300 hover:border-emerald-500/50 hover:shadow-emerald-500/10 hover:shadow-2xl hover:-translate-y-1 hover:bg-neutral-900/70"
   rel="prefetch"
 >
   <div class="mb-6">
-    <p class="mb-4 text-sm font-semibold uppercase text-neutral-500">
+    <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-neutral-400 group-hover:text-emerald-400 transition-colors duration-300">
       {project.data.title}
     </p>
-    <p class="text-neutral-200">{project.data.description}</p>
+    <p class="text-neutral-200 text-lg leading-relaxed group-hover:text-neutral-100 transition-colors duration-300">
+      {project.data.description}
+    </p>
   </div>
 
   <div class="flex gap-4 flex-row">
@@ -41,7 +43,7 @@ const icons = {
       // @ts-ignore
         const Component = icons[tag];
 
-        return <Component className="w-4 h-4" />;
+        return <Component className="w-5 h-5 text-neutral-500 group-hover:text-emerald-400 transition-colors duration-300" />;
       })
     }
   </div>

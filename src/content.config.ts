@@ -10,6 +10,7 @@ const schema = z.object({
     .array(),
   order: z.number(),
   featured: z.boolean(),
+  slug: z.string().min(1),
 });
 
 const projects = defineCollection({
