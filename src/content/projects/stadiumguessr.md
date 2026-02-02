@@ -3,7 +3,7 @@ published: true
 title: StadiumGuessr
 slug: stadiumguessr
 order: 1
-description: Game to test your football stadium knowledge
+description: "Test your football knowledge with StadiumGuessr - an interactive geography game built with React and Next.js. Guess stadium locations on a Leaflet map and track your score."
 featured: true
 tags:
   - React

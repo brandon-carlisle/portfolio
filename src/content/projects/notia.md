@@ -3,7 +3,7 @@ published: true
 title: Notia
 slug: notia
 order: 2
-description: Notia is a markdown note taking app.
+description: "Notia is a lightweight markdown note-taking app built with React. Write notes in CommonMark, sort by date, and store everything locally in your browser."
 featured: false
 tags:
   - React

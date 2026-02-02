@@ -8,9 +8,12 @@ import Footer from "@/components/Footer.astro";
 interface Props {
   title: string;
   description: string;
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image = "/og-default.svg" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -20,9 +23,39 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Brandon Carlisle" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
     <title>{title}</title>
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Brandon Carlisle",
+        url: "https://brandoncarlisle.co.uk",
+        author: {
+          "@type": "Person",
+          name: "Brandon Carlisle",
+          jobTitle: "Full-Stack Web Developer",
+          url: "https://brandoncarlisle.co.uk",
+        },
+      })}
+    />
   </head>
   <body class="bg-base-dark antialiased">
     <div class="text-neutral-100">
