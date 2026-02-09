@@ -18,3 +18,7 @@ declare const turnstile: {
   reset: (widgetId?: string) => void;
   remove: (widgetId?: string) => void;
 };
+
+interface Window {
+  cfWidgetId?: string | null;
+}

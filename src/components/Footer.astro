@@ -126,12 +126,14 @@ const siteKey = import.meta.env.VITE_CF_SITE_KEY;
 
 <script is:inline define:vars={{ siteKey }}>
   // Render Turnstile widget once the API is loaded
+  var cfWidgetId = null;
   var renderWidget = function () {
-    if (typeof turnstile !== "undefined") {
-      turnstile.render("#cf-turnstile", {
+    if (typeof turnstile !== "undefined" && typeof siteKey === "string" && siteKey) {
+      cfWidgetId = turnstile.render("#cf-turnstile", {
         sitekey: siteKey,
         theme: "dark",
       });
+      window.cfWidgetId = cfWidgetId;
     }
   };
 
@@ -212,8 +214,8 @@ const siteKey = import.meta.env.VITE_CF_SITE_KEY;
       }
 
       // Reset the Turnstile widget so the user can retry
-      if (typeof turnstile !== "undefined") {
-        turnstile.reset();
+      if (typeof turnstile !== "undefined" && window.cfWidgetId != null) {
+        turnstile.reset(window.cfWidgetId);
       }
       return;
     }
@@ -222,8 +224,8 @@ const siteKey = import.meta.env.VITE_CF_SITE_KEY;
     form.reset();
 
     // Reset the Turnstile widget after successful submission
-    if (typeof turnstile !== "undefined") {
-      turnstile.reset();
+    if (typeof turnstile !== "undefined" && window.cfWidgetId != null) {
+      turnstile.reset(window.cfWidgetId);
     }
   });
 </script>
