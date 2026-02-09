@@ -1,5 +1,5 @@
 {
-  "name": "brandoncarlisle-co-uk",
+  "name": "portfolio",
   "main": "dist/_worker.js/index.js",
   "compatibility_date": "2026-02-09",
   "compatibility_flags": ["nodejs_compat"],
