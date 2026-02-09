@@ -1,8 +1,8 @@
 ---
-// TODO: Create context form endpoint and add CF turnstile
+const siteKey = import.meta.env.VITE_CF_SITE_KEY;
 ---
 
-<footer class="py-16 bg-linear-to-b from-transparent to-neutral-950/50">
+<footer class="py-16">
   <div class="mb-10">
     <h2 class="text-3xl font-semibold mb-3 text-neutral-100">Get in Touch</h2>
     <p class="text-neutral-400 text-lg">
@@ -10,7 +10,22 @@
     </p>
   </div>
 
-  <form class="space-y-5 mb-12" method="POST" action="/api/contact">
+  <form id="contact-form" class="space-y-5 mb-12">
+    <div>
+      <label for="name" class="block text-sm font-medium text-neutral-400 mb-2"
+        >Your Name</label
+      >
+      <input
+        id="name"
+        type="text"
+        name="name"
+        placeholder="Steve Jobs"
+        required
+        minlength="2"
+        class="w-full px-4 py-3 bg-neutral-900/50 text-neutral-100 placeholder:text-neutral-600 border border-neutral-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all duration-300"
+      />
+    </div>
+
     <div>
       <label for="email" class="block text-sm font-medium text-neutral-400 mb-2"
         >Your Email</label
@@ -40,14 +55,43 @@
       ></textarea>
     </div>
 
+    <div id="cf-turnstile"></div>
+
+    <div
+      id="form-status"
+      class="hidden rounded-lg px-4 py-3 text-sm font-medium"
+    >
+    </div>
+
     <button
       type="submit"
-      class="group px-6 py-3 bg-emerald-500 hover:bg-emerald-600 transition-all duration-300 rounded-lg font-medium text-white hover:shadow-lg hover:shadow-emerald-500/20 flex items-center gap-2"
+      class="group px-6 py-3 bg-emerald-500 hover:bg-emerald-600 transition-all duration-300 rounded-lg font-medium text-white hover:shadow-lg hover:shadow-emerald-500/20 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
     >
-      Send Message
-      <span class="group-hover:translate-x-1 transition-transform duration-300"
+      <span id="btn-text">Send Message</span>
+      <span
+        id="btn-arrow"
+        class="group-hover:translate-x-1 transition-transform duration-300"
         >&rarr;</span
       >
+      <svg
+        id="btn-spinner"
+        class="hidden animate-spin h-5 w-5"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
     </button>
   </form>
 
@@ -73,3 +117,113 @@
     </div>
   </div>
 </footer>
+
+<script
+  is:inline
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+  async
+  defer></script>
+
+<script is:inline define:vars={{ siteKey }}>
+  // Render Turnstile widget once the API is loaded
+  var renderWidget = function () {
+    if (typeof turnstile !== "undefined") {
+      turnstile.render("#cf-turnstile", {
+        sitekey: siteKey,
+        theme: "dark",
+      });
+    }
+  };
+
+  if (document.readyState === "complete") {
+    renderWidget();
+  } else {
+    window.addEventListener("load", renderWidget);
+  }
+</script>
+
+<script>
+  import { actions, isInputError } from "astro:actions";
+
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const status = document.getElementById("form-status") as HTMLElement;
+  const btnText = document.getElementById("btn-text") as HTMLElement;
+  const btnArrow = document.getElementById("btn-arrow") as HTMLElement;
+  const btnSpinner = document.getElementById("btn-spinner") as HTMLElement;
+  const submitBtn = form.querySelector(
+    'button[type="submit"]',
+  ) as HTMLButtonElement;
+
+  function showStatus(message: string, type: "success" | "error") {
+    status.textContent = message;
+    status.classList.remove(
+      "hidden",
+      "bg-emerald-500/10",
+      "text-emerald-400",
+      "border-emerald-500/20",
+      "bg-red-500/10",
+      "text-red-400",
+      "border-red-500/20",
+    );
+
+    if (type === "success") {
+      status.classList.add(
+        "bg-emerald-500/10",
+        "text-emerald-400",
+        "border",
+        "border-emerald-500/20",
+      );
+    } else {
+      status.classList.add(
+        "bg-red-500/10",
+        "text-red-400",
+        "border",
+        "border-red-500/20",
+      );
+    }
+  }
+
+  function setLoading(loading: boolean) {
+    submitBtn.disabled = loading;
+    btnText.textContent = loading ? "Sending..." : "Send Message";
+    btnArrow.classList.toggle("hidden", loading);
+    btnSpinner.classList.toggle("hidden", !loading);
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.classList.add("hidden");
+    setLoading(true);
+
+    const formData = new FormData(form);
+    const { error } = await actions.contact(formData);
+
+    setLoading(false);
+
+    if (error) {
+      if (isInputError(error)) {
+        const messages = Object.values(error.fields).flat().join(" ");
+        showStatus(messages || "Please check your input.", "error");
+      } else {
+        showStatus(
+          error.message || "Something went wrong. Please try again.",
+          "error",
+        );
+      }
+
+      // Reset the Turnstile widget so the user can retry
+      if (typeof turnstile !== "undefined") {
+        turnstile.reset();
+      }
+      return;
+    }
+
+    showStatus("Message sent! I'll get back to you soon.", "success");
+    form.reset();
+
+    // Reset the Turnstile widget after successful submission
+    if (typeof turnstile !== "undefined") {
+      turnstile.reset();
+    }
+  });
+</script>
