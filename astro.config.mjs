@@ -7,9 +7,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: "https://brandoncarlisle.co.uk",
 
-  adapter: cloudflare({
-    imageService: "passthrough",
-  }),
+  output: "server",
 
   image: {
     service: passthroughImageService(),
@@ -19,16 +17,6 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    ssr: {
-      external: [
-        "stream",
-        "node:stream",
-        "node:buffer",
-        "crypto",
-        "path",
-        "node:path",
-      ],
-    },
   },
 
   devToolbar: {
