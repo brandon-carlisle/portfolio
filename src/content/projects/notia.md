@@ -16,11 +16,11 @@ Notia is a markdown note taking app.
 
 [Try it out](https://notia-note.netlify.app/) or you can see the [code here](https://github.com/brandon-carlisle/notia).
 
-![Notia home page](@/assets/images/notia/home.webp)
+![Notia home page](/images/notia/home.webp)
 
 Users can write their notes using markdown, which will be automatically styled when they view the note back. All notes all stored in the browsers local storage so they can persist.
 
-![Notia note page](@/assets/images/notia/app.webp)
+![Notia note page](/images/notia/app.webp)
 
 ## Features
 

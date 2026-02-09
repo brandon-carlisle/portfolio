@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
@@ -7,12 +7,28 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: "https://brandoncarlisle.co.uk",
 
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "passthrough",
+  }),
+
+  image: {
+    service: passthroughImageService(),
+  },
 
   integrations: [sitemap()],
 
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      external: [
+        "stream",
+        "node:stream",
+        "node:buffer",
+        "crypto",
+        "path",
+        "node:path",
+      ],
+    },
   },
 
   devToolbar: {

@@ -1,6 +1,15 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
+// Cloudflare Workers runtime (run `pnpm cf:types` after wrangler install for full Env)
+interface Env {}
+
+type Runtime = import("@astrojs/cloudflare").Runtime<Env>;
+
+declare namespace App {
+  interface Locals extends Runtime {}
+}
+
 declare const turnstile: {
   render: (
     selector: string,

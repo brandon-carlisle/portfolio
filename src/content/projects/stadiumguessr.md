@@ -18,13 +18,13 @@ StadiumGuessr is a football game built using React where you have to guess the n
 
 [Try it out](https://www.stadiumguessr.app/) or you can see the [code here](https://github.com/brandon-carlisle/StadiumGuessr).
 
-![StadiumGuessr game page](@/assets/images/stadiumguessr/game.gif)
+![StadiumGuessr game page](/images/stadiumguessr/game.gif)
 
 The interactive map feature of the game utilizes [Leaflet](https://leafletjs.com/), an open source JavaScript map library.
 
 Upon completing a game, users can view a detailed match summary, showcasing their game statistics and the accuracy of their answers.
 
-![StadiumGuessr summary page](@/assets/images/stadiumguessr/summary.png)
+![StadiumGuessr summary page](/images/stadiumguessr/summary.png)
 
 ## Technologies Used
 
