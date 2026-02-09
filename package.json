@@ -17,12 +17,12 @@
     "cf:types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/cloudflare": "13.0.0-beta.6",
+    "@astrojs/sitemap": "3.6.1-beta.3",
     "@fontsource/inter": "^5.2.8",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.17",
-    "astro": "6.0.0-beta.6",
+    "astro": "6.0.0-beta.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "resend": "^6.9.1",

@@ -1,10 +1,16 @@
 {
   "name": "brandoncarlisle-co-uk",
   "main": "dist/_worker.js/index.js",
-  "compatibility_date": "2025-02-09",
+  "compatibility_date": "2026-02-09",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS"
-  }
+  },
+   "kv_namespaces": [
+    {
+      "binding": "SESSION",
+      "id": "4b31752c8e6f4dccaa01ecb8bd689f96"
+    }
+  ]
 }
