@@ -1,6 +1,0 @@
-# Cloudflare Pages / Workers Builds
-# https://developers.cloudflare.com/pages/functions/wrangler-configuration/
-name = "brandoncarlisle-co-uk"
-pages_build_output_dir = "./dist"
-compatibility_date = "2025-02-09"
-compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]

@@ -1,0 +1,14 @@
+# Copy to .dev.vars and fill in. Never commit .dev.vars.
+# Used by: pnpm worker:dev / pnpm worker:preview and wrangler dev
+
+# Turnstile (Cloudflare): site key (public, used in client bundle at build time)
+# VITE_CF_SITE_KEY=
+
+# Turnstile: secret key (server-side verification in form action)
+# CF_SECRET_KEY=
+
+# Resend: API key for sending contact form emails
+# RESEND_API_KEY=
+
+# Recipient for contact form submissions
+# MY_EMAIL=

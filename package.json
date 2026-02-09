@@ -10,6 +10,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "worker:dev": "wrangler dev",
+    "worker:preview": "pnpm build && wrangler dev",
+    "deploy": "pnpm build && wrangler deploy",
     "astro": "astro",
     "cf:types": "wrangler types"
   },
@@ -30,7 +33,8 @@
   },
   "devDependencies": {
     "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "wrangler": "^3.94.0"
   },
   "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184"
 }
