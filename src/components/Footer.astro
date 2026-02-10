@@ -56,7 +56,26 @@ const siteKey = import.meta.env.PUBLIC_CF_SITE_KEY;
       ></textarea>
     </div>
 
-    <div id="cf-turnstile"></div>
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-neutral-400"
+        >Security check</label
+      >
+      <div
+        id="cf-turnstile"
+        class="min-h-[65px] flex items-center justify-center rounded-lg border border-neutral-800 bg-neutral-900/30"
+        data-site-key={siteKey}
+      >
+        {!siteKey && (
+          <p class="text-sm text-amber-500/90 px-4 text-center">
+            Security check is not configured. Set
+            <code class="mx-1 rounded bg-neutral-800 px-1.5 py-0.5 text-xs"
+              >PUBLIC_CF_SITE_KEY</code
+            >
+            in your environment to show the challenge.
+          </p>
+        )}
+      </div>
+    </div>
     <input
       type="hidden"
       name="cf-turnstile-response"
@@ -132,26 +151,46 @@ const siteKey = import.meta.env.PUBLIC_CF_SITE_KEY;
   defer></script>
 
 <script is:inline define:vars={{ siteKey }}>
-  // Render Turnstile widget once the API is loaded
+  // Render Turnstile widget once the API and siteKey are ready
   var cfWidgetId = null;
   var renderWidget = function () {
-    if (typeof turnstile !== "undefined" && typeof siteKey === "string" && siteKey) {
-      cfWidgetId = turnstile.render("#cf-turnstile", {
-        sitekey: siteKey,
-        theme: "dark",
-        callback: function (token) {
-          var input = document.getElementById("cf-turnstile-response");
-          if (input) input.value = token;
-        },
-      });
-      window.cfWidgetId = cfWidgetId;
-    }
+    if (typeof siteKey !== "string" || !siteKey) return;
+    if (typeof turnstile === "undefined") return;
+    var container = document.getElementById("cf-turnstile");
+    if (!container || container.hasAttribute("data-rendered")) return;
+    container.setAttribute("data-rendered", "true");
+    cfWidgetId = turnstile.render("#cf-turnstile", {
+      sitekey: siteKey,
+      theme: "dark",
+      callback: function (token) {
+        var input = document.getElementById("cf-turnstile-response");
+        if (input) input.value = token;
+      },
+    });
+    window.cfWidgetId = cfWidgetId;
   };
 
-  if (document.readyState === "complete") {
+  var renderAttempts = 0;
+  var maxRenderAttempts = 50; // 5s total
+  function tryRender() {
     renderWidget();
+    if (
+      typeof siteKey === "string" &&
+      siteKey &&
+      typeof turnstile === "undefined" &&
+      renderAttempts < maxRenderAttempts
+    ) {
+      renderAttempts += 1;
+      setTimeout(tryRender, 100);
+    }
+  }
+
+  if (document.readyState === "complete") {
+    tryRender();
   } else {
-    window.addEventListener("load", renderWidget);
+    window.addEventListener("load", function () {
+      tryRender();
+    });
   }
 </script>
 

@@ -31,24 +31,18 @@ export const server = {
     }),
     handler: async (input, context) => {
       const token = input["cf-turnstile-response"] ?? null;
-      const shouldVerifyTurnstile = import.meta.env.PROD;
+      const secretKey = import.meta.env.CF_SECRET_KEY;
+      const turnstileConfigured =
+        import.meta.env.PROD && typeof secretKey === "string" && secretKey.length > 0;
 
-      if (shouldVerifyTurnstile && !token) {
+      if (turnstileConfigured && !token) {
         throw new ActionError({
           code: "BAD_REQUEST",
           message: "Please complete the challenge.",
         });
       }
 
-      if (shouldVerifyTurnstile) {
-        const secretKey = import.meta.env.CF_SECRET_KEY;
-
-        if (!secretKey) {
-          throw new ActionError({
-            code: "INTERNAL_SERVER_ERROR",
-            message: "Server configuration error.",
-          });
-        }
+      if (turnstileConfigured) {
 
         const remoteIp =
           context.request.headers.get("cf-connecting-ip") ||
