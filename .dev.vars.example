@@ -2,13 +2,26 @@
 # Used by: pnpm worker:dev / pnpm worker:preview and wrangler dev
 
 # Turnstile (Cloudflare): site key (public, used in client; Astro requires PUBLIC_ prefix)
-# PUBLIC_CF_SITE_KEY=
+# Use Cloudflare's test sitekey locally (always passes):
+# https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+PUBLIC_CF_SITE_KEY=1x00000000000000000000AA
 
 # Turnstile: secret key (server-side verification in form action)
-# CF_SECRET_KEY=
+# Must pair test sitekey with test secret locally (production secrets reject dummy tokens)
+CF_SECRET_KEY=1x0000000000000000000000000000000AA
 
 # Resend: API key for sending contact form emails
 # RESEND_API_KEY=
 
+# Resend: sender address used in "from"
+# Use an address on a verified Resend domain (not onboarding@resend.dev)
+# Example: Portfolio Contact <noreply@forms.example.com>
+# RESEND_FROM_EMAIL=
+
 # Recipient for contact form submissions
 # MY_EMAIL=
+
+# Add any new variables below, then set them in Cloudflare production (see README or below).
+# For secrets: wrangler secret put VARIABLE_NAME
+# For public vars: add to wrangler.jsonc "vars" object.
+# NEW_VARIABLE_NAME=

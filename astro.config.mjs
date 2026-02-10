@@ -1,4 +1,4 @@
-import { defineConfig, passthroughImageService } from "astro/config";
+import { defineConfig, envField, passthroughImageService } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import cloudflare from "@astrojs/cloudflare";
@@ -24,4 +24,10 @@ export default defineConfig({
   devToolbar: {
     enabled: true,
   },
+
+  env: {
+    schema: {
+      PUBLIC_CF_SITE_KEY: envField.string({context: "client", access: "public", optional: false}),
+    }
+  }
 });

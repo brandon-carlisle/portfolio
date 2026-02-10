@@ -34,12 +34,15 @@ export const server = {
         CF_SECRET_KEY?: string;
         RESEND_API_KEY?: string;
         MY_EMAIL?: string;
+        RESEND_FROM_EMAIL?: string;
       };
       const env = context.locals.runtime.env as RuntimeEnv;
       const token = input["cf-turnstile-response"] ?? null;
       const secretKey = env.CF_SECRET_KEY;
+      // Run verification whenever a secret key is configured.
+      // For local testing, Cloudflare dummy sitekeys must be paired with dummy secret keys.
       const turnstileConfigured =
-        import.meta.env.PROD && typeof secretKey === "string" && secretKey.length > 0;
+        typeof secretKey === "string" && secretKey.length > 0;
 
       if (turnstileConfigured && !token) {
         throw new ActionError({
@@ -83,6 +86,8 @@ export const server = {
 
       const resendApiKey = env.RESEND_API_KEY;
       const recipientEmail = env.MY_EMAIL;
+      const fromEmail =
+        env.RESEND_FROM_EMAIL || "Portfolio Contact <onboarding@resend.dev>";
 
       if (!resendApiKey || !recipientEmail) {
         throw new ActionError({
@@ -93,7 +98,7 @@ export const server = {
 
       const resend = new Resend(resendApiKey);
       const emailResponse = await resend.emails.send({
-        from: "Portfolio Contact <onboarding@resend.dev>",
+        from: fromEmail,
         to: [recipientEmail],
         replyTo: input.email,
         subject: `New Contact Form: ${input.name}`,
@@ -113,6 +118,28 @@ export const server = {
       });
 
       if (emailResponse.error) {
+        console.error("Resend send failed", {
+          from: fromEmail,
+          to: recipientEmail,
+          error: emailResponse.error,
+        });
+
+        const errorMessage =
+          typeof emailResponse.error.message === "string"
+            ? emailResponse.error.message
+            : "";
+        const isResendTestDomainRestriction =
+          errorMessage.includes("testing emails to your own email address") ||
+          errorMessage.includes("resend.dev");
+
+        if (isResendTestDomainRestriction) {
+          throw new ActionError({
+            code: "INTERNAL_SERVER_ERROR",
+            message:
+              "Email sender domain is not configured. Set RESEND_FROM_EMAIL to an address on your verified Resend domain.",
+          });
+        }
+
         throw new ActionError({
           code: "INTERNAL_SERVER_ERROR",
           message: "Failed to send message. Please try again later.",

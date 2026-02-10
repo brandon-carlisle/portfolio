@@ -1,7 +1,6 @@
 ---
-// Use env if set (e.g. .env or Cloudflare build env); otherwise fallback so the widget always shows (key is public).
-const siteKey =
-  import.meta.env.PUBLIC_CF_SITE_KEY || "0x4AAAAAACZyR9jA1nikwvzB";
+// Use env if set (e.g. .dev.vars / Cloudflare env); otherwise use Cloudflare's test key for local preview.
+import { PUBLIC_CF_SITE_KEY } from "astro:env/client";
 ---
 
 <footer class="py-16">
@@ -57,7 +56,12 @@ const siteKey =
       ></textarea>
     </div>
 
-    <div id="cf-turnstile" class="min-h-[65px]" data-site-key={siteKey}></div>
+    <div
+      id="cf-turnstile"
+      class="min-h-[65px]"
+      data-site-key={PUBLIC_CF_SITE_KEY}
+    >
+    </div>
     <input
       type="hidden"
       name="cf-turnstile-response"
@@ -132,36 +136,40 @@ const siteKey =
   async
   defer></script>
 
-<script is:inline define:vars={{ siteKey }}>
-  // Render Turnstile widget once the API and siteKey are ready
+<script is:inline>
+  // Render Turnstile widget once the API and site key are ready
   var cfWidgetId = null;
   var renderWidget = function () {
-    if (typeof siteKey !== "string" || !siteKey) return;
-    if (typeof turnstile === "undefined") return;
+    if (typeof turnstile === "undefined") return false;
     var container = document.getElementById("cf-turnstile");
-    if (!container || container.hasAttribute("data-rendered")) return;
-    container.setAttribute("data-rendered", "true");
-    cfWidgetId = turnstile.render("#cf-turnstile", {
-      sitekey: siteKey,
-      theme: "dark",
-      callback: function (token) {
-        var input = document.getElementById("cf-turnstile-response");
-        if (input) input.value = token;
-      },
-    });
-    window.cfWidgetId = cfWidgetId;
+    if (!container || container.hasAttribute("data-rendered")) return false;
+    var siteKey = container.getAttribute("data-site-key");
+    if (!siteKey) return false;
+    try {
+      cfWidgetId = turnstile.render("#cf-turnstile", {
+        sitekey: siteKey,
+        theme: "dark",
+        callback: function (token) {
+          var input = document.getElementById("cf-turnstile-response");
+          if (input) input.value = token;
+        },
+      });
+      container.setAttribute("data-rendered", "true");
+      window.cfWidgetId = cfWidgetId;
+      return true;
+    } catch (error) {
+      console.error("Turnstile render failed:", error);
+      return false;
+    }
   };
 
   var renderAttempts = 0;
   var maxRenderAttempts = 50; // 5s total
   function tryRender() {
-    renderWidget();
-    if (
-      typeof siteKey === "string" &&
-      siteKey &&
-      typeof turnstile === "undefined" &&
-      renderAttempts < maxRenderAttempts
-    ) {
+    var rendered = renderWidget();
+    var container = document.getElementById("cf-turnstile");
+    var hasSiteKey = !!(container && container.getAttribute("data-site-key"));
+    if (!rendered && hasSiteKey && renderAttempts < maxRenderAttempts) {
       renderAttempts += 1;
       setTimeout(tryRender, 100);
     }
@@ -224,6 +232,20 @@ const siteKey =
     btnSpinner.classList.toggle("hidden", !loading);
   }
 
+  function clearTurnstileToken() {
+    const tokenInput = document.getElementById(
+      "cf-turnstile-response",
+    ) as HTMLInputElement | null;
+    if (tokenInput) tokenInput.value = "";
+  }
+
+  function resetTurnstileWidget() {
+    if (typeof turnstile !== "undefined" && window.cfWidgetId != null) {
+      turnstile.reset(window.cfWidgetId);
+      clearTurnstileToken();
+    }
+  }
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     status.classList.add("hidden");
@@ -246,9 +268,7 @@ const siteKey =
       }
 
       // Reset the Turnstile widget so the user can retry
-      if (typeof turnstile !== "undefined" && window.cfWidgetId != null) {
-        turnstile.reset(window.cfWidgetId);
-      }
+      resetTurnstileWidget();
       return;
     }
 
@@ -256,8 +276,6 @@ const siteKey =
     form.reset();
 
     // Reset the Turnstile widget after successful submission
-    if (typeof turnstile !== "undefined" && window.cfWidgetId != null) {
-      turnstile.reset(window.cfWidgetId);
-    }
+    resetTurnstileWidget();
   });
 </script>
