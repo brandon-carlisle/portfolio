@@ -1,6 +1,7 @@
 ---
-// Astro exposes client env vars via PUBLIC_ prefix (not VITE_)
-const siteKey = import.meta.env.PUBLIC_CF_SITE_KEY;
+// Use env if set (e.g. .env or Cloudflare build env); otherwise fallback so the widget always shows (key is public).
+const siteKey =
+  import.meta.env.PUBLIC_CF_SITE_KEY || "0x4AAAAAACZyR9jA1nikwvzB";
 ---
 
 <footer class="py-16">
