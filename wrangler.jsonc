@@ -12,5 +12,8 @@
       "binding": "SESSION",
       "id": "4b31752c8e6f4dccaa01ecb8bd689f96"
     }
-  ]
+  ],
+  "vars": {
+    "PUBLIC_CF_SITE_KEY": "0x4AAAAAACZyR9jA1nikwvzB"
+  }
 }
