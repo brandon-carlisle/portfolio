@@ -57,26 +57,7 @@ const siteKey =
       ></textarea>
     </div>
 
-    <div class="space-y-2">
-      <label class="block text-sm font-medium text-neutral-400"
-        >Security check</label
-      >
-      <div
-        id="cf-turnstile"
-        class="min-h-[65px] flex items-center justify-center rounded-lg border border-neutral-800 bg-neutral-900/30"
-        data-site-key={siteKey}
-      >
-        {!siteKey && (
-          <p class="text-sm text-amber-500/90 px-4 text-center">
-            Security check is not configured. Set
-            <code class="mx-1 rounded bg-neutral-800 px-1.5 py-0.5 text-xs"
-              >PUBLIC_CF_SITE_KEY</code
-            >
-            in your environment to show the challenge.
-          </p>
-        )}
-      </div>
-    </div>
+    <div id="cf-turnstile" class="min-h-[65px]" data-site-key={siteKey}></div>
     <input
       type="hidden"
       name="cf-turnstile-response"
