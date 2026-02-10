@@ -27,11 +27,18 @@ export const server = {
         .string()
         .min(10, "Please provide a message (at least 10 characters).")
         .transform((val) => val.trim()),
-      "cf-turnstile-response": z.string().min(1, "Please complete the challenge"),
+      "cf-turnstile-response": z.string().optional().nullable(),
     }),
     handler: async (input, context) => {
-      const token = input["cf-turnstile-response"];
+      const token = input["cf-turnstile-response"] ?? null;
       const shouldVerifyTurnstile = import.meta.env.PROD;
+
+      if (shouldVerifyTurnstile && !token) {
+        throw new ActionError({
+          code: "BAD_REQUEST",
+          message: "Please complete the challenge.",
+        });
+      }
 
       if (shouldVerifyTurnstile) {
         const secretKey = import.meta.env.CF_SECRET_KEY;
@@ -51,7 +58,7 @@ export const server = {
 
         const verifyBody = new URLSearchParams({
           secret: secretKey,
-          response: token,
+          response: token as string,
         });
 
         if (remoteIp) {

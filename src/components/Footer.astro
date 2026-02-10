@@ -1,5 +1,6 @@
 ---
-const siteKey = import.meta.env.VITE_CF_SITE_KEY;
+// Astro exposes client env vars via PUBLIC_ prefix (not VITE_)
+const siteKey = import.meta.env.PUBLIC_CF_SITE_KEY;
 ---
 
 <footer class="py-16">
@@ -56,6 +57,12 @@ const siteKey = import.meta.env.VITE_CF_SITE_KEY;
     </div>
 
     <div id="cf-turnstile"></div>
+    <input
+      type="hidden"
+      name="cf-turnstile-response"
+      id="cf-turnstile-response"
+      value=""
+    />
 
     <div
       id="form-status"
@@ -132,6 +139,10 @@ const siteKey = import.meta.env.VITE_CF_SITE_KEY;
       cfWidgetId = turnstile.render("#cf-turnstile", {
         sitekey: siteKey,
         theme: "dark",
+        callback: function (token) {
+          var input = document.getElementById("cf-turnstile-response");
+          if (input) input.value = token;
+        },
       });
       window.cfWidgetId = cfWidgetId;
     }
