@@ -30,8 +30,14 @@ export const server = {
       "cf-turnstile-response": z.string().optional().nullable(),
     }),
     handler: async (input, context) => {
+      type RuntimeEnv = {
+        CF_SECRET_KEY?: string;
+        RESEND_API_KEY?: string;
+        MY_EMAIL?: string;
+      };
+      const env = context.locals.runtime.env as RuntimeEnv;
       const token = input["cf-turnstile-response"] ?? null;
-      const secretKey = import.meta.env.CF_SECRET_KEY;
+      const secretKey = env.CF_SECRET_KEY;
       const turnstileConfigured =
         import.meta.env.PROD && typeof secretKey === "string" && secretKey.length > 0;
 
@@ -75,8 +81,8 @@ export const server = {
         }
       }
 
-      const resendApiKey = import.meta.env.RESEND_API_KEY;
-      const recipientEmail = import.meta.env.MY_EMAIL;
+      const resendApiKey = env.RESEND_API_KEY;
+      const recipientEmail = env.MY_EMAIL;
 
       if (!resendApiKey || !recipientEmail) {
         throw new ActionError({

@@ -7,8 +7,6 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: "https://brandoncarlisle.co.uk",
 
-  output: "server",
-
   adapter: cloudflare({
     imageService: "passthrough",
   }),
