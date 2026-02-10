@@ -22,7 +22,7 @@ export const server = {
         .string()
         .min(2, "Please provide your name (at least 2 characters).")
         .transform((val) => val.trim()),
-      email: z.email(),
+      email: z.string().email(),
       message: z
         .string()
         .min(10, "Please provide a message (at least 10 characters).")
