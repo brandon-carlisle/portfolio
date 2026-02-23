@@ -3,7 +3,7 @@ published: true
 title: StadiumGuessr
 slug: stadiumguessr
 order: 1
-description: "Test your football knowledge with StadiumGuessr - an interactive geography game built with React and Next.js. Guess stadium locations on a Leaflet map and track your score."
+description: "A football geography game where you identify stadiums on an interactive map, then review your accuracy and score in a detailed match summary."
 featured: true
 tags:
   - React
@@ -14,21 +14,25 @@ tags:
 
 # StadiumGuessr
 
-StadiumGuessr is a football game built using React where you have to guess the name of the stadium you are at.
+StadiumGuessr is a football geography game where you identify stadiums and pin their locations on an interactive map.
 
 [Try it out](https://www.stadiumguessr.app/) or you can see the [code here](https://github.com/brandon-carlisle/StadiumGuessr).
 
 ![StadiumGuessr game page](/images/stadiumguessr/game.gif)
 
-The interactive map feature of the game utilizes [Leaflet](https://leafletjs.com/), an open source JavaScript map library.
+The interactive map is powered by [Leaflet](https://leafletjs.com/), an open-source JavaScript map library.
 
-Upon completing a game, users can view a detailed match summary, showcasing their game statistics and the accuracy of their answers.
+Each game ends with a detailed match summary showing your score, distance accuracy, and round-by-round performance.
 
 ![StadiumGuessr summary page](/images/stadiumguessr/summary.png)
 
-## Technologies Used
+## Key Features
 
-StadiumGuessr was made using the following:
+- Identify football stadiums from visual clues
+- Pin each guess on an interactive [Leaflet](https://leafletjs.com/) map
+- Review score and distance accuracy in a match summary
+
+## Stack
 
 - Framework: [React](https://react.dev/) and [Next.js](https://nextjs.org/)
 - Styling: [Tailwind](https://tailwindcss.com/) and [DaisyUI](https://daisyui.com/)

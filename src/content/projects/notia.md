@@ -3,7 +3,7 @@ published: true
 title: Notia
 slug: notia
 order: 2
-description: "Notia is a lightweight markdown note-taking app built with React. Write notes in CommonMark, sort by date, and store everything locally in your browser."
+description: "A lightweight, local-first markdown notes app built with React. Write in CommonMark, search quickly, and keep notes stored in your browser."
 featured: false
 tags:
   - React
@@ -12,23 +12,23 @@ tags:
 
 # Notia
 
-Notia is a markdown note taking app.
+Notia is a lightweight markdown note-taking app for quick, distraction-free writing.
 
 [Try it out](https://notia-note.netlify.app/) or you can see the [code here](https://github.com/brandon-carlisle/notia).
 
 ![Notia home page](/images/notia/home.webp)
 
-Users can write their notes using markdown, which will be automatically styled when they view the note back. All notes all stored in the browsers local storage so they can persist.
+Write notes in CommonMark, then read them with clean formatting in a dedicated view. Notes are saved in your browser's local storage, so they persist between sessions without requiring an account.
 
 ![Notia note page](/images/notia/app.webp)
 
-## Features
+## Key Features
 
-- Write notes in Markdown (CommonMark)
-- Sort your notes by date and search
-- Uses browsers local storage API
+- Write and format notes in CommonMark
+- Search notes and sort by date
+- Store notes locally with the browser Local Storage API
 
-## What I used to build this
+## Stack
 
 - Framework: [React](https://react.dev/)
 - Routing: [React Router](https://reactrouter.com/)
